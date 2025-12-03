@@ -1,0 +1,947 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <title>Bhagvat Vyas Dr Ramanand Ji - Shrimad Bhagwat Kathas Across India</title>
+  <meta name="description" content="Experience divine Shrimad Bhagwat Kathas by Bhagvat Vyas Dr Ramanand Ji. Spiritual discourses, bhajans, and satsangs across India.">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link rel="stylesheet" href="styles.css" />
+  
+  <style>
+    /* RESET AND BASE STYLES */
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+    
+    html, body {
+      width: 100%;
+      height: 100%;
+      overflow-x: hidden;
+      scroll-behavior: smooth;
+    }
+    
+    /* MAIN LAYOUT */
+    .page-wrapper {
+      display: flex;
+      flex-direction: column;
+      min-height: 100vh;
+    }
+    
+    /* HEADER */
+    header {
+      background: #FF6B00;
+      color: white;
+      width: 100%;
+      z-index: 1000;
+      box-shadow: 0 2px 10px rgba(0,0,0,0.1);
+      position: sticky;
+      top: 0;
+    }
+    
+    /* NAVBAR LAYOUT */
+    .navbar {
+      max-width: 1200px;
+      margin: 0 auto;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      padding: 10px 20px;
+      gap: 20px;
+    }
+    
+    /* LOGO SECTION */
+    .logo-section {
+      display: flex;
+      align-items: center;
+      gap: 15px;
+      white-space: nowrap;
+      flex-shrink: 0;
+    }
+    
+    .logo-image {
+      width: 60px;
+      height: 60px;
+      border-radius: 50%;
+      object-fit: cover;
+      background: white;
+      padding: 2px;
+      box-shadow: 0 2px 6px rgba(0,0,0,0.2);
+      border: 2px solid white;
+    }
+    
+    .logo-text {
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      gap: 2px;
+    }
+    
+    .logo-name {
+      font-size: 1.1rem;
+      font-weight: 700;
+      color: white;
+      line-height: 1.2;
+    }
+    
+    .logo-subtitle {
+      font-size: 0.85rem;
+      font-weight: 500;
+      color: #FFE0CC;
+      line-height: 1;
+    }
+    
+    /* NAVBAR NAV LINKS */
+    .navbar nav {
+      display: flex;
+      flex: 1;
+      justify-content: center;
+    }
+    
+    .navbar ul {
+      list-style: none;
+      display: flex;
+      gap: 25px;
+      margin: 0;
+      padding: 0;
+    }
+    
+    .navbar a {
+      color: white;
+      text-decoration: none;
+      font-weight: 500;
+      padding: 8px 12px;
+      border-radius: 4px;
+      transition: all 0.3s ease;
+      display: block;
+    }
+    
+    .navbar a:hover {
+      background: rgba(255, 255, 255, 0.1);
+    }
+    
+    .navbar a.active {
+      background: rgba(255, 255, 255, 0.2);
+    }
+    
+    .hamburger {
+      display: none;
+      background: none;
+      border: none;
+      color: white;
+      font-size: 1.5rem;
+      cursor: pointer;
+      width: 44px;
+      height: 44px;
+      padding: 0;
+      flex-shrink: 0;
+    }
+    
+    /* HERO IMAGE SECTION */
+    .hero-section {
+      flex: 1;
+      width: 100%;
+      position: relative;
+      background: #000;
+    }
+    
+    /* SLIDESHOW STYLES */
+    .slideshow-banner {
+      position: relative;
+      width: 100%;
+      height: auto; /* let image determine height */
+      background: transparent;
+      overflow: hidden;
+    }
+
+    .slide {
+      display: none;
+      width: 100%;
+      height: auto;
+      position: relative;
+    }
+
+    .slide.active {
+      display: block;
+      animation: fadeIn 0.5s ease-in;
+    }
+
+    @keyframes fadeIn {
+      from { opacity: 0; }
+      to { opacity: 1; }
+    }
+
+    .slide-image {
+      width: 100%;
+      height: auto;
+      max-height: 80vh;
+      object-fit: cover;
+      object-position: center;
+      display: block;
+    }
+    
+    .slide-overlay {
+      position: absolute;
+      bottom: 0;
+      left: 0;
+      right: 0;
+      background: linear-gradient(to top, rgba(0,0,0,0.8), transparent);
+      color: white;
+      padding: 40px 20px;
+      text-align: center;
+    }
+    
+    .slide-title {
+      font-size: 1.8rem;
+      font-weight: 700;
+      margin-bottom: 10px;
+      color: #FFD580;
+    }
+    
+    .slide-info {
+      font-size: 1.1rem;
+      margin-bottom: 10px;
+      color: white;
+    }
+    
+    .slide-date {
+      font-size: 0.95rem;
+      color: #FFE0CC;
+    }
+    
+    /* Slide navigation buttons */
+    .slide-nav-button {
+      position: absolute;
+      top: 50%;
+      transform: translateY(-50%);
+      background: rgba(255, 255, 255, 0.3);
+      color: white;
+      border: none;
+      font-size: 2rem;
+      padding: 20px 15px;
+      cursor: pointer;
+      z-index: 10;
+      transition: background 0.3s ease;
+      user-select: none;
+    }
+    
+    .slide-nav-button:hover {
+      background: rgba(255, 255, 255, 0.6);
+    }
+    
+    .slide-prev {
+      left: 0;
+    }
+    
+    .slide-next {
+      right: 0;
+    }
+    
+    /* Slide indicators */
+    .slide-indicators {
+      position: absolute;
+      bottom: 20px;
+      left: 50%;
+      transform: translateX(-50%);
+      display: flex;
+      gap: 10px;
+      z-index: 10;
+    }
+    
+    .slide-indicator {
+      width: 12px;
+      height: 12px;
+      border-radius: 50%;
+      background: rgba(255, 255, 255, 0.5);
+      cursor: pointer;
+      transition: background 0.3s ease;
+    }
+    
+    .slide-indicator.active {
+      background: #FFD580;
+      transform: scale(1.2);
+    }
+    
+    .slide-indicator:hover {
+      background: rgba(255, 255, 255, 0.8);
+    }
+    
+    /* QUICK LINKS */
+    .quick-links {
+      background: #FFF9F0;
+      padding: 30px 20px;
+    }
+    
+    .quick-links-grid {
+      max-width: 1100px;
+      margin: 0 auto;
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+      gap: 20px;
+    }
+    
+    .quick-link-card {
+      background: white;
+      padding: 25px;
+      border-radius: 10px;
+      text-align: center;
+      box-shadow: 0 2px 8px rgba(0,0,0,0.1);
+      transition: transform 0.3s ease;
+      text-decoration: none;
+      color: #333;
+    }
+    
+    .quick-link-card:hover {
+      transform: translateY(-5px);
+      box-shadow: 0 5px 15px rgba(0,0,0,0.15);
+    }
+    
+    .quick-link-icon {
+      font-size: 2.5rem;
+      margin-bottom: 15px;
+      color: #FF6B00;
+    }
+    
+    /* MARQUEE BAR - DYNAMIC UPCOMING KATHA */
+.marquee-bar {
+    position: fixed;
+    bottom: 0;
+    left: 0;
+    width: 100%;
+    background: rgba(255, 107, 0, 0.95);
+    color: white;
+    padding: 10px 0;
+    z-index: 1001;
+    overflow: hidden;
+    white-space: nowrap;
+    border-top: 2px solid #FFD580;
+    box-shadow: 0 -2px 10px rgba(0,0,0,0.2);
+    transition: all 0.3s ease;
+}
+
+/* In your current index.html, find this section: */
+.marquee-content {
+    display: inline-block;
+    padding-left: 100%;
+    animation: marquee 200s linear infinite; /* Change 200s to 80s or 100s */
+    font-weight: 500;
+    font-size: 1rem;
+}
+
+/* Add responsive animation speeds */
+@media (max-width: 768px) {
+    .marquee-content {
+        animation-duration: 200s !important; /* Slower on mobile */
+        font-size: 0.9rem;
+    }
+}
+
+@media (max-width: 480px) {
+    .marquee-content {
+        animation-duration: 200s !important; /* Even slower on small phones */
+        font-size: 0.85rem;
+    }
+}
+
+.marquee-text {
+    display: inline-block;
+    padding-right: 40px;
+}
+
+/* Slower animation for mobile, faster for desktop */
+@keyframes marquee {
+    0% { transform: translateX(0); }
+    100% { transform: translateX(-100%); }
+}
+
+/* Control marquee speed with animation-duration */
+.marquee-content {
+    animation-duration: 200s; /* Default for desktop */
+}
+
+.marquee-bar:hover .marquee-content {
+    animation-play-state: paused;
+}
+
+/* RESPONSIVE */
+@media (max-width: 768px) {
+    .marquee-bar {
+        padding: 8px 0;
+    }
+    
+    .marquee-content {
+        font-size: 0.85rem;
+        animation-duration: 200s; /* Slower on tablet */
+    }
+    
+    .marquee-text {
+        padding-right: 30px;
+    }
+}
+
+@media (max-width: 480px) {
+    .marquee-content {
+        font-size: 0.8rem;
+        animation-duration: 200s; /* Even slower on mobile */
+        white-space: nowrap;
+    }
+    
+    .marquee-text {
+        padding-right: 20px;
+    }
+    
+    /* Make sure the text doesn't break */
+    .marquee-text {
+        display: inline-block;
+        white-space: nowrap;
+    }
+}
+
+/* For very small screens */
+@media (max-width: 360px) {
+    .marquee-content {
+        animation-duration: 200s; /* Slowest on very small screens */
+    }
+}
+
+/* Pause animation when reduced motion is preferred */
+@media (prefers-reduced-motion: reduce) {
+    .marquee-content {
+        animation: none;
+        padding-left: 0;
+        text-align: center;
+    }
+}
+    
+    /* TESTIMONIAL SECTION */
+    .testimonial-section {
+      max-width: 1100px;
+      margin: 40px auto;
+      padding: 0 20px;
+    }
+    
+    /* NEXT KATHA HIGHLIGHT */
+    .next-katha-highlight {
+      background: linear-gradient(135deg, #FF6B00 0%, #FF8E53 100%);
+      color: white;
+      padding: 25px;
+      border-radius: 15px;
+      margin: 30px auto;
+      max-width: 800px;
+      text-align: center;
+      box-shadow: 0 5px 20px rgba(255, 107, 0, 0.3);
+      cursor: pointer;
+      transition: transform 0.3s ease;
+    }
+    
+    .next-katha-highlight:hover {
+      transform: translateY(-5px);
+      box-shadow: 0 10px 25px rgba(255, 107, 0, 0.4);
+    }
+    
+    /* RESPONSIVE */
+    @media (max-width: 768px) {
+      .hero-image {
+        height: calc(100vh - 60px);
+      }
+      
+      .hero-overlay {
+        padding: 20px 15px;
+      }
+      
+      .hero-quote {
+        font-size: 1rem;
+      }
+      
+      .slideshow-banner {
+        height: auto;
+        max-height: calc(80vh);
+      }
+      
+      .slide-title {
+        font-size: 1.3rem;
+      }
+      
+      .slide-info {
+        font-size: 0.95rem;
+      }
+      
+      .slide-date {
+        font-size: 0.85rem;
+      }
+      
+      .slide-nav-button {
+        font-size: 1.5rem;
+        padding: 15px 10px;
+      }
+      
+      .marquee-content {
+        font-size: 0.9rem;
+        animation: marquee 20s linear infinite;
+      }
+      
+      .quick-links-grid {
+        grid-template-columns: 1fr;
+      }
+      
+      .next-katha-highlight {
+        margin: 20px 15px;
+        padding: 20px;
+      }
+    }
+    
+    @media (max-width: 480px) {
+      .marquee-content {
+        font-size: 0.8rem;
+        animation: marquee 15s linear infinite;
+      }
+      
+      .marquee-bar {
+        padding: 8px 0;
+      }
+      
+      .hamburger {
+        display: flex;
+        align-items: center;
+        justify-content: center;
+      }
+      
+      .navbar {
+        padding: 10px 10px;
+      }
+      
+      .logo-image {
+        width: 45px;
+        height: 45px;
+      }
+      
+      .logo-name {
+        font-size: 0.9rem;
+      }
+      
+      .logo-subtitle {
+        font-size: 0.7rem;
+      }
+      
+      .slideshow-banner {
+        height: auto;
+        max-height: calc(70vh);
+      }
+      
+      .slide-title {
+        font-size: 1.1rem;
+      }
+      
+      .slide-info {
+        font-size: 0.85rem;
+      }
+      
+      .slide-date {
+        font-size: 0.75rem;
+      }
+      
+      .slide-overlay {
+        padding: 20px 10px;
+      }
+      
+      .slide-nav-button {
+        font-size: 1.2rem;
+        padding: 10px 8px;
+      }
+      
+      .slide-indicators {
+        bottom: 10px;
+      }
+      
+      .slide-indicator {
+        width: 10px;
+        height: 10px;
+      }
+    }
+    
+    /* RESPONSIVE NAVBAR */
+    @media (max-width: 768px) {
+      .hamburger {
+        display: flex;
+        align-items: center;
+        justify-content: center;
+      }
+      
+      .navbar {
+        padding: 10px 15px;
+        gap: 10px;
+      }
+      
+      .logo-section {
+        gap: 10px;
+      }
+      
+      .logo-image {
+        width: 50px;
+        height: 50px;
+      }
+      
+      .logo-name {
+        font-size: 1rem;
+      }
+      
+      .logo-subtitle {
+        font-size: 0.75rem;
+      }
+      
+      .navbar nav {
+        position: fixed;
+        top: 80px;
+        left: 0;
+        width: 100%;
+        background: #FF6B00;
+        padding: 20px;
+        box-shadow: 0 4px 8px rgba(0,0,0,0.1);
+        transform: translateY(-100%);
+        opacity: 0;
+        visibility: hidden;
+        transition: all 0.3s ease;
+        z-index: 999;
+        flex-direction: column;
+        justify-content: flex-start;
+      }
+      
+      .navbar nav.active {
+        transform: translateY(0);
+        opacity: 1;
+        visibility: visible;
+      }
+      
+      .navbar ul {
+        flex-direction: column;
+        gap: 10px;
+      }
+      
+      .navbar a {
+        padding: 12px 16px;
+        text-align: center;
+        border-radius: 6px;
+      }
+    }
+  </style>
+</head>
+<body>
+  <div class="page-wrapper">
+    <!-- HEADER -->
+    <header>
+      <div class="navbar">
+        <div class="logo-section">
+          <img src="images\logo.png" alt="Logo" class="logo-image" 
+               onerror="this.src='https://via.placeholder.com/60/FF6B00/FFFFFF?text=Logo'">
+          <div class="logo-text">
+            <div class="logo-name">Dr Ramanand Ji</div>
+            <div class="logo-subtitle">Bhagvat Vyas</div>
+          </div>
+        </div>
+        <button class="hamburger" aria-label="Toggle menu">☰</button>
+        <nav>
+          <ul>
+            <li><a href="index.html" class="active">Home</a></li>
+            <li><a href="about.html">About</a></li>
+            <li><a href="kathas.html">Kathas</a></li>
+            <li><a href="gallery.html">Gallery</a></li>
+            <li><a href="contact.html">Contact</a></li>
+          </ul>
+        </nav>
+      </div>
+    </header>
+
+    <!-- SLIDESHOW BANNER SECTION -->
+    <section class="hero-section">
+      <div class="slideshow-banner">
+        <!-- Slide 1 -->
+        <div class="slide active">
+          <img src="images\27 dec.png" alt="Magh Mela Bhagwat Katha" class="slide-image" 
+               onerror="this.src='https://via.placeholder.com/1200x800/FF6B00/FFFFFF?text=Magh+Mela+Katha'">
+        </div>
+        
+        <!-- Slide 2 -->
+        <div class="slide">
+          <img src="images\amethi.png" alt="Bahoripur Bhagwat Katha" class="slide-image" 
+               onerror="this.src='https://via.placeholder.com/1200x800/FF6B00/FFFFFF?text=Bahoripur+Katha'">
+        </div>
+        
+        <!-- Slide 3 -->
+        <div class="slide">
+          <img src="images\banner.png" alt="Kevlapur Bhagwat Katha" class="slide-image" 
+               onerror="this.src='https://via.placeholder.com/1200x800/FF6B00/FFFFFF?text=Kevlapur+Katha'">
+        </div>
+        
+        <!-- Navigation buttons -->
+        <button class="slide-nav-button slide-prev" aria-label="Previous slide">❮</button>
+        <button class="slide-nav-button slide-next" aria-label="Next slide">❯</button>
+        
+        <!-- Slide indicators -->
+        <div class="slide-indicators">
+          <span class="slide-indicator active" data-slide="0"></span>
+          <span class="slide-indicator" data-slide="1"></span>
+          <span class="slide-indicator" data-slide="2"></span>
+        </div>
+      </div>
+    </section>
+
+    <!-- NEXT KATHA HIGHLIGHT -->
+    <div class="next-katha-highlight" onclick="window.location.href='kathas.html'">
+      <h3 style="margin-bottom: 10px;">📅 Next Bhagwat Katha</h3>
+      <p id="next-katha-details">Loading next katha information...</p>
+      <p style="margin-top: 10px; font-size: 0.9rem; opacity: 0.9;">
+        Click here for full schedule →
+      </p>
+    </div>
+
+    <!-- QUICK LINKS SECTION -->
+    <section class="quick-links">
+      <div class="quick-links-grid">
+        <a href="kathas.html" class="quick-link-card">
+          <div class="quick-link-icon">📅</div>
+          <h3>Katha Schedule</h3>
+          <p>View all upcoming and past Bhagwat Kathas</p>
+        </a>
+        
+        <a href="gallery.html" class="quick-link-card">
+          <div class="quick-link-icon">🖼️</div>
+          <h3>Photo Gallery</h3>
+          <p>View photos from recent Kathas and events</p>
+        </a>
+        
+        <a href="contact.html" class="quick-link-card">
+          <div class="quick-link-icon">📞</div>
+          <h3>Contact</h3>
+          <p>Get in touch for spiritual guidance</p>
+        </a>
+        
+        <a href="https://wa.me/91XXXXXXXXXX" class="quick-link-card" target="_blank">
+          <div class="quick-link-icon">📱</div>
+          <h3>WhatsApp Updates</h3>
+          <p>Get live updates on Katha schedules</p>
+        </a>
+      </div>
+    </section>
+
+    <!-- FEATURED TESTIMONIAL -->
+    <section class="testimonial-section">
+      <div class="testimonial">
+        <p>"Dr Ramanand Ji's Bhagwat Katha transformed our community. His explanations are so clear and practical that even youngsters feel connected to our scriptures."</p>
+        <div class="testimonial-author">- Devotee from Prayagraj</div>
+      </div>
+    </section>
+
+    <!-- NEWSLETTER SIGNUP -->
+    <section class="section">
+      <div class="newsletter">
+        <h2>Stay Updated</h2>
+        <p>Get notified about upcoming Kathas</p>
+        <form id="newsletterForm" class="newsletter-input">
+          <input type="email" id="newsletter-email" placeholder="Your email address" required>
+          <button type="submit" class="btn btn-primary">Subscribe</button>
+        </form>
+        <p><small>We respect your privacy. Unsubscribe anytime.</small></p>
+      </div>
+    </section>
+
+    <!-- DYNAMIC MARQUEE BAR -->
+    <div class="marquee-bar">
+      <div class="marquee-content">
+        <span class="marquee-text" id="upcoming-katha-text">📿🌺 श्री राधे 🌺🌺 श्री राधे 🌺🌺 श्री राधे 🌺🌺 श्री राधे 🌺🌺 श्री राधे 🌺🌺 श्री राधे 🌺🌺 श्री राधे 🌺🌺 श्री राधे 🌺🌺 श्री राधे 🌺🌺 श्री राधे 🌺🌺 श्री राधे 🌺🌺 श्री राधे 🌺🌺 श्री राधे 🌺🌺 श्री राधे 🌺🌺 श्री राधे 🌺🌺 श्री राधे 🌺🌺 श्री राधे 🌺🌺 श्री राधे 🌺🌺 श्री राधे 🌺🌺 श्री राधे 🌺🌺 श्री राधे 🌺🌺 श्री राधे 🌺🌺 श्री राधे 🌺🌺 श्री राधे 🌺🌺 श्री राधे 🌺🌺 श्री राधे 🌺🌺 श्री राधे 🌺🌺 श्री राधे 🌺🌺 श्री राधे 🌺🌺 श्री राधे 🌺🌺 श्री राधे 🌺🌺 श्री राधे 🌺🌺 श्री राधे 🌺🌺 श्री राधे 🌺🌺 श्री राधे 🌺🌺 श्री राधे 🌺🌺 श्री राधे 🌺🌺 श्री राधे 🌺🌺 श्री राधे 🌺🌺 श्री राधे 🌺🌺 श्री राधे 🌺🌺 श्री राधे 🌺🌺 श्री राधे 🌺🌺 श्री राधे 🌺🌺 श्री राधे 🌺🌺 श्री राधे 🌺🌺 श्री राधे 🌺🌺 श्री राधे 🌺🌺 श्री राधे 🌺🌺 श्री राधे 🌺🌺 श्री राधे 🌺🌺 श्री राधे 🌺🌺 श्री राधे 🌺🌺 श्री राधे 🌺🌺 श्री राधे 🌺🌺 श्री राधे 🌺🌺 श्री राधे 🌺🌺 श्री राधे 🌺🌺 श्री राधे 🌺🌺 श्री राधे 🌺🌺 श्री राधे 🌺🌺 श्री राधे 🌺🌺 श्री राधे 🌺🌺 श्री राधे 🌺🌺 श्री राधे 🌺🌺 श्री राधे 🌺🌺 श्री राधे 🌺🌺 श्री राधे 🌺🌺 श्री राधे 🌺🌺 श्री राधे 🌺🌺 श्री राधे 🌺🌺 श्री राधे 🌺🌺 श्री राधे 🌺🌺 श्री राधे 🌺🌺 श्री राधे 🌺🌺 श्री राधे 🌺🌺 श्री राधे 🌺🌺 श्री राधे 🌺🌺 श्री राधे 🌺🌺 श्री राधे 🌺🌺 श्री राधे 🌺🌺 श्री राधे 🌺🌺 श्री राधे 🌺🌺 श्री राधे 🌺🌺 श्री राधे 🌺🌺 श्री राधे 🌺🌺 श्री राधे 🌺🌺 श्री राधे 🌺🌺 श्री राधे 🌺🌺 श्री राधे 🌺🌺 श्री राधे 🌺🌺 श्री राधे 🌺🌺 श्री राधे 🌺🌺 श्री राधे 🌺🌺 श्री राधे 🌺🌺 श्री राधे 🌺🌺 श्री राधे 🌺🌺 श्री राधे 🌺🌺 श्री राधे 🌺🌺 श्री राधे 🌺🌺 श्री राधे 🌺🌺 श्री राधे 🌺🌺 श्री राधे 🌺🌺 श्री राधे 🌺🌺 श्री राधे 🌺🌺 श्री राधे 🌺🌺 श्री राधे 🌺🌺 श्री राधे 🌺🌺 श्री राधे 🌺🌺 श्री राधे 🌺🌺 श्री राधे 🌺🌺 श्री राधे 🌺🌺 श्री राधे 🌺🌺 श्री राधे 🌺🌺 श्री राधे 🌺🌺 श्री राधे 🌺🌺 श्री राधे 🌺🌺 श्री राधे 🌺🌺 श्री राधे 🌺🌺 श्री राधे 🌺🌺 श्री राधे 🌺🌺 श्री राधे 🌺🌺 श्री राधे 🌺🌺 श्री राधे 🌺🌺 श्री राधे 🌺🌺 श्री राधे 🌺🌺 श्री राधे 🌺🌺 श्री राधे 🌺🌺 श्री राधे 🌺🌺 श्री राधे 🌺🌺 श्री राधे 🌺🌺 श्री राधे 🌺🌺 श्री राधे 🌺🌺 श्री राधे 🌺🌺 श्री राधे 🌺🌺 श्री राधे 🌺🌺 श्री राधे 🌺🌺 श्री राधे 🌺🌺 श्री राधे 🌺🌺 श्री राधे 🌺🌺 श्री राधे 🌺🌺 श्री राधे 🌺🌺 श्री राधे 🌺🌺 श्री राधे 🌺🌺 श्री राधे 🌺🌺 श्री राधे 🌺🌺 श्री राधे 🌺🌺 श्री राधे 🌺🌺 श्री राधे 🌺🌺 श्री राधे 🌺🌺 श्री राधे 🌺🌺 श्री राधे 🌺🌺 श्री राधे 🌺🌺 श्री राधे 🌺🌺 श्री राधे 🌺🌺 श्री राधे 🌺🌺 श्री राधे 🌺🌺 श्री राधे 🌺🌺 श्री राधे 🌺🌺 श्री राधे 🌺🌺 श्री राधे 🌺🌺 श्री राधे 🌺🌺 श्री राधे 🌺🌺 श्री राधे 🌺🌺 श्री राधे 🌺🌺 श्री राधे 🌺🌺 श्री राधे 🌺🌺 श्री राधे 🌺🌺 श्री राधे 🌺🌺 श्री राधे 🌺🌺 श्री राधे 🌺🌺 श्री राधे 🌺🌺 श्री राधे 🌺🌺 श्री राधे 🌺🌺 श्री राधे 🌺🌺 श्री राधे 🌺🌺 श्री राधे 🌺🌺 श्री राधे 🌺🌺 श्री राधे 🌺🌺 श्री राधे 🌺🌺 श्री राधे 🌺🌺 श्री राधे 🌺🌺 श्री राधे 🌺🌺 श्री राधे 🌺🌺 श्री राधे 🌺🌺 श्री राधे 🌺🌺 श्री राधे 🌺🌺 श्री राधे 🌺🌺 श्री राधे 🌺🌺 श्री राधे 🌺🌺 श्री राधे 🌺🌺 श्री राधे 🌺🌺 श्री राधे 🌺🌺 श्री राधे 🌺🌺 श्री राधे 🌺🌺 श्री राधे 🌺🌺 श्री राधे 🌺🌺 श्री राधे 🌺🌺 श्री राधे 🌺🌺 श्री राधे 🌺🌺 श्री राधे 🌺🌺 श्री राधे 🌺🌺 श्री राधे 🌺🌺 श्री राधे 🌺🌺 श्री राधे 🌺🌺 श्री राधे 🌺🌺 श्री राधे 🌺🌺 श्री राधे 🌺🌺 श्री राधे 🌺🌺 श्री राधे 🌺🌺 श्री राधे 🌺🌺 श्री राधे 🌺🌺 श्री राधे 🌺🌺 श्री राधे 🌺🌺 श्री राधे 🌺🌺 श्री राधे 🌺🌺 श्री राधे 🌺🌺 श्री राधे 🌺🌺 श्री राधे 🌺🌺 श्री राधे 🌺 📿</span>
+        <span class="marquee-text" id="upcoming-katha-text">📿🌺 श्री राधे 🌺🌺 श्री राधे 🌺🌺 श्री राधे 🌺🌺 श्री राधे 🌺🌺 श्री राधे 🌺🌺 श्री राधे 🌺🌺 श्री राधे 🌺🌺 श्री राधे 🌺🌺 श्री राधे 🌺🌺 श्री राधे 🌺🌺 श्री राधे 🌺🌺 श्री राधे 🌺🌺 श्री राधे 🌺🌺 श्री राधे 🌺🌺 श्री राधे 🌺🌺 श्री राधे 🌺🌺 श्री राधे 🌺🌺 श्री राधे 🌺🌺 श्री राधे 🌺🌺 श्री राधे 🌺🌺 श्री राधे 🌺🌺 श्री राधे 🌺🌺 श्री राधे 🌺🌺 श्री राधे 🌺🌺 श्री राधे 🌺🌺 श्री राधे 🌺🌺 श्री राधे 🌺🌺 श्री राधे 🌺🌺 श्री राधे 🌺🌺 श्री राधे 🌺🌺 श्री राधे 🌺🌺 श्री राधे 🌺🌺 श्री राधे 🌺🌺 श्री राधे 🌺🌺 श्री राधे 🌺🌺 श्री राधे 🌺🌺 श्री राधे 🌺🌺 श्री राधे 🌺🌺 श्री राधे 🌺🌺 श्री राधे 🌺🌺 श्री राधे 🌺🌺 श्री राधे 🌺🌺 श्री राधे 🌺🌺 श्री राधे 🌺🌺 श्री राधे 🌺🌺 श्री राधे 🌺🌺 श्री राधे 🌺🌺 श्री राधे 🌺🌺 श्री राधे 🌺🌺 श्री राधे 🌺🌺 श्री राधे 🌺🌺 श्री राधे 🌺🌺 श्री राधे 🌺🌺 श्री राधे 🌺🌺 श्री राधे 🌺🌺 श्री राधे 🌺🌺 श्री राधे 🌺🌺 श्री राधे 🌺🌺 श्री राधे 🌺🌺 श्री राधे 🌺🌺 श्री राधे 🌺🌺 श्री राधे 🌺🌺 श्री राधे 🌺🌺 श्री राधे 🌺🌺 श्री राधे 🌺🌺 श्री राधे 🌺🌺 श्री राधे 🌺🌺 श्री राधे 🌺🌺 श्री राधे 🌺🌺 श्री राधे 🌺 📿</span>
+      </div>
+    </div>
+
+    <!-- FOOTER -->
+    <footer>
+      <div class="footer-content">
+        <div class="footer-section">
+          <h3>Bhagvat Vyas Dr Ramanand Ji</h3>
+          <p>Spreading divine knowledge through Shrimad Bhagwat Kathas.</p>
+          <div class="social-links">
+            <a href="https://facebook.com" target="_blank" aria-label="Facebook">📘</a>
+            <a href="https://youtube.com" target="_blank" aria-label="YouTube">▶️</a>
+            <a href="https://instagram.com" target="_blank" aria-label="Instagram">📷</a>
+            <a href="https://wa.me/919415870944" target="_blank" aria-label="WhatsApp">📱</a>
+          </div>
+        </div>
+        
+        <div class="footer-section">
+          <h3>Quick Links</h3>
+          <p><a href="about.html">About Guruji</a></p>
+          <p><a href="kathas.html">Katha Schedule</a></p>
+          <p><a href="gallery.html">Gallery</a></p>
+          <p><a href="contact.html">Contact</a></p>
+        </div>
+        
+        <div class="footer-section">
+          <h3>Contact Info</h3>
+          <p>📞 +91-9415870944</p>
+          <p>📱 WhatsApp: +91-9415870944</p>
+        </div>
+      </div>
+      
+      <div class="footer-bottom">
+        <p>&copy; <span class="current-year">2025</span> Bhagvat Vyas Dr Ramanand Ji. All rights reserved.</p>
+        <p>Designed with devotion for spiritual teachings</p>
+      </div>
+    </footer>
+  </div>
+
+  <script src="script.js"></script>
+  <script>
+    // ========== SLIDESHOW BANNER FUNCTIONALITY ==========
+    let currentSlide = 0;
+    const slides = document.querySelectorAll('.slide');
+    const indicators = document.querySelectorAll('.slide-indicator');
+    const slidePrevBtn = document.querySelector('.slide-prev');
+    const slideNextBtn = document.querySelector('.slide-next');
+    
+    function showSlide(n) {
+      slides.forEach(slide => slide.classList.remove('active'));
+      indicators.forEach(indicator => indicator.classList.remove('active'));
+      
+      slides[n].classList.add('active');
+      indicators[n].classList.add('active');
+    }
+    
+    function nextSlide() {
+      currentSlide = (currentSlide + 1) % slides.length;
+      showSlide(currentSlide);
+    }
+    
+    function prevSlide() {
+      currentSlide = (currentSlide - 1 + slides.length) % slides.length;
+      showSlide(currentSlide);
+    }
+    
+    // Event listeners for navigation buttons
+    if (slidePrevBtn) {
+      slidePrevBtn.addEventListener('click', prevSlide);
+    }
+    if (slideNextBtn) {
+      slideNextBtn.addEventListener('click', nextSlide);
+    }
+    
+    // Event listeners for indicators
+    indicators.forEach((indicator, index) => {
+      indicator.addEventListener('click', () => {
+        currentSlide = index;
+        showSlide(currentSlide);
+      });
+    });
+    
+    // Auto-advance slides every 5 seconds
+    setInterval(nextSlide, 5000);
+    
+    // Function to update next katha highlight
+    function updateNextKathaHighlight() {
+      const nextKathaDetails = document.getElementById('next-katha-details');
+      if (!nextKathaDetails) return;
+      
+      // Next upcoming kathas (same data as marquee)
+      const upcomingKathas = [
+        {
+          title: "Magh Mela Bhagwat Katha",
+          city: "Prayagraj (Magh Mela)",
+          startDate: "2026-01-12",
+          endDate: "2026-01-18"
+        },
+        {
+          title: "Bhagwat Katha - Bahoripur",
+          city: "Bahoripur, Amethi",
+          startDate: "2025-02-08",
+          endDate: "2025-02-15"
+        },
+        {
+          title: "Kevlapur Bhagwat Katha",
+          city: "Kevlapur, Bhadohi",
+          startDate: "2025-12-27",
+          endDate: "2026-01-03"
+        }
+      ];
+      
+      // Find the next upcoming katha
+      const today = new Date();
+      today.setHours(0, 0, 0, 0);
+      
+      let nextKatha = null;
+      let daysUntil = Infinity;
+      
+      upcomingKathas.forEach(katha => {
+        const startDate = new Date(katha.startDate);
+        startDate.setHours(0, 0, 0, 0);
+        
+        const diffTime = startDate - today;
+        const diffDays = Math.ceil(diffTime / (1000 * 60 * 60 * 24));
+        
+        if (diffDays >= 0 && diffDays < daysUntil) {
+          daysUntil = diffDays;
+          nextKatha = katha;
+        }
+      });
+      
+      // Update display
+      if (nextKatha) {
+        const startDate = new Date(nextKatha.startDate);
+        const endDate = new Date(nextKatha.endDate);
+        
+        const startMonth = startDate.toLocaleDateString('en-US', { month: 'short' });
+        const startDay = startDate.getDate();
+        const endMonth = endDate.toLocaleDateString('en-US', { month: 'short' });
+        const endDay = endDate.getDate();
+        
+        let timeText = "";
+        if (daysUntil === 0) {
+          timeText = "<span style='color: #FFD580; font-weight: bold;'>🎉 STARTS TODAY!</span>";
+        } else if (daysUntil === 1) {
+          timeText = "<span style='color: #FFD580;'>Starts Tomorrow</span>";
+        } else {
+          timeText = `Starts in <strong>${daysUntil}</strong> days`;
+        }
+        
+        nextKathaDetails.innerHTML = `
+          <strong>${nextKatha.title}</strong><br>
+          📍 ${nextKatha.city}<br>
+          📅 ${startDay} ${startMonth} - ${endDay} ${endMonth}<br>
+          <span style="font-size: 0.9rem; margin-top: 5px; display: inline-block;">
+            ${timeText}
+          </span>
+        `;
+      } else {
+        nextKathaDetails.innerHTML = `
+          <strong>Prayagraj Magh Mela 2026</strong><br>
+          📍 Prayagraj (Sangam)<br>
+          📅 12-18 January 2026<br>
+          <span style="font-size: 0.9rem; color: #FFD580;">
+            View full schedule for details
+          </span>
+        `;
+      }
+    }
+    
+    // Initialize on page load
+    document.addEventListener('DOMContentLoaded', function() {
+      // Update current year
+      document.querySelector('.current-year').textContent = new Date().getFullYear();
+      
+      // Update marquee with upcoming katha
+      if (typeof updateMarqueeWithUpcomingKatha === 'function') {
+        updateMarqueeWithUpcomingKatha();
+      }
+      
+      // Update next katha highlight
+      updateNextKathaHighlight();
+      
+      // Update every hour
+      setInterval(function() {
+        if (typeof updateMarqueeWithUpcomingKatha === 'function') {
+          updateMarqueeWithUpcomingKatha();
+        }
+        updateNextKathaHighlight();
+      }, 3600000); // 1 hour
+    });
+  </script>
+</body>
+</html>

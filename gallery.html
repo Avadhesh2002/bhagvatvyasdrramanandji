@@ -1,0 +1,571 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=5.0, user-scalable=yes">
+  <title>Gallery | Dr Ramanand Ji</title>
+  <link rel="stylesheet" href="styles.css" />
+  <style>
+    /* HEADER STYLES */
+    header {
+      background: #FF6B00;
+      color: white;
+      width: 100%;
+      z-index: 1000;
+      box-shadow: 0 2px 10px rgba(0,0,0,0.1);
+      position: sticky;
+      top: 0;
+    }
+    
+    /* NAVBAR LAYOUT */
+    .navbar {
+      max-width: 1200px;
+      margin: 0 auto;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      padding: 10px 20px;
+      gap: 20px;
+    }
+    
+    /* LOGO SECTION */
+    .logo-section {
+      display: flex;
+      align-items: center;
+      gap: 15px;
+      white-space: nowrap;
+      flex-shrink: 0;
+    }
+    
+    .logo-image {
+      width: 60px;
+      height: 60px;
+      border-radius: 50%;
+      object-fit: cover;
+      background: white;
+      padding: 2px;
+      box-shadow: 0 2px 6px rgba(0,0,0,0.2);
+      border: 2px solid white;
+    }
+    
+    .logo-text {
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      gap: 2px;
+    }
+    
+    .logo-name {
+      font-size: 1.1rem;
+      font-weight: 700;
+      color: white;
+      line-height: 1.2;
+    }
+    
+    .logo-subtitle {
+      font-size: 0.85rem;
+      font-weight: 500;
+      color: #FFE0CC;
+      line-height: 1;
+    }
+    
+    /* NAVBAR NAV LINKS */
+    .navbar nav {
+      display: flex;
+      flex: 1;
+      justify-content: center;
+    }
+    
+    .navbar ul {
+      list-style: none;
+      display: flex;
+      gap: 25px;
+      margin: 0;
+      padding: 0;
+    }
+    
+    .navbar a {
+      color: white;
+      text-decoration: none;
+      font-weight: 500;
+      padding: 8px 12px;
+      border-radius: 4px;
+      transition: all 0.3s ease;
+      display: block;
+    }
+    
+    .navbar a:hover {
+      background: rgba(255, 255, 255, 0.1);
+    }
+    
+    .navbar a.active {
+      background: rgba(255, 255, 255, 0.2);
+    }
+    
+    .hamburger {
+      display: none;
+      background: none;
+      border: none;
+      color: white;
+      font-size: 1.5rem;
+      cursor: pointer;
+      width: 44px;
+      height: 44px;
+      padding: 0;
+      flex-shrink: 0;
+    }
+    
+    /* RESPONSIVE NAVBAR */
+    @media (max-width: 768px) {
+      .hamburger {
+        display: flex;
+        align-items: center;
+        justify-content: center;
+      }
+      
+      .navbar {
+        padding: 10px 15px;
+        gap: 10px;
+      }
+      
+      .logo-section {
+        gap: 10px;
+      }
+      
+      .logo-image {
+        width: 50px;
+        height: 50px;
+      }
+      
+      .logo-name {
+        font-size: 1rem;
+      }
+      
+      .logo-subtitle {
+        font-size: 0.75rem;
+      }
+      
+      .navbar nav {
+        position: fixed;
+        top: 80px;
+        left: 0;
+        width: 100%;
+        background: #FF6B00;
+        padding: 20px;
+        box-shadow: 0 4px 8px rgba(0,0,0,0.1);
+        transform: translateY(-100%);
+        opacity: 0;
+        visibility: hidden;
+        transition: all 0.3s ease;
+        z-index: 999;
+        flex-direction: column;
+        justify-content: flex-start;
+      }
+      
+      .navbar nav.active {
+        transform: translateY(0);
+        opacity: 1;
+        visibility: visible;
+      }
+      
+      .navbar ul {
+        flex-direction: column;
+        gap: 10px;
+      }
+      
+      .navbar a {
+        padding: 12px 16px;
+        text-align: center;
+        border-radius: 6px;
+      }
+    }
+    
+    @media (max-width: 480px) {
+      .hamburger {
+        display: flex;
+        align-items: center;
+        justify-content: center;
+      }
+      
+      .navbar {
+        padding: 10px 10px;
+      }
+      
+      .logo-image {
+        width: 45px;
+        height: 45px;
+      }
+      
+      .logo-name {
+        font-size: 0.9rem;
+      }
+      
+      .logo-subtitle {
+        font-size: 0.7rem;
+      }
+    }
+    
+    /* PAGE SPECIFIC STYLES */
+    .slideshow-container {
+      max-width: 1000px;
+      position: relative;
+      margin: 40px auto;
+    }
+
+    .mySlides {
+      display: none;
+    }
+
+    .mySlides img {
+      width: 100%;
+      border-radius: 10px;
+      height: 500px;
+      object-fit: cover;
+    }
+
+    .prev, .next {
+      cursor: pointer;
+      position: absolute;
+      top: 50%;
+      width: auto;
+      padding: 16px;
+      margin-top: -22px;
+      color: white;
+      font-weight: bold;
+      font-size: 18px;
+      transition: 0.6s ease;
+      border-radius: 0 3px 3px 0;
+      user-select: none;
+      background-color: rgba(0,0,0,0.5);
+    }
+
+    .next {
+      right: 0;
+      border-radius: 3px 0 0 3px;
+    }
+
+    .prev:hover, .next:hover {
+      background-color: rgba(0,0,0,0.8);
+    }
+
+    .dot-container {
+      text-align: center;
+      padding: 20px;
+    }
+
+    .dot {
+      cursor: pointer;
+      height: 15px;
+      width: 15px;
+      margin: 0 2px;
+      background-color: #bbb;
+      border-radius: 50%;
+      display: inline-block;
+      transition: background-color 0.6s ease;
+    }
+
+    .active, .dot:hover {
+      background-color: #FF6B00;
+    }
+
+    .fade {
+      animation-name: fade;
+      animation-duration: 1.5s;
+    }
+
+    @keyframes fade {
+      from {opacity: .4}
+      to {opacity: 1}
+    }
+
+    .video-section {
+      margin: 60px 0;
+    }
+
+    .video-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+      gap: 30px;
+      margin-top: 30px;
+    }
+
+    .video-card {
+      background: white;
+      border-radius: 10px;
+      overflow: hidden;
+      box-shadow: 0 3px 10px rgba(0,0,0,0.1);
+    }
+
+    .video-container {
+      position: relative;
+      padding-bottom: 56.25%;
+      height: 0;
+    }
+
+    .video-container iframe {
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+    }
+
+    .video-info {
+      padding: 20px;
+    }
+  </style>
+</head>
+<body>
+  <header>
+    <div class="navbar">
+      <div class="logo-section">
+        <img src="images\logo.png" alt="Logo" class="logo-image" 
+             onerror="this.src='https://via.placeholder.com/60/FF6B00/FFFFFF?text=Logo'">
+        <div class="logo-text">
+          <div class="logo-name">Dr Ramanand Ji</div>
+          <div class="logo-subtitle">Bhagvat Vyas</div>
+        </div>
+      </div>
+      <button class="hamburger" aria-label="Toggle menu">☰</button>
+      <nav>
+        <ul>
+          <li><a href="index.html">Home</a></li>
+          <li><a href="about.html">About</a></li>
+          <li><a href="kathas.html">Kathas</a></li>
+          <li><a href="gallery.html" class="active">Gallery</a></li>
+          <li><a href="contact.html">Contact</a></li>
+        </ul>
+      </nav>
+    </div>
+  </header>
+
+  <main>
+    <!-- Image Slideshow -->
+    <section class="section">
+      <h1>Photo Gallery</h1>
+      <p>Moments from Bhagwat Kathas</p>
+      
+      <div class="slideshow-container">
+        <div class="mySlides fade">
+          <img src="images/1.jpg" alt="Bhagwat Katha 1">
+        </div>
+
+        <div class="mySlides fade">
+          <img src="images/2.jpg" alt="Bhagwat Katha 2">
+        </div>
+
+        <div class="mySlides fade">
+          <img src="images/3.jpg" alt="Bhagwat Katha 3">
+        </div>
+
+        <div class="mySlides fade">
+          <img src="images/4.jpg" alt="Bhagwat Katha 4">
+        </div>
+
+        <div class="mySlides fade">
+          <img src="images/5.jpg" alt="Dr Ramanand Ji 1">
+        </div>
+
+        <div class="mySlides fade">
+          <img src="images/6.jpg" alt="Dr Ramanand Ji 2">
+        </div>
+
+        <div class="mySlides fade">
+          <img src="images/7.jpg" alt="Dr Ramanand Ji 3">
+        </div>
+
+        <div class="mySlides fade">
+          <img src="images/8.jpg" alt="Dr Ramanand Ji 4">
+        </div>
+        <div class="mySlides fade">
+          <img src="images/9.jpg" alt="Dr Ramanand Ji 4">
+        </div>
+        <div class="mySlides fade">
+          <img src="images/10.jpg" alt="Dr Ramanand Ji 4">
+        </div>
+
+        <a class="prev" onclick="plusSlides(-1)">❮</a>
+        <a class="next" onclick="plusSlides(1)">❯</a>
+      </div>
+
+      <div class="dot-container">
+        <span class="dot" onclick="currentSlide(1)"></span>
+        <span class="dot" onclick="currentSlide(2)"></span>
+        <span class="dot" onclick="currentSlide(3)"></span>
+        <span class="dot" onclick="currentSlide(4)"></span>
+        <span class="dot" onclick="currentSlide(5)"></span>
+        <span class="dot" onclick="currentSlide(6)"></span>
+        <span class="dot" onclick="currentSlide(7)"></span>
+        <span class="dot" onclick="currentSlide(8)"></span>
+      </div>
+    </section>
+
+    <!-- YouTube Videos -->
+    <section class="section video-section">
+      <h1>YouTube Videos</h1>
+      <p>Watch Bhagwat Kathas and Spiritual Discourses</p>
+      
+      <div class="video-grid">
+        <div class="video-card">
+          <div class="video-container">
+            <iframe width="560" height="315" src="https://www.youtube.com/embed/YaUyGCkL0MU?si=kHLWX_IoEwqSve6h" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>
+          </div>
+          <div class="video-info">
+            <h3>श्रीमद्भागवत कथा</h3>
+            <p>दशरथपुर बयांव, प्रयागराज</p>
+          </div>
+        </div>
+
+        <div class="video-card">
+          <div class="video-container">
+            <iframe 
+              src="https://www.youtube.com/embed/dQw4w9WgXcQ" 
+              title="Bhagwat Katha 2"
+              frameborder="0" 
+              allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" 
+              allowfullscreen>
+            </iframe>
+          </div>
+          <div class="video-info">
+            <h3>Shrimad Bhagwat Katha - Part 2</h3>
+            <p>Continued spiritual discourse</p>
+          </div>
+        </div>
+
+        <div class="video-card">
+          <div class="video-container">
+            <iframe 
+              src="https://www.youtube.com/embed/dQw4w9WgXcQ" 
+              title="Bhagwat Katha 3"
+              frameborder="0" 
+              allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" 
+              allowfullscreen>
+            </iframe>
+          </div>
+          <div class="video-info">
+            <h3>Bhagwat Katha Highlights</h3>
+            <p>Best moments from recent kathas</p>
+          </div>
+        </div>
+
+        <div class="video-card">
+          <div class="video-container">
+            <iframe 
+              src="https://www.youtube.com/embed/dQw4w9WgXcQ" 
+              title="Bhagwat Katha 4"
+              frameborder="0" 
+              allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" 
+              allowfullscreen>
+            </iframe>
+          </div>
+          <div class="video-info">
+            <h3>Special Pravachan</h3>
+            <p>Spiritual guidance session</p>
+          </div>
+        </div>
+
+        <div class="video-card">
+          <div class="video-container">
+            <iframe 
+              src="https://www.youtube.com/embed/dQw4w9WgXcQ" 
+              title="Bhagwat Katha 5"
+              frameborder="0" 
+              allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" 
+              allowfullscreen>
+            </iframe>
+          </div>
+          <div class="video-info">
+            <h3>Bhajan and Kirtan</h3>
+            <p>Devotional songs from katha</p>
+          </div>
+        </div>
+
+        <div class="video-card">
+          <div class="video-container">
+            <iframe 
+              src="https://www.youtube.com/embed/dQw4w9WgXcQ" 
+              title="Bhagwat Katha 6"
+              frameborder="0" 
+              allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" 
+              allowfullscreen>
+            </iframe>
+          </div>
+          <div class="video-info">
+            <h3>Complete Katha Playlist</h3>
+            <p>Full series of discourses</p>
+          </div>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <footer>
+    <div class="footer-content">
+      <div class="footer-section">
+        <h3>Gallery</h3>
+        <p>Photos and videos from Bhagwat Kathas</p>
+      </div>
+    </div>
+    
+    <div class="footer-bottom">
+      <p>&copy; <span id="current-year">2025</span> Bhagvat Vyas Dr Ramanand Ji</p>
+    </div>
+  </footer>
+
+  <script src="script.js"></script>
+  <script>
+    // Slideshow JavaScript
+    let slideIndex = 1;
+    showSlides(slideIndex);
+
+    function plusSlides(n) {
+      showSlides(slideIndex += n);
+    }
+
+    function currentSlide(n) {
+      showSlides(slideIndex = n);
+    }
+
+    function showSlides(n) {
+      let i;
+      let slides = document.getElementsByClassName("mySlides");
+      let dots = document.getElementsByClassName("dot");
+      
+      if (n > slides.length) {slideIndex = 1}
+      if (n < 1) {slideIndex = slides.length}
+      
+      for (i = 0; i < slides.length; i++) {
+        slides[i].style.display = "none";
+      }
+      
+      for (i = 0; i < dots.length; i++) {
+        dots[i].className = dots[i].className.replace(" active", "");
+      }
+      
+      slides[slideIndex-1].style.display = "block";
+      dots[slideIndex-1].className += " active";
+    }
+
+    // Auto slide change every 5 seconds
+    setInterval(() => {
+      plusSlides(1);
+    }, 5000);
+
+    // Update current year
+    document.addEventListener('DOMContentLoaded', function() {
+      document.getElementById('current-year').textContent = new Date().getFullYear();
+    });
+
+    // Image fallback handling
+    document.addEventListener('DOMContentLoaded', function() {
+      const images = document.querySelectorAll('.mySlides img');
+      images.forEach(img => {
+        img.onerror = function() {
+          this.src = 'https://via.placeholder.com/1000x500/FF6B00/FFFFFF?text=Bhagwat+Katha+Photo';
+          this.alt = 'Image not available';
+        };
+      });
+    });
+  </script>
+</body>
+</html>

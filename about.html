@@ -1,0 +1,457 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=5.0, user-scalable=yes"> 
+  <title>About Bhagvat Vyas Dr Ramanand Ji - Spiritual Journey & Mission</title>
+  <meta name="description" content="Learn about Bhagvat Vyas Dr Ramanand Ji's spiritual journey, guru parampara, and mission to spread Shrimad Bhagwat Kathas across India.">
+  <link rel="stylesheet" href="styles.css">
+  <style>
+    /* HEADER STYLES */
+    header {
+      background: #FF6B00;
+      color: white;
+      width: 100%;
+      z-index: 1000;
+      box-shadow: 0 2px 10px rgba(0,0,0,0.1);
+      position: sticky;
+      top: 0;
+    }
+    
+    /* NAVBAR LAYOUT */
+    .navbar {
+      max-width: 1200px;
+      margin: 0 auto;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      padding: 10px 20px;
+      gap: 20px;
+    }
+    
+    /* LOGO SECTION */
+    .logo-section {
+      display: flex;
+      align-items: center;
+      gap: 15px;
+      white-space: nowrap;
+      flex-shrink: 0;
+    }
+    
+    .logo-image {
+      width: 60px;
+      height: 60px;
+      border-radius: 50%;
+      object-fit: cover;
+      background: white;
+      padding: 2px;
+      box-shadow: 0 2px 6px rgba(0,0,0,0.2);
+      border: 2px solid white;
+    }
+    
+    .logo-text {
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      gap: 2px;
+    }
+    
+    .logo-name {
+      font-size: 1.1rem;
+      font-weight: 700;
+      color: white;
+      line-height: 1.2;
+    }
+    
+    .logo-subtitle {
+      font-size: 0.85rem;
+      font-weight: 500;
+      color: #FFE0CC;
+      line-height: 1;
+    }
+    
+    /* NAVBAR NAV LINKS */
+    .navbar nav {
+      display: flex;
+      flex: 1;
+      justify-content: center;
+    }
+    
+    .navbar ul {
+      list-style: none;
+      display: flex;
+      gap: 25px;
+      margin: 0;
+      padding: 0;
+    }
+    
+    .navbar a {
+      color: white;
+      text-decoration: none;
+      font-weight: 500;
+      padding: 8px 12px;
+      border-radius: 4px;
+      transition: all 0.3s ease;
+      display: block;
+    }
+    
+    .navbar a:hover {
+      background: rgba(255, 255, 255, 0.1);
+    }
+    
+    .navbar a.active {
+      background: rgba(255, 255, 255, 0.2);
+    }
+    
+    .hamburger {
+      display: none;
+      background: none;
+      border: none;
+      color: white;
+      font-size: 1.5rem;
+      cursor: pointer;
+      width: 44px;
+      height: 44px;
+      padding: 0;
+      flex-shrink: 0;
+    }
+    
+    /* RESPONSIVE NAVBAR */
+    @media (max-width: 768px) {
+      .hamburger {
+        display: flex;
+        align-items: center;
+        justify-content: center;
+      }
+      
+      .navbar {
+        padding: 10px 15px;
+        gap: 10px;
+      }
+      
+      .logo-section {
+        gap: 10px;
+      }
+      
+      .logo-image {
+        width: 50px;
+        height: 50px;
+      }
+      
+      .logo-name {
+        font-size: 1rem;
+      }
+      
+      .logo-subtitle {
+        font-size: 0.75rem;
+      }
+      
+      .navbar nav {
+        position: fixed;
+        top: 80px;
+        left: 0;
+        width: 100%;
+        background: #FF6B00;
+        padding: 20px;
+        box-shadow: 0 4px 8px rgba(0,0,0,0.1);
+        transform: translateY(-100%);
+        opacity: 0;
+        visibility: hidden;
+        transition: all 0.3s ease;
+        z-index: 999;
+        flex-direction: column;
+        justify-content: flex-start;
+      }
+      
+      .navbar nav.active {
+        transform: translateY(0);
+        opacity: 1;
+        visibility: visible;
+      }
+      
+      .navbar ul {
+        flex-direction: column;
+        gap: 10px;
+      }
+      
+      .navbar a {
+        padding: 12px 16px;
+        text-align: center;
+        border-radius: 6px;
+      }
+    }
+    
+    @media (max-width: 480px) {
+      .hamburger {
+        display: flex;
+        align-items: center;
+        justify-content: center;
+      }
+      
+      .navbar {
+        padding: 10px 10px;
+      }
+      
+      .logo-image {
+        width: 45px;
+        height: 45px;
+      }
+      
+      .logo-name {
+        font-size: 0.9rem;
+      }
+      
+      .logo-subtitle {
+        font-size: 0.7rem;
+      }
+    }
+    
+    /* PAGE SPECIFIC STYLES */
+    .about-hero {
+      background: linear-gradient(rgba(0,0,0,0.7), rgba(0,0,0,0.7)), url('images/about-bg.jpg');
+      background-size: cover;
+      background-position: center;
+      color: white;
+      padding: 80px 20px;
+      text-align: center;
+    }     
+    .about-hero h1 {
+      font-size: 2.5rem;
+      margin-bottom: 20px;
+      color: #FFD580;
+    }
+    
+    .about-content {
+      max-width: 1100px;
+      margin: 0 auto;
+      padding: 40px 20px;
+    }
+    
+    .about-grid {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 40px;
+      align-items: start;
+    }
+    
+    .about-image {
+      border-radius: 10px;
+      overflow: hidden;
+      box-shadow: 0 5px 15px rgba(0,0,0,0.1);
+    }
+    
+    .about-image img {
+      width: 100%;
+      height: auto;
+      display: block;
+    }
+    
+    .timeline {
+      margin: 40px 0;
+      padding-left: 20px;
+      border-left: 3px solid #FF6B00;
+    }
+    
+    .timeline-item {
+      margin-bottom: 30px;
+      position: relative;
+    }
+    
+    .timeline-item:before {
+      content: '';
+      position: absolute;
+      left: -26px;
+      top: 5px;
+      width: 12px;
+      height: 12px;
+      background: #FF6B00;
+      border-radius: 50%;
+    }
+    
+    .timeline-year {
+      color: #FF6B00;
+      font-weight: bold;
+      margin-bottom: 5px;
+    }
+    
+    .mission-statement {
+      background: #FFF9F0;
+      padding: 40px;
+      border-radius: 10px;
+      margin: 40px 0;
+      text-align: center;
+      border-left: 5px solid #FF6B00;
+    }
+    
+    .guru-parampara {
+      background: #f8f9fa;
+      padding: 30px;
+      border-radius: 10px;
+      margin: 30px 0;
+    }
+    
+    @media (max-width: 768px) {
+      .about-grid {
+        grid-template-columns: 1fr;
+      }
+      
+      .about-hero {
+        padding: 50px 20px;
+      }
+      
+      .about-hero h1 {
+        font-size: 2rem;
+      }
+    }
+  </style>
+</head>
+<body>
+  <header>
+    <div class="navbar">
+      <div class="logo-section">
+        <img src="images\logo.png" alt="Logo" class="logo-image" 
+             onerror="this.src='https://via.placeholder.com/60/FF6B00/FFFFFF?text=Logo'">
+        <div class="logo-text">
+          <div class="logo-name">Dr Ramanand Ji</div>
+          <div class="logo-subtitle">Bhagvat Vyas</div>
+        </div>
+      </div>
+      <button class="hamburger" aria-label="Toggle menu">☰</button>
+      <nav>
+        <ul>
+          <li><a href="index.html">Home</a></li>
+          <li><a href="about.html" class="active">About</a></li>
+          <li><a href="kathas.html">Kathas</a></li>
+          <li><a href="gallery.html">Gallery</a></li>
+          <li><a href="contact.html">Contact</a></li>
+        </ul>
+      </nav>
+    </div>
+  </header>
+
+  <div class="about-hero">
+    <h1>About Bhagvat Vyas Dr Ramanand Ji</h1>
+    <p>Spiritual Guide • Bhagwat Katha Vyas • Divine Orator</p>
+  </div>
+
+  <main class="about-content">
+    <div class="about-grid">
+      <div class="about-text">
+        <section class="section">
+          <h2>Spiritual Journey</h2>
+          <p>Bhagvat Vyas Dr Ramanand Ji is a renowned spiritual leader dedicated to spreading the divine teachings of Shrimad Bhagwat Purana. With over 15 years of experience in delivering Bhagwat Kathas, he has touched the lives of thousands of devotees across India.</p>
+          
+          <p>Born in a spiritually inclined family, Dr Ramanand Ji showed deep interest in scriptures from a young age. He received formal education in Sanskrit and Vedic literature, followed by rigorous training under esteemed gurus in the tradition of Bhagwat Katha exposition.</p>
+        </section>
+
+        <div class="timeline">
+          <h3>Spiritual Timeline</h3>
+          <div class="timeline-item">
+            <div class="timeline-year">2005-2008</div>
+            <p>Formal study of Sanskrit and Vedic scriptures at Gurukul</p>
+          </div>
+          <div class="timeline-item">
+            <div class="timeline-year">2009-2012</div>
+            <p>Intensive training under Guru Maharaj in Bhagwat Katha traditions</p>
+          </div>
+          <div class="timeline-item">
+            <div class="timeline-year">2013</div>
+            <p>First independent Bhagwat Katha in hometown</p>
+          </div>
+          <div class="timeline-item">
+            <div class="timeline-year">2015-Present</div>
+            <p>Conducting Kathas across India, reaching thousands of devotees annually</p>
+          </div>
+        </div>
+      </div>
+      
+      <div class="about-image">
+        <img src="images\ji.png" 
+             alt="Dr Ramanand Ji in meditation"
+             loading="lazy"
+             onerror="this.src='https://via.placeholder.com/500x600/FF6B00/FFFFFF?text=Dr+Ramanand+Ji'">
+      </div>
+    </div>
+
+    <div class="mission-statement">
+      <h2>Our Mission</h2>
+      <p>"To make the divine wisdom of Shrimad Bhagwat accessible to every household, guiding people towards spiritual enlightenment, moral values, and a life of devotion."</p>
+    </div>
+
+    <section class="section">
+      <h2>Guru Parampara & Lineage</h2>
+      <div class="guru-parampara">
+        <p>Dr Ramanand Ji follows the authentic tradition of Bhagwat Katha as passed down through generations of spiritual masters. He received initiation and blessings from:</p>
+        <ul style="margin-left: 20px; margin-top: 15px;">
+          <li><strong>Guru Maharaj Shri [Name]</strong> - Master in Bhagwat Katha</li>
+          <li><strong>Swami [Name]</strong> - Vedic scholar and spiritual guide</li>
+          <li><strong>Shri [Name] Ji Maharaj</strong> - Renowned katha vyas</li>
+        </ul>
+      </div>
+    </section>
+
+    <section class="section">
+      <h2>Teaching Philosophy</h2>
+      <div class="cards">
+        <div class="card">
+          <h3>Scriptural Authenticity</h3>
+          <p>Strict adherence to original Sanskrit texts with accurate interpretations</p>
+        </div>
+        <div class="card">
+          <h3>Practical Application</h3>
+          <p>Relating ancient wisdom to modern life challenges</p>
+        </div>
+        <div class="card">
+          <h3>Youth Engagement</h3>
+          <p>Making scriptures relevant and interesting for younger generations</p>
+        </div>
+        <div class="card">
+          <h3>Inclusive Approach</h3>
+          <p>Welcoming devotees from all backgrounds and age groups</p>
+        </div>
+      </div>
+    </section>
+
+    <section class="section">
+      <h2>Key Teachings</h2>
+      <ul style="margin-left: 20px; line-height: 1.8;">
+        <li>Importance of Naam Japa and daily spiritual practice</li>
+        <li>Living a dharmic life while fulfilling worldly responsibilities</li>
+        <li>Power of devotion (bhakti) in achieving spiritual growth</li>
+        <li>Service (seva) as a path to divine grace</li>
+        <li>Significance of satsang and spiritual company</li>
+      </ul>
+    </section>
+
+    <div class="newsletter">
+      <h2>Receive Spiritual Insights</h2>
+      <p>Get monthly teachings, katha updates, and spiritual guidance</p>
+      <form id="newsletterForm" class="newsletter-input">
+        <input type="email" id="newsletter-email-about" placeholder="Your email address" required>
+        <button type="submit" class="btn btn-primary">Subscribe</button>
+      </form>
+    </div>
+  </main>
+
+  <footer>
+    <div class="footer-content">
+      <div class="footer-section">
+        <h3>Bhagvat Vyas Dr Ramanand Ji</h3>
+        <p>Spreading divine knowledge through Shrimad Bhagwat Kathas.</p>
+      </div>
+      
+      <div class="footer-section">
+        <h3>Contact</h3>
+        <p>📞 +91-XXXXXXXXXX</p>
+        <p>📱 WhatsApp: +91-XXXXXXXXXX</p>
+      </div>
+    </div>
+    
+    <div class="footer-bottom">
+      <p>&copy; <span class="current-year">2025</span> Bhagvat Vyas Dr Ramanand Ji. All rights reserved.</p>
+    </div>
+  </footer>
+
+  <script src="script.js"></script>
+</body>
+</html>

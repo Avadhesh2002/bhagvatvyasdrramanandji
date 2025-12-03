@@ -1,0 +1,1152 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=5.0, user-scalable=yes">
+  <title>Bhagwat Katha Schedule 2025-2026 | Dr Ramanand Ji</title>
+  <meta name="description" content="Bhagwat Katha schedule by Dr Ramanand Ji: Prayagraj, Bhadohi, Amethi, Vrindavan. Contact: 9415870944">
+  <link rel="stylesheet" href="styles.css">
+  <style>
+    /* HEADER STYLES */
+    header {
+      background: #FF6B00;
+      color: white;
+      width: 100%;
+      z-index: 1000;
+      box-shadow: 0 2px 10px rgba(0,0,0,0.1);
+      position: sticky;
+      top: 0;
+    }
+    
+    /* NAVBAR LAYOUT */
+    .navbar {
+      max-width: 1200px;
+      margin: 0 auto;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      padding: 10px 20px;
+      gap: 20px;
+    }
+    
+    /* LOGO SECTION */
+    .logo-section {
+      display: flex;
+      align-items: center;
+      gap: 15px;
+      white-space: nowrap;
+      flex-shrink: 0;
+    }
+    
+    .logo-image {
+      width: 60px;
+      height: 60px;
+      border-radius: 50%;
+      object-fit: cover;
+      background: white;
+      padding: 2px;
+      box-shadow: 0 2px 6px rgba(0,0,0,0.2);
+      border: 2px solid white;
+    }
+    
+    .logo-text {
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      gap: 2px;
+    }
+    
+    .logo-name {
+      font-size: 1.1rem;
+      font-weight: 700;
+      color: white;
+      line-height: 1.2;
+    }
+    
+    .logo-subtitle {
+      font-size: 0.85rem;
+      font-weight: 500;
+      color: #FFE0CC;
+      line-height: 1;
+    }
+    
+    /* NAVBAR NAV LINKS */
+    .navbar nav {
+      display: flex;
+      flex: 1;
+      justify-content: center;
+    }
+    
+    .navbar ul {
+      list-style: none;
+      display: flex;
+      gap: 25px;
+      margin: 0;
+      padding: 0;
+    }
+    
+    .navbar a {
+      color: white;
+      text-decoration: none;
+      font-weight: 500;
+      padding: 8px 12px;
+      border-radius: 4px;
+      transition: all 0.3s ease;
+      display: block;
+    }
+    
+    .navbar a:hover {
+      background: rgba(255, 255, 255, 0.1);
+    }
+    
+    .navbar a.active {
+      background: rgba(255, 255, 255, 0.2);
+    }
+    
+    .hamburger {
+      display: none;
+      background: none;
+      border: none;
+      color: white;
+      font-size: 1.5rem;
+      cursor: pointer;
+      width: 44px;
+      height: 44px;
+      padding: 0;
+      flex-shrink: 0;
+    }
+    
+    /* RESPONSIVE NAVBAR */
+    @media (max-width: 768px) {
+      .hamburger {
+        display: flex;
+        align-items: center;
+        justify-content: center;
+      }
+      
+      .navbar {
+        padding: 10px 15px;
+        gap: 10px;
+      }
+      
+      .logo-section {
+        gap: 10px;
+      }
+      
+      .logo-image {
+        width: 50px;
+        height: 50px;
+      }
+      
+      .logo-name {
+        font-size: 1rem;
+      }
+      
+      .logo-subtitle {
+        font-size: 0.75rem;
+      }
+      
+      .navbar nav {
+        position: fixed;
+        top: 80px;
+        left: 0;
+        width: 100%;
+        background: #FF6B00;
+        padding: 20px;
+        box-shadow: 0 4px 8px rgba(0,0,0,0.1);
+        transform: translateY(-100%);
+        opacity: 0;
+        visibility: hidden;
+        transition: all 0.3s ease;
+        z-index: 999;
+        flex-direction: column;
+        justify-content: flex-start;
+      }
+      
+      .navbar nav.active {
+        transform: translateY(0);
+        opacity: 1;
+        visibility: visible;
+      }
+      
+      .navbar ul {
+        flex-direction: column;
+        gap: 10px;
+      }
+      
+      .navbar a {
+        padding: 12px 16px;
+        text-align: center;
+        border-radius: 6px;
+      }
+    }
+    
+    @media (max-width: 480px) {
+      .hamburger {
+        display: flex;
+        align-items: center;
+        justify-content: center;
+      }
+      
+      .navbar {
+        padding: 10px 10px;
+      }
+      
+      .logo-image {
+        width: 45px;
+        height: 45px;
+      }
+      
+      .logo-name {
+        font-size: 0.9rem;
+      }
+      
+      .logo-subtitle {
+        font-size: 0.7rem;
+      }
+    }
+    
+    /* PAGE SPECIFIC STYLES */
+    @keyframes fadeInUp {
+      from {
+        opacity: 0;
+        transform: translateY(30px);
+      }
+      to {
+        opacity: 1;
+        transform: translateY(0);
+      }
+    }
+
+    @keyframes float {
+      0%, 100% {
+        transform: translateY(0);
+      }
+      50% {
+        transform: translateY(-10px);
+      }
+    }
+
+    @keyframes pulse {
+      0%, 100% {
+        transform: scale(1);
+      }
+      50% {
+        transform: scale(1.05);
+      }
+    }
+
+    @keyframes slideInLeft {
+      from {
+        opacity: 0;
+        transform: translateX(-50px);
+      }
+      to {
+        opacity: 1;
+        transform: translateX(0);
+      }
+    }
+
+    .animated {
+      animation-duration: 1s;
+      animation-fill-mode: both;
+    }
+
+    .fadeInUp {
+      animation-name: fadeInUp;
+    }
+
+    .float {
+      animation: float 3s ease-in-out infinite;
+    }
+
+    .pulse {
+      animation: pulse 2s infinite;
+    }
+
+    .slideInLeft {
+      animation-name: slideInLeft;
+    }
+
+    /* Page Styles */
+    .page-header {
+      background: linear-gradient(135deg, #FF6B00 0%, #FF8E53 100%);
+      color: white;
+      padding: 80px 20px;
+      text-align: center;
+      position: relative;
+      overflow: hidden;
+    }
+
+    .page-header h1 {
+      font-size: 3rem;
+      margin-bottom: 20px;
+      text-shadow: 2px 2px 4px rgba(0,0,0,0.3);
+    }
+
+    .page-header p {
+      font-size: 1.2rem;
+      max-width: 700px;
+      margin: 0 auto;
+      opacity: 0.9;
+    }
+
+    .floating-icon {
+      position: absolute;
+      font-size: 2rem;
+      opacity: 0.1;
+      animation: float 6s ease-in-out infinite;
+    }
+
+    /* Status Cards */
+    .status-card {
+      background: white;
+      border-radius: 20px;
+      padding: 30px;
+      margin: 30px 0;
+      box-shadow: 0 10px 30px rgba(255, 107, 0, 0.1);
+      border-left: 6px solid;
+      transition: all 0.4s ease;
+      position: relative;
+      overflow: hidden;
+    }
+
+    .status-card:hover {
+      transform: translateY(-10px);
+      box-shadow: 0 20px 40px rgba(255, 107, 0, 0.15);
+    }
+
+    .status-card.upcoming {
+      border-left-color: #FF6B00;
+      background: linear-gradient(135deg, #ffffff 0%, #fff5eb 100%);
+    }
+
+    .status-card.ongoing {
+      border-left-color: #25D366;
+      background: linear-gradient(135deg, #ffffff 0%, #f0fff4 100%);
+    }
+
+    .status-card.past {
+      border-left-color: #666;
+      background: linear-gradient(135deg, #ffffff 0%, #f5f5f5 100%);
+    }
+
+    .status-badge {
+      display: inline-block;
+      padding: 8px 20px;
+      border-radius: 25px;
+      font-size: 0.9rem;
+      font-weight: bold;
+      margin-bottom: 20px;
+      text-transform: uppercase;
+      letter-spacing: 1px;
+    }
+
+    .upcoming .status-badge {
+      background: #FF6B00;
+      color: white;
+    }
+
+    .ongoing .status-badge {
+      background: #25D366;
+      color: white;
+      animation: pulse 2s infinite;
+    }
+
+    .past .status-badge {
+      background: #666;
+      color: white;
+    }
+
+    .live-indicator {
+      display: inline-block;
+      width: 12px;
+      height: 12px;
+      background: red;
+      border-radius: 50%;
+      margin-right: 8px;
+      animation: pulse 1.5s infinite;
+    }
+
+    .katha-title {
+      color: #333;
+      font-size: 1.8rem;
+      margin-bottom: 15px;
+      position: relative;
+      display: inline-block;
+    }
+
+    .katha-title:after {
+      content: '';
+      position: absolute;
+      bottom: -5px;
+      left: 0;
+      width: 60px;
+      height: 3px;
+      background: #FF6B00;
+    }
+
+    .katha-details {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+      gap: 15px;
+      margin: 20px 0;
+    }
+
+    .detail-item {
+      display: flex;
+      align-items: center;
+      gap: 10px;
+    }
+
+    .detail-icon {
+      font-size: 1.2rem;
+      color: #FF6B00;
+    }
+
+    .countdown-timer {
+      background: rgba(255, 107, 0, 0.1);
+      padding: 15px;
+      border-radius: 10px;
+      text-align: center;
+      margin-top: 20px;
+      font-weight: bold;
+    }
+
+    .calendar-view {
+      background: linear-gradient(135deg, #FFF9F0 0%, #FFEEDD 100%);
+      padding: 40px;
+      border-radius: 20px;
+      margin: 50px 0;
+      border: 2px solid #FFD580;
+    }
+
+    .month-card {
+      background: white;
+      border-radius: 15px;
+      padding: 25px;
+      margin: 20px 0;
+      box-shadow: 0 5px 15px rgba(0,0,0,0.05);
+      border-left: 5px solid #FF6B00;
+      transition: transform 0.3s ease;
+    }
+
+    .month-card:hover {
+      transform: translateX(10px);
+    }
+
+    .month-name {
+      color: #FF6B00;
+      font-size: 1.5rem;
+      margin-bottom: 15px;
+      display: flex;
+      align-items: center;
+      gap: 10px;
+    }
+
+    .katha-list {
+      list-style: none;
+      padding: 0;
+    }
+
+    .katha-list li {
+      padding: 10px 0;
+      border-bottom: 1px dashed #eee;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+    }
+
+    .katha-list li:last-child {
+      border-bottom: none;
+    }
+
+    .highlight-box {
+      background: linear-gradient(135deg, #FF6B00, #FF8E53);
+      color: white;
+      padding: 30px;
+      border-radius: 20px;
+      text-align: center;
+      margin: 40px 0;
+      animation: pulse 3s infinite;
+    }
+
+    .filter-buttons {
+      display: flex;
+      gap: 15px;
+      justify-content: center;
+      flex-wrap: wrap;
+      margin: 40px 0;
+    }
+
+    .filter-btn {
+      padding: 12px 30px;
+      border: 2px solid #FF6B00;
+      background: white;
+      color: #FF6B00;
+      border-radius: 30px;
+      cursor: pointer;
+      transition: all 0.3s ease;
+      font-weight: bold;
+      position: relative;
+      overflow: hidden;
+    }
+
+    .filter-btn:hover {
+      background: #FF6B00;
+      color: white;
+      transform: translateY(-3px);
+      box-shadow: 0 5px 15px rgba(255, 107, 0, 0.3);
+    }
+
+    .filter-btn.active {
+      background: #FF6B00;
+      color: white;
+    }
+
+    .empty-state {
+      text-align: center;
+      padding: 60px 20px;
+      background: #f9f9f9;
+      border-radius: 20px;
+      margin: 40px 0;
+    }
+
+    .empty-icon {
+      font-size: 4rem;
+      margin-bottom: 20px;
+      opacity: 0.3;
+    }
+
+    @media (max-width: 768px) {
+      .page-header h1 {
+        font-size: 2.2rem;
+      }
+      
+      .katha-details {
+        grid-template-columns: 1fr;
+      }
+      
+      .filter-buttons {
+        flex-direction: column;
+        align-items: center;
+      }
+      
+      .filter-btn {
+        width: 80%;
+      }
+    }
+  </style>
+</head>
+<body>
+  <header>
+    <div class="navbar">
+      <div class="logo-section">
+        <img src="images\logo.png" alt="Logo" class="logo-image" 
+             onerror="this.src='https://via.placeholder.com/60/FF6B00/FFFFFF?text=Logo'">
+        <div class="logo-text">
+          <div class="logo-name">Dr Ramanand Ji</div>
+          <div class="logo-subtitle">Bhagvat Vyas</div>
+        </div>
+      </div>
+      <button class="hamburger" aria-label="Toggle menu">☰</button>
+      <nav>
+        <ul>
+          <li><a href="index.html">Home</a></li>
+          <li><a href="about.html">About</a></li>
+          <li><a href="kathas.html" class="active">Kathas</a></li>
+          <li><a href="gallery.html">Gallery</a></li>
+          <li><a href="contact.html">Contact</a></li>
+        </ul>
+      </nav>
+    </div>
+  </header>
+
+  <div class="page-header animated fadeInUp">
+    <div class="floating-icon" style="top: 20px; left: 10%;">🕉️</div>
+    <div class="floating-icon" style="top: 40px; right: 15%;">📿</div>
+    <div class="floating-icon" style="bottom: 30px; left: 20%;">🙏</div>
+    <div class="floating-icon" style="bottom: 50px; right: 10%;">🪔</div>
+    
+    <h1 class="animated fadeInUp">Bhagwat Katha Schedule</h1>
+    <p class="animated fadeInUp" style="animation-delay: 0.2s;">Divine discourses across India • Automatic status updates</p>
+    <p class="animated fadeInUp" style="animation-delay: 0.4s; font-size: 1.1rem; margin-top: 20px;">📅 2025-2026 • 🕉️ Spiritual Journey • 🙏 Open to All</p>
+  </div>
+
+  <main style="max-width: 1200px; margin: 0 auto; padding: 0 20px;">
+    <!-- Current Status Highlight -->
+    <div class="highlight-box animated fadeInUp" style="animation-delay: 0.6s;">
+      <h2 style="margin-bottom: 10px;">📊 Current Status</h2>
+      <p id="status-summary">Loading katha information...</p>
+      <p style="font-size: 0.9rem; opacity: 0.9; margin-top: 10px;">
+        <span id="current-date-display"></span> • Updates automatically
+      </p>
+    </div>
+
+    <!-- Filter Buttons -->
+    <div class="filter-buttons animated fadeInUp" style="animation-delay: 0.8s;">
+      <button class="filter-btn active" onclick="filterKathas('all')">All Kathas</button>
+      <button class="filter-btn" onclick="filterKathas('upcoming')">
+        <span>📅</span> Upcoming
+      </button>
+      <button class="filter-btn" onclick="filterKathas('ongoing')">
+        <span>🔴</span> Ongoing
+      </button>
+      <button class="filter-btn" onclick="filterKathas('past')">
+        <span>📖</span> Past Kathas
+      </button>
+    </div>
+
+    <!-- Ongoing Kathas -->
+    <div id="ongoing-section" style="display: none;">
+      <h2 class="animated slideInLeft" style="color: #25D366; margin-bottom: 30px;">
+        <span style="display: inline-flex; align-items: center; gap: 10px;">
+          <span class="live-indicator"></span>
+          🔴 Live Now • Happening Currently
+        </span>
+      </h2>
+      <div id="ongoing-kathas">
+        <!-- Dynamic content -->
+      </div>
+    </div>
+
+    <!-- Upcoming Kathas -->
+    <div id="upcoming-section">
+      <h2 class="animated slideInLeft" style="color: #FF6B00; margin-bottom: 30px;">
+        <span style="display: inline-flex; align-items: center; gap: 10px;">
+          ⭐ Upcoming Kathas • Divine Schedule
+        </span>
+      </h2>
+      <div id="upcoming-kathas">
+        <!-- Dynamic content -->
+      </div>
+    </div>
+
+    <!-- Past Kathas -->
+    <div id="past-section">
+      <h2 class="animated slideInLeft" style="color: #666; margin-bottom: 30px;">
+        <span style="display: inline-flex; align-items: center; gap: 10px;">
+          📚 Completed Kathas • Divine Memories
+        </span>
+      </h2>
+      <div id="past-kathas">
+        <!-- Dynamic content -->
+      </div>
+    </div>
+
+    <!-- Calendar View -->
+    <div class="calendar-view animated fadeInUp" style="animation-delay: 1s;">
+      <h2 style="text-align: center; color: #FF6B00; margin-bottom: 30px;">
+        📆 2025-2026 Katha Calendar
+      </h2>
+      
+      <div class="month-card animated fadeInUp" style="animation-delay: 1.1s;">
+        <div class="month-name">🗓️ February 2025</div>
+        <ul class="katha-list">
+          <li>
+            <span>08-15 Feb</span>
+            <strong>Bahoripur, Amethi</strong>
+          </li>
+        </ul>
+      </div>
+
+      <div class="month-card animated fadeInUp" style="animation-delay: 1.2s;">
+        <div class="month-name">🗓️ December 2025</div>
+        <ul class="katha-list">
+          <li>
+            <span>27 Dec - 03 Jan</span>
+            <strong>Kevlapur, Bhadohi</strong>
+          </li>
+        </ul>
+      </div>
+
+      <div class="month-card animated fadeInUp" style="animation-delay: 1.3s;">
+        <div class="month-name">🗓️ January 2026</div>
+        <ul class="katha-list">
+          <li>
+            <span>12-18 Jan</span>
+            <strong>Magh Mela, Prayagraj</strong>
+          </li>
+        </ul>
+      </div>
+
+      <div class="month-card animated fadeInUp" style="animation-delay: 1.4s;">
+        <div class="month-name">🗓️ February-March 2026</div>
+        <ul class="katha-list">
+          <li>
+            <span>26 Feb - 04 Mar</span>
+            <strong>Shatchandi, Bayaon Bhadohi</strong>
+          </li>
+        </ul>
+      </div>
+
+      <div class="month-card animated fadeInUp" style="animation-delay: 1.5s;">
+        <div class="month-name">🗓️ April 2026</div>
+        <ul class="katha-list">
+          <li>
+            <span>13-20 Apr</span>
+            <strong>Kalijara, Bhadohi</strong>
+          </li>
+          <li>
+            <span>24 Apr - 01 May</span>
+            <strong>Girdakot, Prayagraj</strong>
+          </li>
+        </ul>
+      </div>
+
+      <div class="month-card animated fadeInUp" style="animation-delay: 1.6s;">
+        <div class="month-name">🗓️ May 2026</div>
+        <ul class="katha-list">
+          <li>
+            <span>21-28 May</span>
+            <strong>Bhigari, Prayagraj</strong>
+          </li>
+        </ul>
+      </div>
+
+      <div class="month-card animated fadeInUp" style="animation-delay: 1.7s;">
+        <div class="month-name">🗓️ June 2026</div>
+        <ul class="katha-list">
+          <li>
+            <span>08-15 Jun</span>
+            <strong>Akopur, Bhadohi</strong>
+          </li>
+        </ul>
+      </div>
+
+      <p style="text-align: center; margin-top: 30px; color: #666; font-style: italic;">
+        <small>📍 All kathas are in Uttar Pradesh • 🙏 Open to all devotees</small>
+      </p>
+    </div>
+
+    <!-- Empty State -->
+    <div class="empty-state" id="no-kathas" style="display: none;">
+      <div class="empty-icon">🕉️</div>
+      <h3>No Kathas Found</h3>
+      <p>Select a different filter or check back later for upcoming kathas.</p>
+      <button class="btn btn-primary" onclick="filterKathas('all')" style="margin-top: 20px;">
+        View All Kathas
+      </button>
+    </div>
+  </main>
+
+  <footer>
+    <div class="footer-content">
+      <div class="footer-section">
+        <h3>Katha Information</h3>
+        <p>All kathas are free and open to all devotees.</p>
+        <p>🕉️ Spiritual discourses for inner peace</p>
+      </div>
+      
+      <div class="footer-section">
+        <h3>For Details</h3>
+        <p>📞 +91-9415870944</p>
+        <p>📱 WhatsApp: +91-9415870944</p>
+      </div>
+    </div>
+    
+    <div class="footer-bottom">
+      <p>&copy; <span id="current-year"></span> Bhagvat Vyas Dr Ramanand Ji</p>
+      <p><small>Schedule updates automatically • Current time: <span id="current-time"></span></small></p>
+    </div>
+  </footer>
+
+  <script src="script.js"></script>
+  <script>
+    // Katha Data Based on Your Schedule
+    const kathaData = [
+      {
+        id: 1,
+        title: "Magh Mela Bhagwat Katha",
+        city: "Prayagraj (Magh Mela)",
+        venue: "Magh Mela Ground, Sangam",
+        startDate: "2026-01-12",
+        endDate: "2026-01-18",
+        time: "5:00 PM to 8:00 PM Daily",
+        description: "Special Katha during Magh Mela at Sangam. Divine discourse at the confluence of three holy rivers.",
+        contact: "+91-9415870944",
+        status: "upcoming",
+        organizer: "Guru Govind Seva Trust, Vrindavan"
+      },
+      {
+        id: 2,
+        title: "Bhagwat Katha - Bahoripur",
+        city: "Bahoripur, Amethi",
+        venue: "Local Temple",
+        startDate: "2025-02-08",
+        endDate: "2025-02-15",
+        time: "4:00 PM to 7:00 PM Daily",
+        description: "7-day complete Shrimad Bhagwat Katha for spiritual enlightenment.",
+        contact: "+91-9415870944",
+        status: "upcoming",
+        organizer: "Local Committee, Amethi"
+      },
+      {
+        id: 3,
+        title: "Kevlapur Bhagwat Katha",
+        city: "Kevlapur, Bhadohi",
+        venue: "Village Temple",
+        startDate: "2025-12-27",
+        endDate: "2026-01-03",
+        time: "5:00 PM to 8:00 PM Daily",
+        description: "New Year Special Katha spanning across years for continuous blessings.",
+        contact: "+91-9415870944",
+        status: "upcoming",
+        organizer: "Local Committee, Bhadohi"
+      },
+      {
+        id: 4,
+        title: "Shatchandi Bhagwat Katha",
+        city: "Bayaon, Bhadohi",
+        venue: "Shatchandi Temple",
+        startDate: "2026-02-26",
+        endDate: "2026-03-04",
+        time: "4:30 PM to 7:30 PM Daily",
+        description: "Special Shatchandi Katha for divine protection and blessings.",
+        contact: "+91-9415870944",
+        status: "upcoming",
+        organizer: "Bayaon Temple Committee"
+      },
+      {
+        id: 5,
+        title: "Girdakot Bhagwat Katha",
+        city: "Girdakot, Prayagraj",
+        venue: "Village Ground",
+        startDate: "2026-04-24",
+        endDate: "2026-05-01",
+        time: "5:00 PM to 8:00 PM Daily",
+        description: "Summer session Bhagwat Katha for spiritual cooling.",
+        contact: "+91-9415870944",
+        status: "upcoming",
+        organizer: "Girdakot Village Committee"
+      },
+      {
+        id: 6,
+        title: "Bhigari Bhagwat Katha",
+        city: "Bhigari, Prayagraj",
+        venue: "Village Temple",
+        startDate: "2026-05-21",
+        endDate: "2026-05-28",
+        time: "5:30 PM to 8:30 PM Daily",
+        description: "Pre-summer special discourse for spiritual strength.",
+        contact: "+91-9415870944",
+        status: "upcoming",
+        organizer: "Bhigari Village Committee"
+      },
+      {
+        id: 7,
+        title: "Kalijara Bhagwat Katha",
+        city: "Kalijara, Bhadohi",
+        venue: "Kalijara Temple",
+        startDate: "2026-04-13",
+        endDate: "2026-04-20",
+        time: "4:00 PM to 7:00 PM Daily",
+        description: "Chaitra Navratri Special Katha for divine feminine energy.",
+        contact: "+91-9415870944",
+        status: "upcoming",
+        organizer: "Kalijara Temple Trust"
+      },
+      {
+        id: 8,
+        title: "Akopur Bhagwat Katha",
+        city: "Akopur, Bhadohi",
+        venue: "Village Temple",
+        startDate: "2026-06-08",
+        endDate: "2026-06-15",
+        time: "5:00 PM to 8:00 PM Daily",
+        description: "Summer monsoon special spiritual discourse.",
+        contact: "+91-9415870944",
+        status: "upcoming",
+        organizer: "Akopur Village Committee"
+      },
+      {
+        id: 9,
+        title: "Haridwar Ganga Aarti Katha",
+        city: "Haridwar, Uttarakhand",
+        venue: "Har Ki Paudi",
+        startDate: "2024-12-10",
+        endDate: "2024-12-15",
+        time: "5:00 PM to 8:00 PM Daily",
+        description: "Completed - Divine Ganga Aarti with spiritual discourse.",
+        contact: "+91-9415870944",
+        status: "past",
+        organizer: "Haridwar Ghat Committee"
+      },
+      {
+        id: 10,
+        title: "Vrindavan Radha-Krishna Katha",
+        city: "Vrindavan, UP",
+        venue: "Banke Bihari Temple",
+        startDate: "2024-11-25",
+        endDate: "2024-12-02",
+        time: "4:00 PM to 7:00 PM Daily",
+        description: "Completed - Divine Radha-Krishna Leela discourses.",
+        contact: "+91-9415870944",
+        status: "past",
+        organizer: "Vrindavan Temple Committee"
+      }
+    ];
+
+    // Calculate status based on current date
+    function calculateStatus(katha) {
+      const today = new Date();
+      const startDate = new Date(katha.startDate);
+      const endDate = new Date(katha.endDate);
+      
+      today.setHours(0, 0, 0, 0);
+      startDate.setHours(0, 0, 0, 0);
+      endDate.setHours(0, 0, 0, 0);
+      
+      if (today < startDate) {
+        return "upcoming";
+      } else if (today >= startDate && today <= endDate) {
+        return "ongoing";
+      } else {
+        return "past";
+      }
+    }
+
+    // Format date
+    function formatDate(dateString) {
+      const date = new Date(dateString);
+      return date.toLocaleDateString('en-US', { day: 'numeric', month: 'long', year: 'numeric' });
+    }
+
+    // Get days info
+    function getDaysInfo(katha) {
+      const today = new Date();
+      const startDate = new Date(katha.startDate);
+      const endDate = new Date(katha.endDate);
+      
+      today.setHours(0, 0, 0, 0);
+      startDate.setHours(0, 0, 0, 0);
+      endDate.setHours(0, 0, 0, 0);
+      
+      const oneDay = 24 * 60 * 60 * 1000;
+      
+      if (today < startDate) {
+        const daysUntil = Math.round((startDate - today) / oneDay);
+        return `Starts in ${daysUntil} day${daysUntil !== 1 ? 's' : ''}`;
+      } else if (today >= startDate && today <= endDate) {
+        const daysSince = Math.round((today - startDate) / oneDay) + 1;
+        const totalDays = Math.round((endDate - startDate) / oneDay) + 1;
+        return `Day ${daysSince} of ${totalDays} • Live Now`;
+      } else {
+        const daysSince = Math.round((today - endDate) / oneDay);
+        return `Completed ${daysSince} day${daysSince !== 1 ? 's' : ''} ago`;
+      }
+    }
+
+    // Render katha card
+    function renderKathaCard(katha) {
+      const status = calculateStatus(katha);
+      const statusClass = status === 'ongoing' ? 'ongoing' : 
+                         status === 'upcoming' ? 'upcoming' : 'past';
+      
+      const statusText = status === 'ongoing' ? '🔴 LIVE NOW' : 
+                        status === 'upcoming' ? '📅 UPCOMING' : '✅ COMPLETED';
+      
+      return `
+        <div class="status-card ${statusClass} animated fadeInUp" data-status="${status}">
+          <div class="status-badge">${statusText}</div>
+          <h3 class="katha-title">${katha.title}</h3>
+          
+          <div class="katha-details">
+            <div class="detail-item">
+              <span class="detail-icon">📍</span>
+              <div>
+                <strong>Location:</strong><br>
+                ${katha.city}
+              </div>
+            </div>
+            
+            <div class="detail-item">
+              <span class="detail-icon">📅</span>
+              <div>
+                <strong>Dates:</strong><br>
+                ${formatDate(katha.startDate)} - ${formatDate(katha.endDate)}
+              </div>
+            </div>
+            
+            <div class="detail-item">
+              <span class="detail-icon">⏰</span>
+              <div>
+                <strong>Time:</strong><br>
+                ${katha.time}
+              </div>
+            </div>
+            
+            <div class="detail-item">
+              <span class="detail-icon">🏛️</span>
+              <div>
+                <strong>Venue:</strong><br>
+                ${katha.venue}
+              </div>
+            </div>
+          </div>
+          
+          <p style="margin: 15px 0; color: #555; font-style: italic;">
+            "${katha.description}"
+          </p>
+          
+          <div style="display: flex; justify-content: space-between; align-items: center; margin-top: 20px; padding-top: 15px; border-top: 1px dashed #eee;">
+            <div>
+              <small style="color: #666;">
+                📞 ${katha.contact} • Organized by: ${katha.organizer}
+              </small>
+            </div>
+            <div style="font-weight: bold; color: ${status === 'ongoing' ? '#25D366' : status === 'upcoming' ? '#FF6B00' : '#666'};">
+              ${getDaysInfo(katha)}
+            </div>
+          </div>
+        </div>
+      `;
+    }
+
+    // Render all kathas
+    function renderAllKathas() {
+      const ongoingContainer = document.getElementById('ongoing-kathas');
+      const upcomingContainer = document.getElementById('upcoming-kathas');
+      const pastContainer = document.getElementById('past-kathas');
+      
+      // Clear containers
+      ongoingContainer.innerHTML = '';
+      upcomingContainer.innerHTML = '';
+      pastContainer.innerHTML = '';
+      
+      let ongoingCount = 0;
+      let upcomingCount = 0;
+      let pastCount = 0;
+      
+      // Update statuses
+      kathaData.forEach(katha => {
+        katha.status = calculateStatus(katha);
+      });
+      
+      // Sort by date
+      const sortedKathas = [...kathaData].sort((a, b) => {
+        const dateA = new Date(a.startDate);
+        const dateB = new Date(b.startDate);
+        return dateA - dateB;
+      });
+      
+      // Render
+      sortedKathas.forEach(katha => {
+        const cardHTML = renderKathaCard(katha);
+        
+        if (katha.status === 'ongoing') {
+          ongoingContainer.innerHTML += cardHTML;
+          ongoingCount++;
+        } else if (katha.status === 'upcoming') {
+          upcomingContainer.innerHTML += cardHTML;
+          upcomingCount++;
+        } else {
+          pastContainer.innerHTML += cardHTML;
+          pastCount++;
+        }
+      });
+      
+      // Update summary
+      document.getElementById('status-summary').innerHTML = `
+        <span style="font-size: 1.3rem;">
+          ${ongoingCount} 🔴 Ongoing • ${upcomingCount} 📅 Upcoming • ${pastCount} ✅ Completed
+        </span>
+      `;
+      
+      // Show/hide sections
+      document.getElementById('ongoing-section').style.display = ongoingCount > 0 ? 'block' : 'none';
+      document.getElementById('upcoming-section').style.display = upcomingCount > 0 ? 'block' : 'none';
+      document.getElementById('past-section').style.display = pastCount > 0 ? 'block' : 'none';
+      
+      // Update no kathas state
+      document.getElementById('no-kathas').style.display = 
+        (ongoingCount + upcomingCount + pastCount === 0) ? 'block' : 'none';
+    }
+
+    // Filter kathas
+    function filterKathas(status) {
+      const cards = document.querySelectorAll('.status-card');
+      const filterBtns = document.querySelectorAll('.filter-btn');
+      
+      // Update active button
+      filterBtns.forEach(btn => btn.classList.remove('active'));
+      event.target.classList.add('active');
+      
+      let visibleCount = 0;
+      
+      cards.forEach(card => {
+        if (status === 'all' || card.getAttribute('data-status') === status) {
+          card.style.display = 'block';
+          visibleCount++;
+        } else {
+          card.style.display = 'none';
+        }
+      });
+      
+      // Show/hide sections based on filter
+      const sections = ['ongoing-section', 'upcoming-section', 'past-section'];
+      sections.forEach(section => {
+        document.getElementById(section).style.display = 'none';
+      });
+      
+      if (status === 'ongoing') {
+        document.getElementById('ongoing-section').style.display = 'block';
+      } else if (status === 'upcoming') {
+        document.getElementById('upcoming-section').style.display = 'block';
+      } else if (status === 'past') {
+        document.getElementById('past-section').style.display = 'block';
+      } else {
+        // Show all sections that have content
+        renderAllKathas();
+      }
+      
+      // Show empty state if no cards visible
+      document.getElementById('no-kathas').style.display = 
+        (visibleCount === 0 && status !== 'all') ? 'block' : 'none';
+    }
+
+    // Update date and time
+    function updateDateTime() {
+      const now = new Date();
+      const dateOptions = { weekday: 'long', year: 'numeric', month: 'long', day: 'numeric' };
+      const timeOptions = { hour: '2-digit', minute: '2-digit', second: '2-digit' };
+      
+      document.getElementById('current-date-display').textContent = 
+        now.toLocaleDateString('en-US', dateOptions);
+      document.getElementById('current-time').textContent = 
+        now.toLocaleTimeString('en-US', timeOptions);
+      document.getElementById('current-year').textContent = now.getFullYear();
+    }
+
+    // Initialize
+    document.addEventListener('DOMContentLoaded', function() {
+      updateDateTime();
+      renderAllKathas();
+      
+      // Update every minute
+      setInterval(updateDateTime, 60000);
+      
+      // Auto-update status every hour
+      setInterval(renderAllKathas, 3600000);
+      
+      // Add scroll animations
+      const observerOptions = {
+        threshold: 0.1,
+        rootMargin: '0px 0px -50px 0px'
+      };
+
+      const observer = new IntersectionObserver((entries) => {
+        entries.forEach(entry => {
+          if (entry.isIntersecting) {
+            entry.target.style.animationPlayState = 'running';
+          }
+        });
+      }, observerOptions);
+
+      document.querySelectorAll('.animated').forEach(el => {
+        observer.observe(el);
+      });
+    });
+  </script>
+</body>
+</html>
