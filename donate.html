@@ -899,7 +899,7 @@ function handleDonation() {
   // Ensure amount has exactly 2 decimal places for UPI
   amount = amount.toFixed(2);
   
-  const upiId = '7393040963@ybl';
+  const upiId = 'bhagvatkd@okhdfcbank';
   const upiUrl = `upi://pay?pa=${upiId}&pn=Guru%20Govind%20Seva%20Trust&am=${amount}&cu=INR&tn=Donation%20for%20Spiritual%20Activities`;
   
   // Try to open UPI URL
@@ -908,7 +908,7 @@ function handleDonation() {
     
     // If popup was blocked or failed to open
     if (!opened || opened.closed || typeof opened.closed === 'undefined') {
-      alert('Please allow pop-ups to open the UPI app. Or you can manually use the UPI ID: 7393040963@ybl');
+      alert('Please allow pop-ups to open the UPI app. Or you can manually use the UPI ID: bhagvatkd@okhdfcbank');
       return;
     }
     
@@ -920,7 +920,7 @@ function handleDonation() {
     
   } catch (error) {
     console.error('Error opening UPI link:', error);
-    alert('Unable to open payment app. Please use your UPI app manually with ID: 7393040963@ybl');
+    alert('Unable to open payment app. Please use your UPI app manually with ID: bhagvatkd@okhdfcbank');
   }
 }
     
@@ -983,5 +983,6 @@ function handleDonation() {
   </script>
 </body>
 </html>
+
 
 
