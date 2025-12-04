@@ -206,102 +206,507 @@
       }
     }
     
-    /* PAGE SPECIFIC STYLES */
+    /* MODERN ABOUT HERO */
     .about-hero {
-      background: linear-gradient(rgba(0,0,0,0.7), rgba(0,0,0,0.7)), url('images/about-bg.jpg');
+      background: linear-gradient(135deg, rgba(255, 107, 0, 0.9), rgba(255, 172, 28, 0.9)), url('images/about-bg.jpg');
       background-size: cover;
       background-position: center;
+      background-attachment: fixed;
       color: white;
-      padding: 80px 20px;
+      padding: 100px 20px;
       text-align: center;
-    }     
-    .about-hero h1 {
-      font-size: 2.5rem;
-      margin-bottom: 20px;
-      color: #FFD580;
-    }
-    
-    .about-content {
-      max-width: 1100px;
-      margin: 0 auto;
-      padding: 40px 20px;
-    }
-    
-    .about-grid {
-      display: grid;
-      grid-template-columns: 1fr 1fr;
-      gap: 40px;
-      align-items: start;
-    }
-    
-    .about-image {
-      border-radius: 10px;
+      position: relative;
       overflow: hidden;
-      box-shadow: 0 5px 15px rgba(0,0,0,0.1);
     }
     
-    .about-image img {
+    .about-hero::before {
+      content: '';
+      position: absolute;
+      top: 0;
+      left: 0;
+      right: 0;
+      bottom: 0;
+      background: radial-gradient(circle at center, transparent 20%, rgba(0,0,0,0.3) 100%);
+      z-index: 1;
+    }
+    
+    .about-hero h1 {
+      font-size: 3.5rem;
+      margin-bottom: 20px;
+      color: white;
+      text-shadow: 2px 2px 4px rgba(0,0,0,0.3);
+      position: relative;
+      z-index: 2;
+      animation: fadeInUp 1s ease;
+    }
+    
+    .about-hero p {
+      font-size: 1.3rem;
+      max-width: 800px;
+      margin: 0 auto 30px;
+      opacity: 0.95;
+      position: relative;
+      z-index: 2;
+      animation: fadeInUp 1s ease 0.2s both;
+    }
+    
+    .divider {
+      width: 100px;
+      height: 4px;
+      background: white;
+      margin: 30px auto;
+      position: relative;
+      z-index: 2;
+      animation: fadeIn 1s ease 0.4s both;
+    }
+    
+    @keyframes fadeInUp {
+      from {
+        opacity: 0;
+        transform: translateY(30px);
+      }
+      to {
+        opacity: 1;
+        transform: translateY(0);
+      }
+    }
+    
+    /* NEW ABOUT LAYOUT */
+    .about-content {
+      max-width: 1200px;
+      margin: 0 auto;
+      padding: 60px 20px;
+    }
+    
+    .profile-card {
+      display: grid;
+      grid-template-columns: 1fr 2fr;
+      gap: 50px;
+      align-items: start;
+      background: white;
+      border-radius: 20px;
+      overflow: hidden;
+      box-shadow: 0 10px 30px rgba(0,0,0,0.1);
+      margin-bottom: 60px;
+      padding: 40px;
+    }
+    
+    .profile-image {
+      position: relative;
+      border-radius: 15px;
+      overflow: hidden;
+      box-shadow: 0 10px 25px rgba(255, 107, 0, 0.2);
+    }
+    
+    .profile-image img {
       width: 100%;
-      height: auto;
-      display: block;
+      height: 400px;
+      object-fit: cover;
+      transition: transform 0.5s ease;
     }
     
-    .timeline {
-      margin: 40px 0;
-      padding-left: 20px;
-      border-left: 3px solid #FF6B00;
+    .profile-image:hover img {
+      transform: scale(1.05);
     }
     
-    .timeline-item {
-      margin-bottom: 30px;
+    .profile-image::after {
+      content: '';
+      position: absolute;
+      bottom: 0;
+      left: 0;
+      right: 0;
+      height: 100px;
+      background: linear-gradient(to top, rgba(255, 107, 0, 0.3), transparent);
+    }
+    
+    .profile-info {
+      padding: 20px 0;
+    }
+    
+    .profile-title {
+      color: #FF6B00;
+      font-size: 2.2rem;
+      margin-bottom: 15px;
+      position: relative;
+      padding-bottom: 15px;
+    }
+    
+    .profile-title::after {
+      content: '';
+      position: absolute;
+      bottom: 0;
+      left: 0;
+      width: 60px;
+      height: 3px;
+      background: #FF6B00;
+    }
+    
+    .profile-description {
+      font-size: 1.1rem;
+      line-height: 1.8;
+      color: #555;
+      margin-bottom: 25px;
+    }
+    
+    .highlight-box {
+      background: linear-gradient(135deg, #FFF9F0, #FFEEDD);
+      border-left: 5px solid #FF6B00;
+      padding: 25px;
+      border-radius: 10px;
+      margin: 25px 0;
+    }
+    
+    /* STORY SECTION */
+    .story-section {
+      margin: 80px 0;
+    }
+    
+    .story-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+      gap: 30px;
+      margin-top: 40px;
+    }
+    
+    .story-card {
+      background: white;
+      border-radius: 15px;
+      padding: 35px;
+      text-align: center;
+      box-shadow: 0 5px 20px rgba(0,0,0,0.08);
+      transition: transform 0.3s ease, box-shadow 0.3s ease;
+      border-top: 4px solid #FF6B00;
+    }
+    
+    .story-card:hover {
+      transform: translateY(-10px);
+      box-shadow: 0 15px 30px rgba(0,0,0,0.15);
+    }
+    
+    .story-icon {
+      font-size: 3rem;
+      color: #FF6B00;
+      margin-bottom: 20px;
+    }
+    
+    .story-year {
+      font-size: 1.8rem;
+      font-weight: bold;
+      color: #FF6B00;
+      margin-bottom: 15px;
+    }
+    
+    /* MISSION VISION SECTION */
+    .mission-vision {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+      gap: 30px;
+      margin: 60px 0;
+    }
+    
+    .mission-card, .vision-card {
+      background: white;
+      padding: 40px;
+      border-radius: 15px;
+      box-shadow: 0 10px 30px rgba(0,0,0,0.1);
+      position: relative;
+      overflow: hidden;
+    }
+    
+    .mission-card::before, .vision-card::before {
+      content: '';
+      position: absolute;
+      top: 0;
+      left: 0;
+      right: 0;
+      height: 5px;
+      background: linear-gradient(to right, #FF6B00, #FF8E53);
+    }
+    
+    .mission-card h2, .vision-card h2 {
+      color: #FF6B00;
+      margin-bottom: 20px;
+      font-size: 1.8rem;
+    }
+    
+    /* QUOTE SECTION */
+    .quote-section {
+      background: linear-gradient(135deg, #FF6B00, #FF8E53);
+      color: white;
+      padding: 80px 40px;
+      border-radius: 20px;
+      text-align: center;
+      margin: 60px 0;
+      position: relative;
+      overflow: hidden;
+    }
+    
+    .quote-section::before {
+      content: '"';
+      position: absolute;
+      font-size: 20rem;
+      color: rgba(255,255,255,0.1);
+      top: -50px;
+      left: 50px;
+      font-family: serif;
+    }
+    
+    .quote-text {
+      font-size: 1.8rem;
+      font-style: italic;
+      line-height: 1.6;
+      max-width: 800px;
+      margin: 0 auto 30px;
+      position: relative;
+      z-index: 2;
+    }
+    
+    .quote-author {
+      font-size: 1.2rem;
+      font-weight: bold;
+      position: relative;
+      z-index: 2;
+    }
+    
+    /* STATS SECTION */
+    .stats-section {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+      gap: 30px;
+      margin: 60px 0;
+    }
+    
+    .stat-item {
+      text-align: center;
+      padding: 30px;
+      background: white;
+      border-radius: 15px;
+      box-shadow: 0 5px 15px rgba(0,0,0,0.08);
+    }
+    
+    .stat-number {
+      font-size: 3rem;
+      font-weight: bold;
+      color: #FF6B00;
+      margin-bottom: 10px;
+    }
+    
+    .stat-label {
+      color: #666;
+      font-size: 1.1rem;
+    }
+    
+    /* GURU SECTION WITH PHOTOS */
+    .guru-section {
+      margin: 80px 0;
+    }
+    
+    .guru-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+      gap: 40px;
+      margin-top: 40px;
+    }
+    
+    .guru-card {
+      background: white;
+      border-radius: 15px;
+      overflow: hidden;
+      box-shadow: 0 10px 30px rgba(0,0,0,0.1);
+      transition: transform 0.3s ease;
+    }
+    
+    .guru-card:hover {
+      transform: translateY(-10px);
+    }
+    
+    .guru-photo {
+      height: 300px;
+      width: 100%;
+      overflow: hidden;
+    }
+    
+    .guru-photo img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      transition: transform 0.5s ease;
+    }
+    
+    .guru-card:hover .guru-photo img {
+      transform: scale(1.1);
+    }
+    
+    .guru-info {
+      padding: 30px;
+      text-align: center;
+    }
+    
+    .guru-name {
+      color: #FF6B00;
+      font-size: 1.8rem;
+      margin-bottom: 10px;
+    }
+    
+    .guru-title {
+      color: #666;
+      font-size: 1.1rem;
+      margin-bottom: 15px;
+      font-weight: 500;
+    }
+    
+    .guru-blessing {
+      font-style: italic;
+      color: #777;
+      padding-top: 15px;
+      border-top: 1px solid #eee;
+    }
+    
+    /* PROJECTS SECTION */
+    .projects-section {
+      margin: 80px 0;
+    }
+    
+    .projects-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+      gap: 30px;
+      margin-top: 40px;
+    }
+    
+    .project-card {
+      background: white;
+      border-radius: 15px;
+      overflow: hidden;
+      box-shadow: 0 10px 30px rgba(0,0,0,0.1);
+      transition: all 0.3s ease;
       position: relative;
     }
     
-    .timeline-item:before {
-      content: '';
-      position: absolute;
-      left: -26px;
-      top: 5px;
-      width: 12px;
-      height: 12px;
-      background: #FF6B00;
-      border-radius: 50%;
+    .project-card:hover {
+      transform: translateY(-10px);
+      box-shadow: 0 20px 40px rgba(0,0,0,0.15);
     }
     
-    .timeline-year {
+    .project-icon {
+      height: 100px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 3.5rem;
       color: #FF6B00;
-      font-weight: bold;
-      margin-bottom: 5px;
+      background: linear-gradient(135deg, #FFF9F0, #FFEEDD);
     }
     
-    .mission-statement {
-      background: #FFF9F0;
-      padding: 40px;
-      border-radius: 10px;
-      margin: 40px 0;
-      text-align: center;
-      border-left: 5px solid #FF6B00;
-    }
-    
-    .guru-parampara {
-      background: #f8f9fa;
+    .project-content {
       padding: 30px;
-      border-radius: 10px;
-      margin: 30px 0;
     }
     
-    @media (max-width: 768px) {
-      .about-grid {
+    .project-title {
+      color: #FF6B00;
+      font-size: 1.5rem;
+      margin-bottom: 15px;
+      text-align: center;
+    }
+    
+    .project-description {
+      color: #555;
+      line-height: 1.6;
+      text-align: center;
+    }
+    
+    .project-highlight {
+      display: inline-block;
+      background: #FF6B00;
+      color: white;
+      padding: 5px 15px;
+      border-radius: 20px;
+      font-size: 0.9rem;
+      margin-top: 15px;
+      font-weight: 500;
+    }
+    
+    /* RESPONSIVE DESIGN */
+    @media (max-width: 992px) {
+      .profile-card {
         grid-template-columns: 1fr;
+        gap: 30px;
+        padding: 30px;
       }
       
-      .about-hero {
-        padding: 50px 20px;
+      .profile-image img {
+        height: 300px;
       }
       
       .about-hero h1 {
-        font-size: 2rem;
+        font-size: 2.8rem;
       }
+    }
+    
+    @media (max-width: 768px) {
+      .about-hero {
+        padding: 70px 20px;
+        background-attachment: scroll;
+      }
+      
+      .about-hero h1 {
+        font-size: 2.3rem;
+      }
+      
+      .about-hero p {
+        font-size: 1.1rem;
+      }
+      
+      .profile-card {
+        padding: 20px;
+      }
+      
+      .story-grid, .mission-vision, .guru-grid, .projects-grid {
+        grid-template-columns: 1fr;
+      }
+      
+      .quote-section {
+        padding: 50px 20px;
+      }
+      
+      .quote-text {
+        font-size: 1.5rem;
+      }
+      
+      .stats-section {
+        grid-template-columns: repeat(2, 1fr);
+      }
+      
+      .guru-photo {
+        height: 250px;
+      }
+    }
+    
+    @media (max-width: 480px) {
+      .stats-section {
+        grid-template-columns: 1fr;
+      }
+      
+      .profile-title {
+        font-size: 1.8rem;
+      }
+      
+      .quote-text {
+        font-size: 1.3rem;
+      }
+      
+      .guru-photo {
+        height: 200px;
+      }
+    }
+    
+    /* NEWSLETTER */
+    .newsletter {
+      background: linear-gradient(135deg, #FFF9F0, #FFEEDD);
+      padding: 50px;
+      border-radius: 20px;
+      text-align: center;
+      margin: 60px 0;
     }
   </style>
 </head>
@@ -324,112 +729,238 @@
           <li><a href="kathas.html">Kathas</a></li>
           <li><a href="gallery.html">Gallery</a></li>
           <li><a href="contact.html">Contact</a></li>
+          <li><a href="donate.html">Donate</a></li>
         </ul>
       </nav>
     </div>
   </header>
 
   <div class="about-hero">
-    <h1>About Bhagvat Vyas Dr Ramanand Ji</h1>
-    <p>Spiritual Guide • Bhagwat Katha Vyas • Divine Orator</p>
+    <h1>The Spiritual Luminary</h1>
+    <p>Embark on a journey through the life and teachings of Bhagvat Vyas Dr Ramanand Ji, a beacon of divine wisdom</p>
+    <div class="divider"></div>
   </div>
 
   <main class="about-content">
-    <div class="about-grid">
-      <div class="about-text">
-        <section class="section">
-          <h2>Spiritual Journey</h2>
-          <p>Bhagvat Vyas Dr Ramanand Ji is a renowned spiritual leader dedicated to spreading the divine teachings of Shrimad Bhagwat Purana. With over 15 years of experience in delivering Bhagwat Kathas, he has touched the lives of thousands of devotees across India.</p>
-          
-          <p>Born in a spiritually inclined family, Dr Ramanand Ji showed deep interest in scriptures from a young age. He received formal education in Sanskrit and Vedic literature, followed by rigorous training under esteemed gurus in the tradition of Bhagwat Katha exposition.</p>
-        </section>
-
-        <div class="timeline">
-          <h3>Spiritual Timeline</h3>
-          <div class="timeline-item">
-            <div class="timeline-year">2005-2008</div>
-            <p>Formal study of Sanskrit and Vedic scriptures at Gurukul</p>
-          </div>
-          <div class="timeline-item">
-            <div class="timeline-year">2009-2012</div>
-            <p>Intensive training under Guru Maharaj in Bhagwat Katha traditions</p>
-          </div>
-          <div class="timeline-item">
-            <div class="timeline-year">2013</div>
-            <p>First independent Bhagwat Katha in hometown</p>
-          </div>
-          <div class="timeline-item">
-            <div class="timeline-year">2015-Present</div>
-            <p>Conducting Kathas across India, reaching thousands of devotees annually</p>
-          </div>
-        </div>
-      </div>
-      
-      <div class="about-image">
+    <!-- PROFILE SECTION -->
+    <div class="profile-card">
+      <div class="profile-image">
         <img src="images\ji.png" 
              alt="Dr Ramanand Ji in meditation"
              loading="lazy"
              onerror="this.src='https://via.placeholder.com/500x600/FF6B00/FFFFFF?text=Dr+Ramanand+Ji'">
       </div>
+      <div class="profile-info">
+        <h2 class="profile-title">Bhagvat Vyas Dr Ramanand Ji</h2>
+        <p class="profile-description">
+          A revered spiritual luminary, Bhagvat Vyas Dr Ramanand Ji has dedicated his life to spreading the divine nectar of Shrimad Bhagwat Purana. With profound knowledge of Vedic scriptures and exceptional oratory skills, he makes ancient wisdom accessible and relevant to contemporary life.
+        </p>
+        
+        <div class="highlight-box">
+          <p><strong>Spiritual Credentials:</strong> Certified Bhagvat Vyas • PhD in Vedic Literature • 15+ Years of Katha Experience • Disciple of Renowned Gurus</p>
+        </div>
+        
+        <p class="profile-description">
+          His unique approach combines scriptural authenticity with practical life applications, making him one of the most sought-after spiritual speakers in India today. Thousands have found spiritual solace and guidance through his discourses.
+        </p>
+      </div>
     </div>
 
-    <div class="mission-statement">
-      <h2>Our Mission</h2>
-      <p>"To make the divine wisdom of Shrimad Bhagwat accessible to every household, guiding people towards spiritual enlightenment, moral values, and a life of devotion."</p>
+    <!-- SPIRITUAL JOURNEY -->
+    <div class="story-section">
+      <h2 style="text-align: center; color: #FF6B00; margin-bottom: 40px; font-size: 2.5rem;">The Spiritual Odyssey</h2>
+      <div class="story-grid">
+        <div class="story-card">
+          <div class="story-icon">🌱</div>
+          <div class="story-year">Early Calling</div>
+          <p>Born into a spiritually enriched family, showed deep affinity for scriptures from childhood. Started Sanskrit studies at age 12.</p>
+        </div>
+        
+        <div class="story-card">
+          <div class="story-icon">📚</div>
+          <div class="story-year">Gurukul Years</div>
+          <p>Intensive 8-year study under master teachers. Mastered Vedas, Upanishads, Puranas, and traditional commentary systems.</p>
+        </div>
+        
+        <div class="story-card">
+          <div class="story-icon">🎤</div>
+          <div class="story-year">First Katha</div>
+          <p>2009: Delivered first Bhagwat Katha in hometown temple. Received overwhelming response from community.</p>
+        </div>
+        
+        <div class="story-card">
+          <div class="story-icon">🌍</div>
+          <div class="story-year">National Recognition</div>
+          <p>2015 onward: Invited to major spiritual centers across India. Established annual 7-day Katha traditions in multiple cities.</p>
+        </div>
+      </div>
     </div>
 
-    <section class="section">
-      <h2>Guru Parampara & Lineage</h2>
-      <div class="guru-parampara">
-        <p>Dr Ramanand Ji follows the authentic tradition of Bhagwat Katha as passed down through generations of spiritual masters. He received initiation and blessings from:</p>
-        <ul style="margin-left: 20px; margin-top: 15px;">
-          <li><strong>Guru Maharaj Shri [Name]</strong> - Master in Bhagwat Katha</li>
-          <li><strong>Swami [Name]</strong> - Vedic scholar and spiritual guide</li>
-          <li><strong>Shri [Name] Ji Maharaj</strong> - Renowned katha vyas</li>
+    <!-- MISSION & VISION -->
+    <div class="mission-vision">
+      <div class="mission-card">
+        <h2>Our Mission</h2>
+        <p>To illuminate hearts with divine wisdom, making Shrimad Bhagwat accessible to all seekers. We strive to:</p>
+        <ul style="margin-left: 20px; line-height: 1.8; margin-top: 15px;">
+          <li>Preserve authentic Vedic traditions</li>
+          <li>Guide youth towards spiritual values</li>
+          <li>Create spiritual communities</li>
+          <li>Promote daily spiritual practice</li>
         </ul>
       </div>
-    </section>
-
-    <section class="section">
-      <h2>Teaching Philosophy</h2>
-      <div class="cards">
-        <div class="card">
-          <h3>Scriptural Authenticity</h3>
-          <p>Strict adherence to original Sanskrit texts with accurate interpretations</p>
-        </div>
-        <div class="card">
-          <h3>Practical Application</h3>
-          <p>Relating ancient wisdom to modern life challenges</p>
-        </div>
-        <div class="card">
-          <h3>Youth Engagement</h3>
-          <p>Making scriptures relevant and interesting for younger generations</p>
-        </div>
-        <div class="card">
-          <h3>Inclusive Approach</h3>
-          <p>Welcoming devotees from all backgrounds and age groups</p>
+      
+      <div class="vision-card">
+        <h2>Our Vision</h2>
+        <p>To establish a world where spiritual wisdom guides daily life, creating harmony between material prosperity and inner peace.</p>
+        <div style="margin-top: 20px; padding: 15px; background: #FFF9F0; border-radius: 8px;">
+          <p><strong>Core Belief:</strong> True spirituality enhances worldly life, bringing divine grace into every aspect of existence.</p>
         </div>
       </div>
-    </section>
+    </div>
 
-    <section class="section">
-      <h2>Key Teachings</h2>
-      <ul style="margin-left: 20px; line-height: 1.8;">
-        <li>Importance of Naam Japa and daily spiritual practice</li>
-        <li>Living a dharmic life while fulfilling worldly responsibilities</li>
-        <li>Power of devotion (bhakti) in achieving spiritual growth</li>
-        <li>Service (seva) as a path to divine grace</li>
-        <li>Significance of satsang and spiritual company</li>
-      </ul>
-    </section>
+    <!-- IMPACT STATS -->
+    <div class="stats-section">
+      <div class="stat-item">
+        <div class="stat-number">15+</div>
+        <div class="stat-label">Years of Service</div>
+      </div>
+      <div class="stat-item">
+        <div class="stat-number">500+</div>
+        <div class="stat-label">Kathas Conducted</div>
+      </div>
+      <div class="stat-item">
+        <div class="stat-number">50K+</div>
+        <div class="stat-label">Devotees Reached</div>
+      </div>
+      <div class="stat-item">
+        <div class="stat-number">25+</div>
+        <div class="stat-label">Cities Covered</div>
+      </div>
+    </div>
 
+    <!-- INSPIRING QUOTE -->
+    <div class="quote-section">
+      <p class="quote-text">"The Bhagwat is not just a scripture; it's a living guide that transforms hearts and illuminates souls. My mission is to make this divine wisdom accessible to every seeker."</p>
+      <p class="quote-author">- Bhagvat Vyas Dr Ramanand Ji</p>
+    </div>
+
+    <!-- GURU PARAMPARA SECTION -->
+    <div class="guru-section">
+      <h2 style="text-align: center; color: #FF6B00; margin-bottom: 40px; font-size: 2.5rem;">Guru Parampara</h2>
+      <p style="text-align: center; max-width: 800px; margin: 0 auto 40px; font-size: 1.1rem; line-height: 1.7; color: #555;">
+        Dr Ramanand Ji carries forward the divine blessings and teachings received from his revered spiritual masters. 
+        The Guru-Shishya parampara forms the foundation of his spiritual journey and teachings.
+      </p>
+      
+      <div class="guru-grid">
+        <!-- GURU 1 -->
+        <div class="guru-card">
+          <div class="guru-photo">
+            <img src="images\guru ji.png" 
+                 alt="Guru Shri Banmali Ji Maharaj"
+                 loading="lazy"
+                 onerror="this.src='https://via.placeholder.com/400x300/FFEEDD/FF6B00?text=Guru+Maharaj'">
+          </div>
+          <div class="guru-info">
+            <h3 class="guru-name">Guru Shri Banmali Ji Maharaj</h3>
+            <p class="guru-title">Master Bhagwat Katha Vyas & Spiritual Guide</p>
+            <p>With over 40 years of spiritual service, Guru Maharaj initiated Dr Ramanand Ji into the profound depths of Shrimad Bhagwat. He is renowned for his authentic commentary and deep devotion to Lord Krishna.</p>
+            <p class="guru-blessing">"Blessed with divine oratory skills to spread Bhagwat wisdom worldwide"</p>
+          </div>
+        </div>
+        
+        <!-- GURU 2 -->
+        <div class="guru-card">
+          <div class="guru-photo">
+            <img src="images/guru2.jpg" 
+                 alt="Swami Vidyanand Saraswati Ji"
+                 loading="lazy"
+                 onerror="this.src='https://via.placeholder.com/400x300/FFEEDD/FF6B00?text=Swami+Vidyanand'">
+          </div>
+          <div class="guru-info">
+            <h3 class="guru-name">Swami Vidyanand Saraswati Ji</h3>
+            <p class="guru-title">Vedic Scholar & Advaita Vedanta Exponent</p>
+            <p>An eminent scholar of Sanskrit and Vedic literature, Swami Ji provided rigorous training in scriptural interpretation. His guidance shaped the philosophical foundation of Dr Ramanand's teachings.</p>
+            <p class="guru-blessing">"Destined to bridge ancient wisdom with modern spiritual needs"</p>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- PROJECTS SECTION -->
+    <div class="projects-section">
+      <h2 style="text-align: center; color: #FF6B00; margin-bottom: 40px; font-size: 2.5rem;">Spiritual Initiatives & Projects</h2>
+      <p style="text-align: center; max-width: 800px; margin: 0 auto 40px; font-size: 1.1rem; line-height: 1.7; color: #555;">
+        Under the guidance of Dr Ramanand Ji, several transformative spiritual projects are being undertaken to serve the community 
+        and spread divine consciousness.
+      </p>
+      
+      <div class="projects-grid">
+        <!-- PROJECT 1 -->
+        <div class="project-card">
+          <div class="project-icon">🔥</div>
+          <div class="project-content">
+            <h3 class="project-title">Samuhik Havan</h3>
+            <p class="project-description">
+              Monthly collective fire ceremonies where thousands participate in Vedic rituals. These havens purify the atmosphere and bring community together for collective spiritual benefit.
+            </p>
+            <div class="project-highlight">Monthly Event</div>
+          </div>
+        </div>
+        
+        <!-- PROJECT 2 -->
+        <div class="project-card">
+          <div class="project-icon">🧵</div>
+          <div class="project-content">
+            <h3 class="project-title">Samuhik Yagyopavit</h3>
+            <p class="project-description">
+              Annual mass thread ceremony (Upanayana) for hundreds of young boys. This sacred samskara initiates them into Vedic studies and spiritual practices under proper guidance.
+            </p>
+            <div class="project-highlight">Annual Ceremony</div>
+          </div>
+        </div>
+        
+        <!-- PROJECT 3 -->
+        <div class="project-card">
+          <div class="project-icon">🏕️</div>
+          <div class="project-content">
+            <h3 class="project-title">Mela Activities</h3>
+            <p class="project-description">
+              Active participation in major religious festivals and melas across India. Organizing spiritual discourses, devotional singing, and community service during these sacred gatherings.
+            </p>
+            <div class="project-highlight">Festival Outreach</div>
+          </div>
+        </div>
+        
+        <!-- PROJECT 4 -->
+        <div class="project-card">
+          <div class="project-icon">🛕</div>
+          <div class="project-content">
+            <h3 class="project-title">Ashram in Vrindavan</h3>
+            <p class="project-description">
+              Establishing a spiritual retreat center in the holy land of Vrindavan. This ashram will serve as a permanent base for year-round spiritual activities, sadhana, and pilgrim services.
+            </p>
+            <div class="project-highlight">Under Development</div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- NEWSLETTER -->
     <div class="newsletter">
-      <h2>Receive Spiritual Insights</h2>
-      <p>Get monthly teachings, katha updates, and spiritual guidance</p>
-      <form id="newsletterForm" class="newsletter-input">
-        <input type="email" id="newsletter-email-about" placeholder="Your email address" required>
-        <button type="submit" class="btn btn-primary">Subscribe</button>
+      <h2 style="color: #FF6B00;">Join Our Spiritual Family</h2>
+      <p style="font-size: 1.1rem; margin: 20px 0;">Receive monthly spiritual insights, katha schedules, and exclusive teachings</p>
+      <form id="newsletterForm" style="max-width: 500px; margin: 30px auto; display: flex; gap: 10px;">
+        <input type="email" id="newsletter-email-about" 
+               placeholder="Enter your email address" 
+               required
+               style="flex: 1; padding: 15px; border: 2px solid #FF6B00; border-radius: 8px; font-size: 1rem;">
+        <button type="submit" 
+                style="background: #FF6B00; color: white; border: none; padding: 15px 30px; border-radius: 8px; font-size: 1rem; font-weight: bold; cursor: pointer; transition: background 0.3s ease;">
+          Subscribe
+        </button>
       </form>
+      <p style="font-size: 0.9rem; color: #666; margin-top: 15px;">Your spiritual journey begins with a single step</p>
     </div>
   </main>
 
