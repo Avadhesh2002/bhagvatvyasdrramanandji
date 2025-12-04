@@ -235,4 +235,5 @@ document.addEventListener("DOMContentLoaded", function() {
   });
 
   console.log('Website JavaScript loaded successfully!');
+
 });
