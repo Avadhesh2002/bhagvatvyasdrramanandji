@@ -1,563 +1,20 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8" />
+  <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=5.0, user-scalable=yes">
-  <title>Gallery | Dr Ramanand Ji</title>
-  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
-  <style>
-    /* RESET AND BASE STYLES */
-    * {
-      margin: 0;
-      padding: 0;
-      box-sizing: border-box;
-    }
-    
-    body {
-      font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
-      line-height: 1.6;
-      color: #333;
-      background-color: #f9f9f9;
-    }
-    
-    h1, h2, h3 {
-      color: #FF6B00;
-      margin-bottom: 1rem;
-    }
-    
-    h1 {
-      font-size: 2.5rem;
-      text-align: center;
-      margin-bottom: 0.5rem;
-    }
-    
-    h2 {
-      font-size: 2rem;
-      text-align: center;
-      margin-top: 3rem;
-      margin-bottom: 1.5rem;
-      position: relative;
-    }
-    
-    h2:after {
-      content: '';
-      position: absolute;
-      bottom: -10px;
-      left: 50%;
-      transform: translateX(-50%);
-      width: 100px;
-      height: 3px;
-      background-color: #FF6B00;
-    }
-    
-    p {
-      margin-bottom: 1.5rem;
-      color: #666;
-    }
-    
-    .section-intro {
-      text-align: center;
-      max-width: 800px;
-      margin: 0 auto 2rem;
-      padding: 0 20px;
-    }
-    
-    /* HEADER STYLES */
-    header {
-      background: #FF6B00;
-      color: white;
-      width: 100%;
-      z-index: 1000;
-      box-shadow: 0 2px 10px rgba(0,0,0,0.1);
-      position: sticky;
-      top: 0;
-    }
-    
-    /* NAVBAR LAYOUT */
-    .navbar {
-      max-width: 1200px;
-      margin: 0 auto;
-      display: flex;
-      justify-content: space-between;
-      align-items: center;
-      padding: 10px 20px;
-      gap: 20px;
-    }
-    
-    /* LOGO SECTION */
-    .logo-section {
-      display: flex;
-      align-items: center;
-      gap: 15px;
-      white-space: nowrap;
-      flex-shrink: 0;
-    }
-    
-    .logo-image {
-      width: 60px;
-      height: 60px;
-      border-radius: 50%;
-      object-fit: cover;
-      background: white;
-      padding: 2px;
-      box-shadow: 0 2px 6px rgba(0,0,0,0.2);
-      border: 2px solid white;
-    }
-    
-    .logo-text {
-      display: flex;
-      flex-direction: column;
-      justify-content: center;
-      gap: 2px;
-    }
-    
-    .logo-name {
-      font-size: 1.1rem;
-      font-weight: 700;
-      color: white;
-      line-height: 1.2;
-    }
-    
-    .logo-subtitle {
-      font-size: 0.85rem;
-      font-weight: 500;
-      color: #FFE0CC;
-      line-height: 1;
-    }
-    
-    /* NAVBAR NAV LINKS */
-    .navbar nav {
-      display: flex;
-      flex: 1;
-      justify-content: center;
-    }
-    
-    .navbar ul {
-      list-style: none;
-      display: flex;
-      gap: 25px;
-      margin: 0;
-      padding: 0;
-    }
-    
-    .navbar a {
-      color: white;
-      text-decoration: none;
-      font-weight: 500;
-      padding: 8px 12px;
-      border-radius: 4px;
-      transition: all 0.3s ease;
-      display: block;
-    }
-    
-    .navbar a:hover {
-      background: rgba(255, 255, 255, 0.1);
-    }
-    
-    .navbar a.active {
-      background: rgba(255, 255, 255, 0.2);
-    }
-    
-    .hamburger {
-      display: none;
-      background: none;
-      border: none;
-      color: white;
-      font-size: 1.5rem;
-      cursor: pointer;
-      width: 44px;
-      height: 44px;
-      padding: 0;
-      flex-shrink: 0;
-    }
-    
-    /* RESPONSIVE NAVBAR */
-    @media (max-width: 768px) {
-      .hamburger {
-        display: flex;
-        align-items: center;
-        justify-content: center;
-      }
-      
-      .navbar {
-        padding: 10px 15px;
-        gap: 10px;
-      }
-      
-      .logo-section {
-        gap: 10px;
-      }
-      
-      .logo-image {
-        width: 50px;
-        height: 50px;
-      }
-      
-      .logo-name {
-        font-size: 1rem;
-      }
-      
-      .logo-subtitle {
-        font-size: 0.75rem;
-      }
-      
-      .navbar nav {
-        position: fixed;
-        top: 80px;
-        left: 0;
-        width: 100%;
-        background: #FF6B00;
-        padding: 20px;
-        box-shadow: 0 4px 8px rgba(0,0,0,0.1);
-        transform: translateY(-100%);
-        opacity: 0;
-        visibility: hidden;
-        transition: all 0.3s ease;
-        z-index: 999;
-        flex-direction: column;
-        justify-content: flex-start;
-      }
-      
-      .navbar nav.active {
-        transform: translateY(0);
-        opacity: 1;
-        visibility: visible;
-      }
-      
-      .navbar ul {
-        flex-direction: column;
-        gap: 10px;
-      }
-      
-      .navbar a {
-        padding: 12px 16px;
-        text-align: center;
-        border-radius: 6px;
-      }
-      
-      h1 {
-        font-size: 2rem;
-      }
-      
-      h2 {
-        font-size: 1.75rem;
-        margin-top: 2rem;
-      }
-    }
-    
-    @media (max-width: 480px) {
-      .hamburger {
-        display: flex;
-        align-items: center;
-        justify-content: center;
-      }
-      
-      .navbar {
-        padding: 10px 10px;
-      }
-      
-      .logo-image {
-        width: 45px;
-        height: 45px;
-      }
-      
-      .logo-name {
-        font-size: 0.9rem;
-      }
-      
-      .logo-subtitle {
-        font-size: 0.7rem;
-      }
-      
-      h1 {
-        font-size: 1.8rem;
-      }
-      
-      h2 {
-        font-size: 1.5rem;
-        margin-top: 1.5rem;
-      }
-    }
-    
-    /* MAIN CONTENT */
-    main {
-      max-width: 1400px;
-      margin: 0 auto;
-      padding: 2rem 20px;
-    }
-    
-    /* PHOTO GALLERY SECTIONS */
-    .gallery-section {
-      margin-bottom: 4rem;
-    }
-    
-    .photo-grid {
-      display: grid;
-      grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
-      gap: 15px;
-      margin-top: 2rem;
-    }
-    
-    .photo-item {
-      position: relative;
-      overflow: hidden;
-      border-radius: 8px;
-      box-shadow: 0 4px 12px rgba(0,0,0,0.1);
-      transition: transform 0.3s ease, box-shadow 0.3s ease;
-      height: 280px;
-      cursor: pointer;
-    }
-    
-    .photo-item:hover {
-      transform: translateY(-5px);
-      box-shadow: 0 10px 25px rgba(0,0,0,0.15);
-    }
-    
-    .photo-img {
-      width: 100%;
-      height: 100%;
-      object-fit: cover;
-      display: block;
-      transition: transform 0.5s ease;
-    }
-    
-    .photo-item:hover .photo-img {
-      transform: scale(1.05);
-    }
-    
-    /* YOUTUBE VIDEOS SECTION */
-    .video-section {
-      margin: 4rem 0;
-    }
-    
-    .video-grid {
-      display: grid;
-      grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
-      gap: 25px;
-      margin-top: 2rem;
-    }
-    
-    .video-item {
-      position: relative;
-      overflow: hidden;
-      border-radius: 8px;
-      box-shadow: 0 4px 12px rgba(0,0,0,0.1);
-      transition: transform 0.3s ease;
-      cursor: pointer;
-    }
-    
-    .video-item:hover {
-      transform: translateY(-5px);
-    }
-    
-    .video-container {
-      position: relative;
-      padding-bottom: 56.25%;
-      height: 0;
-    }
-    
-    .video-container iframe {
-      position: absolute;
-      top: 0;
-      left: 0;
-      width: 100%;
-      height: 100%;
-      border: none;
-    }
-    
-    /* FOOTER STYLES */
-    footer {
-      background-color: #222;
-      color: white;
-      padding: 3rem 20px 1.5rem;
-      margin-top: 4rem;
-    }
-    
-    .footer-content {
-      max-width: 1200px;
-      margin: 0 auto;
-      display: grid;
-      grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
-      gap: 2rem;
-      margin-bottom: 2rem;
-    }
-    
-    .footer-section h3 {
-      color: #FF6B00;
-      margin-bottom: 1rem;
-      font-size: 1.3rem;
-    }
-    
-    .footer-section p {
-      color: #ccc;
-      line-height: 1.7;
-    }
-    
-    .footer-bottom {
-      text-align: center;
-      padding-top: 1.5rem;
-      border-top: 1px solid #444;
-      max-width: 1200px;
-      margin: 0 auto;
-    }
-    
-    .footer-bottom p {
-      color: #aaa;
-      font-size: 0.9rem;
-    }
-    
-    /* BACK TO TOP BUTTON */
-    .back-to-top {
-      position: fixed;
-      bottom: 30px;
-      right: 30px;
-      background-color: #FF6B00;
-      color: white;
-      width: 50px;
-      height: 50px;
-      border-radius: 50%;
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      font-size: 1.2rem;
-      text-decoration: none;
-      box-shadow: 0 4px 10px rgba(255, 107, 0, 0.3);
-      z-index: 100;
-      opacity: 0;
-      visibility: hidden;
-      transition: all 0.3s ease;
-    }
-    
-    .back-to-top.visible {
-      opacity: 1;
-      visibility: visible;
-    }
-    
-    .back-to-top:hover {
-      background-color: #e55c00;
-      transform: translateY(-3px);
-    }
-    
-    /* IMAGE LIGHTBOX/MODAL */
-    .lightbox {
-      display: none;
-      position: fixed;
-      top: 0;
-      left: 0;
-      width: 100%;
-      height: 100%;
-      background-color: rgba(0, 0, 0, 0.9);
-      z-index: 1000;
-      justify-content: center;
-      align-items: center;
-      opacity: 0;
-      transition: opacity 0.3s ease;
-    }
-    
-    .lightbox.active {
-      display: flex;
-      opacity: 1;
-    }
-    
-    .lightbox-img {
-      max-width: 90%;
-      max-height: 90%;
-      object-fit: contain;
-      border-radius: 5px;
-    }
-    
-    .lightbox-close {
-      position: absolute;
-      top: 20px;
-      right: 30px;
-      color: white;
-      font-size: 3rem;
-      cursor: pointer;
-      background: none;
-      border: none;
-      transition: color 0.3s ease;
-    }
-    
-    .lightbox-close:hover {
-      color: #FF6B00;
-    }
-    
-    .lightbox-nav {
-      position: absolute;
-      top: 50%;
-      width: 100%;
-      display: flex;
-      justify-content: space-between;
-      transform: translateY(-50%);
-      padding: 0 20px;
-    }
-    
-    .lightbox-nav button {
-      background: rgba(255, 255, 255, 0.1);
-      color: white;
-      border: none;
-      width: 60px;
-      height: 60px;
-      border-radius: 50%;
-      font-size: 2rem;
-      cursor: pointer;
-      transition: background 0.3s ease;
-    }
-    
-    .lightbox-nav button:hover {
-      background: rgba(255, 107, 0, 0.8);
-    }
-    
-    /* LOADING STATE FOR IMAGES */
-    .photo-img.loading {
-      background: linear-gradient(90deg, #f0f0f0 25%, #e0e0e0 50%, #f0f0f0 75%);
-      background-size: 200% 100%;
-      animation: loading 1.5s infinite;
-    }
-    
-    @keyframes loading {
-      0% { background-position: 200% 0; }
-      100% { background-position: -200% 0; }
-    }
-    
-    /* MESSAGE FOR NO IMAGES/VIDEOS */
-    .no-content {
-      text-align: center;
-      padding: 3rem;
-      background: white;
-      border-radius: 10px;
-      box-shadow: 0 5px 15px rgba(0,0,0,0.05);
-      grid-column: 1 / -1;
-    }
-    
-    .no-content i {
-      font-size: 3rem;
-      color: #FF6B00;
-      margin-bottom: 1rem;
-    }
-    
-    .no-content h3 {
-      color: #333;
-      margin-bottom: 0.5rem;
-    }
-    
-    /* SECTION DIVIDER */
-    .section-divider {
-      height: 1px;
-      background: linear-gradient(to right, transparent, #FF6B00, transparent);
-      margin: 3rem 0;
-    }
-  </style>
+  <title>Contact | Dr Ramanand Ji</title>
+  <link rel="stylesheet" href="styles.css">
 </head>
 <body>
   <header>
     <div class="navbar">
       <div class="logo-section">
-        <img src="images/logo.png" alt="Logo" class="logo-image" 
+        <img src="images\logo.png" alt="Logo" class="logo-image" 
              onerror="this.src='https://via.placeholder.com/60/FF6B00/FFFFFF?text=Logo'">
         <div class="logo-text">
           <div class="logo-name">Dr Ramanand Ji</div>
-          <div class="logo-subtitle">Bhagvat Vyas</div>
+          <div class="logo-subtitle">Bhagvatvyas</div>
         </div>
       </div>
       <button class="hamburger" aria-label="Toggle menu">☰</button>
@@ -566,8 +23,8 @@
           <li><a href="index.html">Home</a></li>
           <li><a href="about.html">About</a></li>
           <li><a href="kathas.html">Kathas</a></li>
-          <li><a href="gallery.html" class="active">Gallery</a></li>
-          <li><a href="contact.html">Contact</a></li>
+          <li><a href="gallery.html">Gallery</a></li>
+          <li><a href="contact.html" class="active">Contact</a></li>
           <li><a href="donate.html">Donate</a></li>
         </ul>
       </nav>
@@ -575,405 +32,86 @@
   </header>
 
   <main>
-    <!-- Page Header -->
-    <section>
-      <h1>Gallery</h1>
-      <div class="section-intro">
-        <p>Visual journey through spiritual moments with Dr Ramanand Ji</p>
-      </div>
+    <section class="section">
+      <h1>Contact Information</h1>
       
-      <!-- Ramanand Ji Photos Section -->
-      <div class="gallery-section">
-        <h2>Ramanand Ji</h2>
-        <div class="photo-grid" id="ramanand-photos">
-          <!-- Photos will be loaded by JavaScript -->
+      <div style="max-width: 800px; margin: 40px auto;">
+        
+        <!-- Contact Numbers -->
+        <div style="background: #FFF9F0; padding: 30px; border-radius: 10px; margin-bottom: 30px;">
+          <h2 style="color: #FF6B00; margin-bottom: 20px;">📞 Contact Numbers</h2>
+          <div style="font-size: 1.2rem; line-height: 2;">
+            <p><strong>Primary Contact:</strong> +91-9415870944</p>
+            <p><strong>WhatsApp:</strong> +91-9415870944</p>
+            <p><strong>Office Timing:</strong> 9:00 AM - 7:00 PM (IST)</p>
+          </div>
         </div>
-      </div>
-      
-      <!-- Section Divider -->
-      <div class="section-divider"></div>
-      
-      <!-- Katha Photos Section -->
-      <div class="gallery-section">
-        <h2>Katha Moments</h2>
-        <div class="photo-grid" id="katha-photos">
-          <!-- Photos will be loaded by JavaScript -->
+        
+        <!-- Email -->
+        <div style="background: #FFF9F0; padding: 30px; border-radius: 10px; margin-bottom: 30px;">
+          <h2 style="color: #FF6B00; margin-bottom: 20px;">✉️ Email</h2>
+          <div style="font-size: 1.2rem;">
+            <p><strong>Email Address:</strong>bhagvatvyasdrramanandji@gmail.com</p>
+            <p><strong>Response Time:</strong> Within 24 hours</p>
+          </div>
         </div>
-      </div>
-      
-      <!-- Section Divider -->
-      <div class="section-divider"></div>
-      
-      <!-- YouTube Videos Section -->
-      <div class="video-section">
-        <h2>YouTube Videos</h2>
-        <div class="section-intro">
-          <p>Spiritual discourses and bhajans by Dr Ramanand Ji</p>
+        
+        <!-- Address -->
+        <div style="background: #FFF9F0; padding: 30px; border-radius: 10px; margin-bottom: 30px;">
+          <h2 style="color: #FF6B00; margin-bottom: 20px;">📍 Address</h2>
+          <div style="font-size: 1.2rem;">
+            <p><strong>Guru Govind Seva Trust</strong></p>
+            <p>Vrindavan, Mathura District</p>
+            <p>Uttar Pradesh, India</p>
+            <p>PIN: 281121</p>
+          </div>
         </div>
-        <div class="video-grid" id="youtube-videos">
-          <!-- Videos will be loaded by JavaScript -->
+        
+        <!-- Google Map -->
+        <div style="background: #FFF9F0; padding: 30px; border-radius: 10px;">
+          <h2 style="color: #FF6B00; margin-bottom: 20px;">🗺️ Location Map</h2>
+          <div style="width: 100%; height: 400px; background: #f0f0f0; border-radius: 8px; overflow: hidden;">
+            <!-- Google Map Embed -->
+            <iframe 
+              src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d113436.59603126866!2d77.66211964205887!3d27.58085051525312!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x39736fc2d7c5d7a1%3A0x366f32ed8662712!2sVrindavan%2C%20Uttar%20Pradesh!5e0!3m2!1sen!2sin!4v1699967890123!5m2!1sen!2sin" 
+              width="100%" 
+              height="400" 
+              style="border:0;" 
+              allowfullscreen="" 
+              loading="lazy" 
+              referrerpolicy="no-referrer-when-downgrade">
+            </iframe>
+          </div>
+          <p style="margin-top: 15px; color: #666;">
+            <small>Vrindavan, Mathura - Spiritual hub of Braj region</small>
+          </p>
         </div>
+        
       </div>
     </section>
   </main>
 
-  <!-- Image Lightbox -->
-  <div class="lightbox" id="lightbox">
-    <button class="lightbox-close" id="lightboxClose">&times;</button>
-    <div class="lightbox-nav">
-      <button id="lightboxPrev"><i class="fas fa-chevron-left"></i></button>
-      <button id="lightboxNext"><i class="fas fa-chevron-right"></i></button>
-    </div>
-    <img class="lightbox-img" id="lightboxImage" src="" alt="">
-  </div>
-
   <footer>
     <div class="footer-content">
       <div class="footer-section">
-        <h3>Gallery</h3>
-        <p>Photos and videos from Bhagwat Kathas and spiritual discourses by Dr Ramanand Ji.</p>
-      </div>
-      <div class="footer-section">
         <h3>Contact</h3>
-        <p>For more information about upcoming Kathas and events, please visit the contact page.</p>
-      </div>
-      <div class="footer-section">
-        <h3>Spiritual Guidance</h3>
-        <p>Dr Ramanand Ji continues the tradition of Bhagwat Katha to spread spiritual wisdom.</p>
+        <p>📞 +91-9415870944</p>
+        <p>📱 WhatsApp: +91-9415870944</p>
+        <p>✉️ bhagvatvyasdrramanandji@gmail.com</p>
       </div>
     </div>
     
     <div class="footer-bottom">
-      <p>&copy; <span id="current-year">2025</span> Bhagvat Vyas Dr Ramanand Ji. All rights reserved.</p>
+      <p>&copy; <span id="current-year">2025</span> Bhagvatvyas Dr Ramanand Ji</p>
     </div>
   </footer>
 
-  <!-- Back to Top Button -->
-  <a href="#" class="back-to-top" id="backToTop">
-    <i class="fas fa-arrow-up"></i>
-  </a>
-
+  <script src="script.js"></script>
   <script>
-    // Navbar Toggle for Mobile
+    // Update current year
     document.addEventListener('DOMContentLoaded', function() {
-      const hamburger = document.querySelector('.hamburger');
-      const nav = document.querySelector('nav');
-      
-      hamburger.addEventListener('click', function() {
-        nav.classList.toggle('active');
-        hamburger.textContent = nav.classList.contains('active') ? '✕' : '☰';
-      });
-      
-      // Close mobile menu when clicking a link
-      document.querySelectorAll('nav a').forEach(link => {
-        link.addEventListener('click', () => {
-          nav.classList.remove('active');
-          hamburger.textContent = '☰';
-        });
-      });
-      
-      // Update current year
       document.getElementById('current-year').textContent = new Date().getFullYear();
-      
-      // Back to Top Button
-      const backToTop = document.getElementById('backToTop');
-      
-      window.addEventListener('scroll', function() {
-        if (window.pageYOffset > 300) {
-          backToTop.classList.add('visible');
-        } else {
-          backToTop.classList.remove('visible');
-        }
-      });
-      
-      backToTop.addEventListener('click', function(e) {
-        e.preventDefault();
-        window.scrollTo({
-          top: 0,
-          behavior: 'smooth'
-        });
-      });
-      
-      // Load gallery content
-      loadGalleryContent();
     });
-    
-    // Gallery Content Data
-    function loadGalleryContent() {
-      // Ramanand Ji Photos - using your image numbers
-      const ramanandPhotos = [
-        { id: 1, img: "images/5.jpg" },
-        { id: 2, img: "images/6.jpg" },
-        { id: 3, img: "images/7.jpg" },
-        { id: 4, img: "images/8.jpg" },
-        { id: 5, img: "images/9.jpg" },
-        { id: 6, img: "images/2.jpg" },
-        { id: 7, img: "images/3.jpg" },
-        { id: 8, img: "images/4.jpg" }
-      ];
-      
-      // Katha Photos - using your image numbers
-      const kathaPhotos = [
-        { id: 1, img: "images/1.jpg" },
-        { id: 2, img: "images/11.jpg" },
-        { id: 3, img: "images/13.jpg" },
-        { id: 4, img: "images/12.jpg" },
-        { id: 5, img: "images/10.jpg" },
-        { id: 6, img: "images/14.jpg" },
-        { id: 7, img: "images/15.jpg" },
-        { id: 8, img: "images/16.jpg" }
-      ];
-      
-     // YouTube Videos
-const youtubeVideos = [
-  {
-    id: 1,
-    videoId: "YaUyGCkL0MU"
-  },
-  {
-    id: 2,
-    videoId: "iBcNRq-0Cd8"
-  },
-  {
-    id: 3,
-    videoId: "5U9RXbQ7v5s"
-  },
-  {
-    id: 4,
-    videoId: "g8WttLTwWpA"
-  },
-  {
-    id: 5,
-    videoId: "oGb-dS-UV5M"
-  },
-  {
-    id: 6,
-    videoId: "4aaZ-BNe7eg"
-  },
-  {
-    id: 7,
-    videoId: "o8VfXiaE-FE"
-  },
-  {
-    id: 8,
-    videoId: "0yQBwpWzC3c"
-  }
-];
-      
-      // Function to create simple photo item
-      function createPhotoItem(photo) {
-        return `
-          <div class="photo-item" data-id="${photo.id}" data-section="ramanand">
-            <img src="${photo.img}" 
-                 alt="Dr Ramanand Ji"
-                 class="photo-img loading"
-                 onload="this.classList.remove('loading')"
-                 onerror="this.onerror=null; this.src='https://via.placeholder.com/400x400/FF6B00/FFFFFF?text=Photo+${photo.id}'; this.classList.remove('loading')">
-          </div>
-        `;
-      }
-      
-      // Function to create katha photo item
-      function createKathaItem(photo) {
-        return `
-          <div class="photo-item" data-id="${photo.id}" data-section="katha">
-            <img src="${photo.img}" 
-                 alt="Bhagwat Katha"
-                 class="photo-img loading"
-                 onload="this.classList.remove('loading')"
-                 onerror="this.onerror=null; this.src='https://via.placeholder.com/400x400/FF6B00/FFFFFF?text=Katha+${photo.id}'; this.classList.remove('loading')">
-          </div>
-        `;
-      }
-      
-      // Function to create video item
-      function createVideoItem(video) {
-        return `
-          <div class="video-item">
-            <div class="video-container">
-              <iframe 
-                src="https://www.youtube.com/embed/${video.videoId}" 
-                title="Dr Ramanand Ji Video"
-                frameborder="0" 
-                allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" 
-                allowfullscreen>
-              </iframe>
-            </div>
-          </div>
-        `;
-      }
-      
-      // Function to load content into a section
-      function loadSectionContent(sectionId, data, createItemFunc, noContentMessage) {
-        const section = document.getElementById(sectionId);
-        
-        if (!section) return;
-        
-        if (data && data.length > 0) {
-          let html = '';
-          data.forEach(item => {
-            html += createItemFunc(item);
-          });
-          section.innerHTML = html;
-        } else {
-          section.innerHTML = `
-            <div class="no-content">
-              <i class="fas fa-images"></i>
-              <h3>No Content Available</h3>
-              <p>${noContentMessage}</p>
-            </div>
-          `;
-        }
-      }
-      
-      // Load all sections
-      loadSectionContent(
-        'ramanand-photos', 
-        ramanandPhotos, 
-        createPhotoItem,
-        'Photos of Dr Ramanand Ji will be added soon.'
-      );
-      
-      loadSectionContent(
-        'katha-photos', 
-        kathaPhotos, 
-        createKathaItem,
-        'Photos from Kathas will be added soon.'
-      );
-      
-      loadSectionContent(
-        'youtube-videos', 
-        youtubeVideos, 
-        createVideoItem,
-        'YouTube videos will be added soon.'
-      );
-      
-      // Initialize lightbox functionality
-      initLightbox();
-    }
-    
-    // Lightbox functionality
-    function initLightbox() {
-      const lightbox = document.getElementById('lightbox');
-      const lightboxImage = document.getElementById('lightboxImage');
-      const lightboxClose = document.getElementById('lightboxClose');
-      const lightboxPrev = document.getElementById('lightboxPrev');
-      const lightboxNext = document.getElementById('lightboxNext');
-      
-      let currentPhotos = [];
-      let currentIndex = 0;
-      let currentSection = '';
-      
-      // Get all photos from both sections
-      function getAllPhotos() {
-        const ramanandItems = document.querySelectorAll('#ramanand-photos .photo-item');
-        const kathaItems = document.querySelectorAll('#katha-photos .photo-item');
-        
-        const photos = [];
-        
-        // Add Ramanand photos
-        ramanandItems.forEach(item => {
-          const img = item.querySelector('img');
-          if (img) {
-            photos.push({
-              src: img.src,
-              section: 'ramanand',
-              id: item.dataset.id
-            });
-          }
-        });
-        
-        // Add Katha photos
-        kathaItems.forEach(item => {
-          const img = item.querySelector('img');
-          if (img) {
-            photos.push({
-              src: img.src,
-              section: 'katha',
-              id: item.dataset.id
-            });
-          }
-        });
-        
-        return photos;
-      }
-      
-      // Open lightbox
-      function openLightbox(src, index, section) {
-        currentPhotos = getAllPhotos();
-        currentIndex = index;
-        currentSection = section;
-        
-        lightboxImage.src = src;
-        lightbox.classList.add('active');
-        document.body.style.overflow = 'hidden';
-      }
-      
-      // Close lightbox
-      function closeLightbox() {
-        lightbox.classList.remove('active');
-        document.body.style.overflow = 'auto';
-      }
-      
-      // Show next image
-      function showNextImage() {
-        if (currentPhotos.length === 0) return;
-        
-        currentIndex = (currentIndex + 1) % currentPhotos.length;
-        lightboxImage.src = currentPhotos[currentIndex].src;
-      }
-      
-      // Show previous image
-      function showPrevImage() {
-        if (currentPhotos.length === 0) return;
-        
-        currentIndex = (currentIndex - 1 + currentPhotos.length) % currentPhotos.length;
-        lightboxImage.src = currentPhotos[currentIndex].src;
-      }
-      
-      // Add click event to all photo items
-      document.addEventListener('click', function(e) {
-        const photoItem = e.target.closest('.photo-item');
-        if (photoItem) {
-          const img = photoItem.querySelector('img');
-          if (img) {
-            // Find index of this photo
-            const allPhotos = getAllPhotos();
-            const index = allPhotos.findIndex(photo => 
-              photo.src === img.src || 
-              (photo.section === photoItem.dataset.section && photo.id === photoItem.dataset.id)
-            );
-            
-            openLightbox(img.src, index >= 0 ? index : 0, photoItem.dataset.section);
-          }
-        }
-      });
-      
-      // Lightbox controls
-      lightboxClose.addEventListener('click', closeLightbox);
-      lightboxPrev.addEventListener('click', showPrevImage);
-      lightboxNext.addEventListener('click', showNextImage);
-      
-      // Close lightbox when clicking outside the image
-      lightbox.addEventListener('click', function(e) {
-        if (e.target === lightbox) {
-          closeLightbox();
-        }
-      });
-      
-      // Keyboard navigation
-      document.addEventListener('keydown', function(e) {
-        if (!lightbox.classList.contains('active')) return;
-        
-        if (e.key === 'Escape') {
-          closeLightbox();
-        } else if (e.key === 'ArrowRight') {
-          showNextImage();
-        } else if (e.key === 'ArrowLeft') {
-          showPrevImage();
-        }
-      });
-    }
   </script>
 </body>
 </html>
