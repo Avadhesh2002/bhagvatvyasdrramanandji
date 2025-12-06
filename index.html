@@ -976,12 +976,11 @@
                 <div class="audio-title">Bhagwat Katha Bhajan</div>
                 
                 <div class="audio-info">
-                    <div>Divine Melodies</div>
                     <div class="audio-time" id="audioTime">0:00 / 0:00</div>
                 </div>
                 
                 <div class="control-row">
-                    <button class="custom-play-btn" id="customPlayBtn">▶️</button>
+                    <button class="custom-play-btn" id="customPlayBtn">▶</button>
                     
                     <div class="progress-container" id="progressContainer">
                         <div class="progress-bar" id="progressBar"></div>
@@ -1191,7 +1190,7 @@
         customPlayBtn.addEventListener('click', function() {
             if (mainAudio.paused) {
                 mainAudio.play().then(() => {
-                    customPlayBtn.textContent = '⏸️';
+                    customPlayBtn.textContent = '❚❚';
                     customPlayBtn.classList.add('playing');
                     audioLogo.classList.add('playing');
                 }).catch(e => {
@@ -1199,7 +1198,7 @@
                 });
             } else {
                 mainAudio.pause();
-                customPlayBtn.textContent = '▶️';
+                customPlayBtn.textContent = '▶';
                 customPlayBtn.classList.remove('playing');
                 audioLogo.classList.remove('playing');
             }
@@ -1207,19 +1206,19 @@
         
         // Update button when audio plays/pauses
         mainAudio.addEventListener('play', function() {
-            customPlayBtn.textContent = '⏸️';
+            customPlayBtn.textContent = '❚❚';
             customPlayBtn.classList.add('playing');
             audioLogo.classList.add('playing');
         });
         
         mainAudio.addEventListener('pause', function() {
-            customPlayBtn.textContent = '▶️';
+            customPlayBtn.textContent = '▶';
             customPlayBtn.classList.remove('playing');
             audioLogo.classList.remove('playing');
         });
         
         mainAudio.addEventListener('ended', function() {
-            customPlayBtn.textContent = '▶️';
+            customPlayBtn.textContent = '▶';
             customPlayBtn.classList.remove('playing');
             audioLogo.classList.remove('playing');
             mainAudio.currentTime = 0;
