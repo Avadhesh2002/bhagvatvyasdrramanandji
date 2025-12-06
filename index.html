@@ -267,6 +267,148 @@
       background: rgba(255, 255, 255, 0.8);
     }
     
+    /* ========== ENHANCED AUDIO PLAYER STYLES ========== */
+    .audio-player-section {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        padding: 50px 20px;
+        background: linear-gradient(to bottom, #FFF9F0, #FFEEDD);
+        position: relative;
+        overflow: hidden;
+    }
+
+    .audio-player-section::before {
+        content: '';
+        position: absolute;
+        top: 0;
+        left: 0;
+        right: 0;
+        height: 3px;
+        background: linear-gradient(to right, #FF6B00, #FFD580, #FF6B00);
+    }
+
+    .audio-player-container {
+        background: linear-gradient(145deg, #FF6B00 0%, #FF4500 100%);
+        height: 160px;
+        width: 550px;
+        max-width: 90%;
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+        border-radius: 25px;
+        box-shadow: 
+            0 15px 35px rgba(255, 107, 0, 0.4),
+            inset 0 1px 0 rgba(255, 255, 255, 0.3),
+            inset 0 -1px 0 rgba(0, 0, 0, 0.2);
+        border: 4px solid white;
+        position: relative;
+        overflow: hidden;
+        padding: 0 30px;
+        z-index: 1;
+    }
+
+    /* Glow effect */
+    .audio-player-container::after {
+        content: '';
+        position: absolute;
+        top: -2px;
+        left: -2px;
+        right: -2px;
+        bottom: -2px;
+        background: linear-gradient(45deg, #FF6B00, #FFD580, #FF6B00);
+        border-radius: 27px;
+        z-index: -1;
+        opacity: 0.6;
+        filter: blur(10px);
+    }
+
+    /* Logo Circle with glowing effect */
+    .logo-circle {
+        width: 90px;
+        height: 90px;
+        border-radius: 50%;
+        background: linear-gradient(135deg, white, #FFE0CC);
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        overflow: hidden;
+        border: 4px solid #FFD580;
+        box-shadow: 
+            0 0 20px rgba(255, 213, 128, 0.6),
+            0 5px 15px rgba(0, 0, 0, 0.2),
+            inset 0 2px 4px rgba(255, 255, 255, 0.8);
+        position: relative;
+        z-index: 2;
+        transition: all 0.5s ease;
+    }
+
+    .logo-circle::before {
+        content: '';
+        position: absolute;
+        top: -4px;
+        left: -4px;
+        right: -4px;
+        bottom: -4px;
+        border-radius: 50%;
+        background: linear-gradient(45deg, #FF6B00, #FFD580, #FF6B00);
+        z-index: -1;
+        opacity: 0;
+        transition: opacity 0.5s ease;
+    }
+
+    .logo-circle img {
+        width: 75%;
+        height: 75%;
+        object-fit: contain;
+        border-radius: 50%;
+        filter: drop-shadow(0 2px 4px rgba(0, 0, 0, 0.1));
+    }
+    
+    /* Enhanced rotating animation */
+    @keyframes rotateLogo {
+        0% {
+            transform: rotate(0deg) scale(1);
+            box-shadow: 0 0 20px rgba(255, 213, 128, 0.6);
+        }
+        50% {
+            transform: rotate(180deg) scale(1.05);
+            box-shadow: 0 0 30px rgba(255, 213, 128, 0.8);
+        }
+        100% {
+            transform: rotate(360deg) scale(1);
+            box-shadow: 0 0 20px rgba(255, 213, 128, 0.6);
+        }
+    }
+
+    @keyframes pulseGlow {
+        0%, 100% {
+            opacity: 0.6;
+            filter: blur(10px);
+        }
+        50% {
+            opacity: 0.8;
+            filter: blur(12px);
+        }
+    }
+
+    .logo-circle.playing {
+        animation: rotateLogo 8s linear infinite;
+    }
+
+    .audio-player-container.playing::after {
+        animation: pulseGlow 2s ease-in-out infinite;
+    }
+
+    @keyframes float {
+        0%, 100% {
+            transform: translateY(0) rotate(0deg);
+        }
+        50% {
+            transform: translateY(-20px) rotate(10deg);
+        }
+    }
+    
     /* QUICK LINKS */
     .quick-links {
       background: #FFF9F0;
@@ -366,51 +508,198 @@
 
 /* RESPONSIVE */
 @media (max-width: 768px) {
-    .marquee-bar {
-        padding: 8px 0;
+    .hero-image {
+        height: calc(100vh - 60px);
     }
-    
-    .marquee-content {
+      
+    .hero-overlay {
+        padding: 20px 15px;
+    }
+      
+    .hero-quote {
+        font-size: 1rem;
+    }
+      
+    .slideshow-banner {
+        height: auto;
+        max-height: calc(80vh);
+    }
+      
+    .slide-title {
+        font-size: 1.3rem;
+    }
+      
+    .slide-info {
+        font-size: 0.95rem;
+    }
+      
+    .slide-date {
         font-size: 0.85rem;
-        animation-duration: 200s; /* Slower on tablet */
+    }
+      
+    .slide-nav-button {
+        font-size: 1.5rem;
+        padding: 15px 10px;
+    }
+      
+    .marquee-content {
+        font-size: 0.9rem;
+        animation: marquee 20s linear infinite;
+    }
+      
+    .quick-links-grid {
+        grid-template-columns: 1fr;
+    }
+      
+    .next-katha-highlight {
+        margin: 20px 15px;
+        padding: 20px;
     }
     
-    .marquee-text {
-        padding-right: 30px;
+    /* Audio Player Responsive */
+    .audio-player-section {
+        padding: 40px 15px;
+    }
+    
+    .audio-player-container {
+        height: 140px;
+        width: 90%;
+        padding: 0 20px;
+        flex-direction: column;
+        justify-content: center;
+        gap: 15px;
+    }
+    
+    .logo-circle {
+        width: 70px;
+        height: 70px;
+        border-width: 3px;
+    }
+    
+    .audio-controls {
+        padding: 0;
+        width: 100%;
+    }
+    
+    .audio-title {
+        font-size: 1.1rem;
+        margin-bottom: 10px;
+    }
+    
+    .custom-play-btn {
+        width: 55px;
+        height: 55px;
+        font-size: 1.6rem;
+    }
+    
+    .floating-icon {
+        font-size: 1.5rem;
     }
 }
 
 @media (max-width: 480px) {
     .marquee-content {
         font-size: 0.8rem;
-        animation-duration: 200s; /* Even slower on mobile */
-        white-space: nowrap;
+        animation: marquee 15s linear infinite;
+    }
+      
+    .marquee-bar {
+        padding: 8px 0;
+    }
+      
+    .hamburger {
+        display: flex;
+        align-items: center;
+        justify-content: center;
+    }
+      
+    .navbar {
+        padding: 10px 10px;
+    }
+      
+    .logo-image {
+        width: 45px;
+        height: 45px;
+    }
+      
+    .logo-name {
+        font-size: 0.9rem;
+    }
+      
+    .logo-subtitle {
+        font-size: 0.7rem;
+    }
+      
+    .slideshow-banner {
+        height: auto;
+        max-height: calc(70vh);
+    }
+      
+    .slide-title {
+        font-size: 1.1rem;
+    }
+      
+    .slide-info {
+        font-size: 0.85rem;
+    }
+      
+    .slide-date {
+        font-size: 0.75rem;
+    }
+      
+    .slide-overlay {
+        padding: 20px 10px;
+    }
+      
+    .slide-nav-button {
+        font-size: 1.2rem;
+        padding: 10px 8px;
+    }
+      
+    .slide-indicators {
+        bottom: 10px;
+      }
+      
+      .slide-indicator {
+        width: 10px;
+        height: 10px;
     }
     
-    .marquee-text {
-        padding-right: 20px;
+    /* Audio Player Responsive */
+    .audio-player-section {
+        padding: 30px 10px;
     }
     
-    /* Make sure the text doesn't break */
-    .marquee-text {
-        display: inline-block;
-        white-space: nowrap;
+    .audio-player-container {
+        height: 130px;
+        width: 95%;
+        padding: 0 15px;
+        gap: 12px;
+        border-radius: 20px;
     }
-}
-
-/* For very small screens */
-@media (max-width: 360px) {
-    .marquee-content {
-        animation-duration: 200s; /* Slowest on very small screens */
+    
+    .logo-circle {
+        width: 60px;
+        height: 60px;
     }
-}
-
-/* Pause animation when reduced motion is preferred */
-@media (prefers-reduced-motion: reduce) {
-    .marquee-content {
-        animation: none;
-        padding-left: 0;
-        text-align: center;
+    
+    .audio-title {
+        font-size: 1rem;
+    }
+    
+    .custom-play-btn {
+        width: 50px;
+        height: 50px;
+        font-size: 1.5rem;
+    }
+    
+    .audio-info {
+        font-size: 0.8rem;
+        padding: 5px 12px;
+    }
+    
+    .floating-icon {
+        font-size: 1.2rem;
     }
 }
     
@@ -438,126 +727,6 @@
     .next-katha-highlight:hover {
       transform: translateY(-5px);
       box-shadow: 0 10px 25px rgba(255, 107, 0, 0.4);
-    }
-    
-    /* RESPONSIVE */
-    @media (max-width: 768px) {
-      .hero-image {
-        height: calc(100vh - 60px);
-      }
-      
-      .hero-overlay {
-        padding: 20px 15px;
-      }
-      
-      .hero-quote {
-        font-size: 1rem;
-      }
-      
-      .slideshow-banner {
-        height: auto;
-        max-height: calc(80vh);
-      }
-      
-      .slide-title {
-        font-size: 1.3rem;
-      }
-      
-      .slide-info {
-        font-size: 0.95rem;
-      }
-      
-      .slide-date {
-        font-size: 0.85rem;
-      }
-      
-      .slide-nav-button {
-        font-size: 1.5rem;
-        padding: 15px 10px;
-      }
-      
-      .marquee-content {
-        font-size: 0.9rem;
-        animation: marquee 20s linear infinite;
-      }
-      
-      .quick-links-grid {
-        grid-template-columns: 1fr;
-      }
-      
-      .next-katha-highlight {
-        margin: 20px 15px;
-        padding: 20px;
-      }
-    }
-    
-    @media (max-width: 480px) {
-      .marquee-content {
-        font-size: 0.8rem;
-        animation: marquee 15s linear infinite;
-      }
-      
-      .marquee-bar {
-        padding: 8px 0;
-      }
-      
-      .hamburger {
-        display: flex;
-        align-items: center;
-        justify-content: center;
-      }
-      
-      .navbar {
-        padding: 10px 10px;
-      }
-      
-      .logo-image {
-        width: 45px;
-        height: 45px;
-      }
-      
-      .logo-name {
-        font-size: 0.9rem;
-      }
-      
-      .logo-subtitle {
-        font-size: 0.7rem;
-      }
-      
-      .slideshow-banner {
-        height: auto;
-        max-height: calc(70vh);
-      }
-      
-      .slide-title {
-        font-size: 1.1rem;
-      }
-      
-      .slide-info {
-        font-size: 0.85rem;
-      }
-      
-      .slide-date {
-        font-size: 0.75rem;
-      }
-      
-      .slide-overlay {
-        padding: 20px 10px;
-      }
-      
-      .slide-nav-button {
-        font-size: 1.2rem;
-        padding: 10px 8px;
-      }
-      
-      .slide-indicators {
-        bottom: 10px;
-      }
-      
-      .slide-indicator {
-        width: 10px;
-        height: 10px;
-      }
     }
     
     /* RESPONSIVE NAVBAR */
@@ -696,6 +865,30 @@
       </p>
     </div>
 
+    <!-- ========== ENHANCED AUDIO PLAYER WITH ROTATING LOGO ========== -->
+    <div class="audio-player-section">
+        
+        <div class="audio-player-container" id="audioPlayerContainer">
+            <!-- Logo Circle -->
+            <div class="logo-circle" id="audioLogo">
+                <img src="images\audioimg.png" alt="Logo" 
+                     onerror="this.src='https://via.placeholder.com/100/FF6B00/FFFFFF?text=LOGO'">
+            </div>
+            
+            <!-- Audio Controls -->
+            <div class="audio-controls">
+                
+                <div class="audio-player">
+                    <audio id="mainAudio" controls>
+                        <source src="audio\audio 1.mp3" type="audio/mpeg">
+                        <source src="audio\audio 2.ogg" type="audio/ogg">
+                        Your browser does not support the audio element.
+                    </audio>
+                </div>
+            </div>
+        </div>
+    </div>
+
     <!-- QUICK LINKS SECTION -->
     <section class="quick-links">
       <div class="quick-links-grid">
@@ -720,7 +913,7 @@
         <a href="https://wa.me/91XXXXXXXXXX" class="quick-link-card" target="_blank">
           <div class="quick-link-icon">📱</div>
           <h3>WhatsApp Updates</h3>
-          <p>Get live updates on Katha schedules</p>
+          <p>Join Whatsup channel for katha updates</p>
         </a>
       </div>
     </section>
@@ -739,8 +932,11 @@
     <!-- DYNAMIC MARQUEE BAR -->
     <div class="marquee-bar">
       <div class="marquee-content">
-        <span class="marquee-text" id="upcoming-katha-text">📿🌺 श्री राधे 🌺🌺 श्री राधे 🌺🌺 श्री राधे 🌺🌺 श्री राधे 🌺🌺 श्री राधे 🌺🌺 श्री राधे 🌺🌺 श्री राधे 🌺🌺 श्री राधे 🌺🌺 श्री राधे 🌺🌺 श्री राधे 🌺🌺 श्री राधे 🌺🌺 श्री राधे 🌺🌺 श्री राधे 🌺🌺 श्री राधे 🌺🌺 श्री राधे 🌺🌺 श्री राधे 🌺🌺 श्री राधे 🌺🌺 श्री राधे 🌺🌺 श्री राधे 🌺🌺 श्री राधे 🌺🌺 श्री राधे 🌺🌺 श्री राधे 🌺🌺 श्री राधे 🌺🌺 श्री राधे 🌺🌺 श्री राधे 🌺🌺 श्री राधे 🌺🌺 श्री राधे 🌺🌺 श्री राधे 🌺🌺 श्री राधे 🌺🌺 श्री राधे 🌺🌺 श्री राधे 🌺🌺 श्री राधे 🌺🌺 श्री राधे 🌺🌺 श्री राधे 🌺🌺 श्री राधे 🌺🌺 श्री राधे 🌺🌺 श्री राधे 🌺🌺 श्री राधे 🌺🌺 श्री राधे 🌺🌺 श्री राधे 🌺🌺 श्री राधे 🌺🌺 श्री राधे 🌺🌺 श्री राधे 🌺🌺 श्री राधे 🌺🌺 श्री राधे 🌺🌺 श्री राधे 🌺🌺 श्री राधे 🌺🌺 श्री राधे 🌺🌺 श्री राधे 🌺🌺 श्री राधे 🌺🌺 श्री राधे 🌺🌺 श्री राधे 🌺🌺 श्री राधे 🌺🌺 श्री राधे 🌺🌺 श्री राधे 🌺🌺 श्री राधे 🌺🌺 श्री राधे 🌺🌺 श्री राधे 🌺🌺 श्री राधे 🌺🌺 श्री राधे 🌺🌺 श्री राधे 🌺🌺 श्री राधे 🌺🌺 श्री राधे 🌺🌺 श्री राधे 🌺🌺 श्री राधे 🌺🌺 श्री राधे 🌺🌺 श्री राधे 🌺🌺 श्री राधे 🌺🌺 श्री राधे 🌺🌺 श्री राधे 🌺🌺 श्री राधे 🌺🌺 श्री राधे 🌺🌺 श्री राधे 🌺🌺 श्री राधे 🌺🌺 श्री राधे 🌺🌺 श्री राधे 🌺🌺 श्री राधे 🌺🌺 श्री राधे 🌺🌺 श्री राधे 🌺🌺 श्री राधे 🌺🌺 श्री राधे 🌺🌺 श्री राधे 🌺🌺 श्री राधे 🌺🌺 श्री राधे 🌺🌺 श्री राधे 🌺🌺 श्री राधे 🌺🌺 श्री राधे 🌺🌺 श्री राधे 🌺🌺 श्री राधे 🌺🌺 श्री राधे 🌺🌺 श्री राधे 🌺🌺 श्री राधे 🌺🌺 श्री राधे 🌺🌺 श्री राधे 🌺🌺 श्री राधे 🌺🌺 श्री राधे 🌺🌺 श्री राधे 🌺🌺 श्री राधे 🌺🌺 श्री राधे 🌺🌺 श्री राधे 🌺🌺 श्री राधे 🌺🌺 श्री राधे 🌺🌺 श्री राधे 🌺🌺 श्री राधे 🌺🌺 श्री राधे 🌺🌺 श्री राधे 🌺🌺 श्री राधे 🌺🌺 श्री राधे 🌺🌺 श्री राधे 🌺🌺 श्री राधे 🌺🌺 श्री राधे 🌺🌺 श्री राधे 🌺🌺 श्री राधे 🌺🌺 श्री राधे 🌺🌺 श्री राधे 🌺🌺 श्री राधे 🌺🌺 श्री राधे 🌺🌺 श्री राधे 🌺🌺 श्री राधे 🌺🌺 श्री राधे 🌺🌺 श्री राधे 🌺🌺 श्री राधे 🌺🌺 श्री राधे 🌺🌺 श्री राधे 🌺🌺 श्री राधे 🌺🌺 श्री राधे 🌺🌺 श्री राधे 🌺🌺 श्री राधे 🌺🌺 श्री राधे 🌺🌺 श्री राधे 🌺🌺 श्री राधे 🌺🌺 श्री राधे 🌺🌺 श्री राधे 🌺🌺 श्री राधे 🌺🌺 श्री राधे 🌺🌺 श्री राधे 🌺🌺 श्री राधे 🌺🌺 श्री राधे 🌺🌺 श्री राधे 🌺🌺 श्री राधे 🌺🌺 श्री राधे 🌺🌺 श्री राधे 🌺🌺 श्री राधे 🌺🌺 श्री राधे 🌺🌺 श्री राधे 🌺🌺 श्री राधे 🌺🌺 श्री राधे 🌺🌺 श्री राधे 🌺🌺 श्री राधे 🌺🌺 श्री राधे 🌺🌺 श्री राधे 🌺🌺 श्री राधे 🌺🌺 श्री राधे 🌺🌺 श्री राधे 🌺🌺 श्री राधे 🌺🌺 श्री राधे 🌺🌺 श्री राधे 🌺🌺 श्री राधे 🌺🌺 श्री राधे 🌺🌺 श्री राधे 🌺🌺 श्री राधे 🌺🌺 श्री राधे 🌺🌺 श्री राधे 🌺🌺 श्री राधे 🌺🌺 श्री राधे 🌺🌺 श्री राधे 🌺🌺 श्री राधे 🌺🌺 श्री राधे 🌺🌺 श्री राधे 🌺🌺 श्री राधे 🌺🌺 श्री राधे 🌺🌺 श्री राधे 🌺🌺 श्री राधे 🌺🌺 श्री राधे 🌺🌺 श्री राधे 🌺🌺 श्री राधे 🌺🌺 श्री राधे 🌺🌺 श्री राधे 🌺🌺 श्री राधे 🌺🌺 श्री राधे 🌺🌺 श्री राधे 🌺🌺 श्री राधे 🌺🌺 श्री राधे 🌺🌺 श्री राधे 🌺🌺 श्री राधे 🌺🌺 श्री राधे 🌺🌺 श्री राधे 🌺🌺 श्री राधे 🌺🌺 श्री राधे 🌺🌺 श्री राधे 🌺🌺 श्री राधे 🌺🌺 श्री राधे 🌺🌺 श्री राधे 🌺🌺 श्री राधे 🌺🌺 श्री राधे 🌺🌺 श्री राधे 🌺🌺 श्री राधे 🌺🌺 श्री राधे 🌺🌺 श्री राधे 🌺🌺 श्री राधे 🌺🌺 श्री राधे 🌺🌺 श्री राधे 🌺🌺 श्री राधे 🌺🌺 श्री राधे 🌺🌺 श्री राधे 🌺🌺 श्री राधे 🌺🌺 श्री राधे 🌺🌺 श्री राधे 🌺🌺 श्री राधे 🌺🌺 श्री राधे 🌺🌺 श्री राधे 🌺🌺 श्री राधे 🌺🌺 श्री राधे 🌺🌺 श्री राधे 🌺🌺 श्री राधे 🌺🌺 श्री राधे 🌺🌺 श्री राधे 🌺🌺 श्री राधे 🌺🌺 श्री राधे 🌺🌺 श्री राधे 🌺 📿</span>
-        <span class="marquee-text" id="upcoming-katha-text">📿🌺 श्री राधे 🌺🌺 श्री राधे 🌺🌺 श्री राधे 🌺🌺 श्री राधे 🌺🌺 श्री राधे 🌺🌺 श्री राधे 🌺🌺 श्री राधे 🌺🌺 श्री राधे 🌺🌺 श्री राधे 🌺🌺 श्री राधे 🌺🌺 श्री राधे 🌺🌺 श्री राधे 🌺🌺 श्री राधे 🌺🌺 श्री राधे 🌺🌺 श्री राधे 🌺🌺 श्री राधे 🌺🌺 श्री राधे 🌺🌺 श्री राधे 🌺🌺 श्री राधे 🌺🌺 श्री राधे 🌺🌺 श्री राधे 🌺🌺 श्री राधे 🌺🌺 श्री राधे 🌺🌺 श्री राधे 🌺🌺 श्री राधे 🌺🌺 श्री राधे 🌺🌺 श्री राधे 🌺🌺 श्री राधे 🌺🌺 श्री राधे 🌺🌺 श्री राधे 🌺🌺 श्री राधे 🌺🌺 श्री राधे 🌺🌺 श्री राधे 🌺🌺 श्री राधे 🌺🌺 श्री राधे 🌺🌺 श्री राधे 🌺🌺 श्री राधे 🌺🌺 श्री राधे 🌺🌺 श्री राधे 🌺🌺 श्री राधे 🌺🌺 श्री राधे 🌺🌺 श्री राधे 🌺🌺 श्री राधे 🌺🌺 श्री राधे 🌺🌺 श्री राधे 🌺🌺 श्री राधे 🌺🌺 श्री राधे 🌺🌺 श्री राधे 🌺🌺 श्री राधे 🌺🌺 श्री राधे 🌺🌺 श्री राधे 🌺🌺 श्री राधे 🌺🌺 श्री राधे 🌺🌺 श्री राधे 🌺🌺 श्री राधे 🌺🌺 श्री राधे 🌺🌺 श्री राधे 🌺🌺 श्री राधे 🌺🌺 श्री राधे 🌺🌺 श्री राधे 🌺🌺 श्री राधे 🌺🌺 श्री राधे 🌺🌺 श्री राधे 🌺🌺 श्री राधे 🌺🌺 श्री राधे 🌺🌺 श्री राधे 🌺🌺 श्री राधे 🌺🌺 श्री राधे 🌺🌺 श्री राधे 🌺🌺 श्री राधे 🌺 📿</span>
+        <span class="marquee-text" id="upcoming-katha-text">
+          📿🌺 श्री राधे 🌺📿🌺 श्री राधे 🌺📿🌺 श्री राधे 🌺📿🌺 श्री राधे 🌺📿🌺 श्री राधे 🌺📿🌺 श्री राधे 🌺📿🌺 श्री राधे 🌺📿🌺 श्री राधे 🌺📿🌺 श्री राधे 🌺📿🌺 श्री राधे 🌺📿🌺 श्री राधे 🌺📿🌺 श्री राधे 🌺📿🌺 श्री राधे 🌺📿🌺 श्री राधे 🌺📿🌺 श्री राधे 🌺📿🌺 श्री राधे 🌺📿🌺 श्री राधे 🌺📿🌺 श्री राधे 🌺📿🌺 श्री राधे 🌺📿🌺 श्री राधे 🌺
+          | 📅 **Upcoming Katha:** Magh Mela Bhagwat Katha, Prayagraj (12-18 Jan 2026) |
+          📿🌺 श्री राधे 🌺📿🌺 श्री राधे 🌺📿🌺 श्री राधे 🌺📿🌺 श्री राधे 🌺📿🌺 श्री राधे 🌺📿🌺 श्री राधे 🌺📿🌺 श्री राधे 🌺📿🌺 श्री राधे 🌺📿🌺 श्री राधे 🌺📿🌺 श्री राधे 🌺📿🌺 श्री राधे 🌺📿🌺 श्री राधे 🌺📿🌺 श्री राधे 🌺📿🌺 श्री राधे 🌺📿🌺 श्री राधे 🌺📿🌺 श्री राधे 🌺📿🌺 श्री राधे 🌺📿🌺 श्री राधे 🌺📿🌺 श्री राधे 🌺📿🌺 श्री राधे 🌺
+        </span>
       </div>
     </div>
 
@@ -925,6 +1121,113 @@
     
     // Auto-advance slides every 5 seconds
     setInterval(nextSlide, 5000);
+    
+    // ========== ENHANCED AUDIO PLAYER WITH LOGO ROTATION ==========
+    const mainAudio = document.getElementById('mainAudio');
+    const customPlayBtn = document.getElementById('customPlayBtn');
+    const audioLogo = document.getElementById('audioLogo');
+    const audioTime = document.getElementById('audioTime');
+    const audioPlayerContainer = document.getElementById('audioPlayerContainer');
+
+    // Custom play/pause functionality
+    if (mainAudio && customPlayBtn) {
+        customPlayBtn.addEventListener('click', function() {
+            if (mainAudio.paused) {
+                mainAudio.play().then(() => {
+                    customPlayBtn.innerHTML = '⏸️';
+                    customPlayBtn.classList.add('playing');
+                    audioLogo.classList.add('playing');
+                    if (audioPlayerContainer) {
+                        audioPlayerContainer.classList.add('playing');
+                    }
+                }).catch(e => {
+                    console.log("Audio play failed:", e);
+                });
+            } else {
+                mainAudio.pause();
+                customPlayBtn.innerHTML = '▶️';
+                customPlayBtn.classList.remove('playing');
+                audioLogo.classList.remove('playing');
+                if (audioPlayerContainer) {
+                    audioPlayerContainer.classList.remove('playing');
+                }
+            }
+        });
+        
+        // Update button when audio plays/pauses
+        mainAudio.addEventListener('play', function() {
+            customPlayBtn.innerHTML = '⏸️';
+            customPlayBtn.classList.add('playing');
+            audioLogo.classList.add('playing');
+            if (audioPlayerContainer) {
+                audioPlayerContainer.classList.add('playing');
+            }
+        });
+        
+        mainAudio.addEventListener('pause', function() {
+            customPlayBtn.innerHTML = '▶️';
+            customPlayBtn.classList.remove('playing');
+            audioLogo.classList.remove('playing');
+            if (audioPlayerContainer) {
+                audioPlayerContainer.classList.remove('playing');
+            }
+        });
+        
+        mainAudio.addEventListener('ended', function() {
+            customPlayBtn.innerHTML = '▶️';
+            customPlayBtn.classList.remove('playing');
+            audioLogo.classList.remove('playing');
+            if (audioPlayerContainer) {
+                audioPlayerContainer.classList.remove('playing');
+            }
+        });
+    }
+
+    // Update time display
+    if (mainAudio && audioTime) {
+        function updateTimeDisplay() {
+            const currentTime = formatTime(mainAudio.currentTime);
+            const duration = formatTime(mainAudio.duration);
+            audioTime.textContent = `${currentTime} / ${duration}`;
+        }
+        
+        function formatTime(seconds) {
+            if (isNaN(seconds) || !isFinite(seconds)) return '0:00';
+            const mins = Math.floor(seconds / 60);
+            const secs = Math.floor(seconds % 60);
+            return `${mins}:${secs.toString().padStart(2, '0')}`;
+        }
+        
+        // Update time when audio metadata is loaded
+        mainAudio.addEventListener('loadedmetadata', updateTimeDisplay);
+        
+        // Update time during playback
+        mainAudio.addEventListener('timeupdate', updateTimeDisplay);
+        
+        // Initialize time display
+        updateTimeDisplay();
+    }
+
+    // Sync default audio controls with custom controls
+    if (mainAudio) {
+        mainAudio.addEventListener('play', function() {
+            if (customPlayBtn) {
+                customPlayBtn.innerHTML = '⏸️';
+                customPlayBtn.classList.add('playing');
+            }
+            if (audioLogo) audioLogo.classList.add('playing');
+            if (audioPlayerContainer) audioPlayerContainer.classList.add('playing');
+        });
+        
+        mainAudio.addEventListener('pause', function() {
+            if (customPlayBtn) {
+                customPlayBtn.innerHTML = '▶️';
+                customPlayBtn.classList.remove('playing');
+            }
+            if (audioLogo) audioLogo.classList.remove('playing');
+            if (audioPlayerContainer) audioPlayerContainer.classList.remove('playing');
+        });
+    }
     
     // Function to update next katha highlight
     function updateNextKathaHighlight() {
