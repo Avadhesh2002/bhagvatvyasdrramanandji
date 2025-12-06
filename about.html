@@ -496,71 +496,128 @@
       font-size: 1.1rem;
     }
     
-    /* GURU SECTION WITH PHOTOS */
-    .guru-section {
-      margin: 80px 0;
-    }
-    
-    .guru-grid {
-      display: grid;
-      grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
-      gap: 40px;
-      margin-top: 40px;
-    }
-    
-    .guru-card {
-      background: white;
-      border-radius: 15px;
-      overflow: hidden;
-      box-shadow: 0 10px 30px rgba(0,0,0,0.1);
-      transition: transform 0.3s ease;
-    }
-    
-    .guru-card:hover {
-      transform: translateY(-10px);
-    }
-    
-    .guru-photo {
-      height: 300px;
-      width: 100%;
-      overflow: hidden;
-    }
-    
-    .guru-photo img {
-      width: 100%;
-      height: 100%;
-      object-fit: cover;
-      transition: transform 0.5s ease;
-    }
-    
-    .guru-card:hover .guru-photo img {
-      transform: scale(1.1);
-    }
-    
-    .guru-info {
-      padding: 30px;
-      text-align: center;
-    }
-    
-    .guru-name {
-      color: #FF6B00;
-      font-size: 1.8rem;
-      margin-bottom: 10px;
-    }
-    
-    .guru-title {
-      color: #666;
-      font-size: 1.1rem;
-      margin-bottom: 15px;
-      font-weight: 500;
-    }
-    
-    .guru-blessing {
-      font-style: italic;
-      color: #777;
-      padding-top: 15px;
-      border-top: 1px solid #eee;
-    }
+    /* GURU HERO PHOTOS - RESPONSIVE */
+.guru-hero-photos {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+  gap: 30px;
+  margin-bottom: 60px;
+}
+
+.guru-photo-container {
+  background: white;
+  border-radius: 15px;
+  overflow: hidden;
+  box-shadow: 0 10px 30px rgba(0,0,0,0.1);
+  transition: transform 0.3s ease;
+}
+
+.guru-photo-container:hover {
+  transform: translateY(-10px);
+}
+
+.guru-image-wrapper {
+  height: 300px;
+  width: 100%;
+  overflow: hidden;
+}
+
+.guru-image-wrapper img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  transition: transform 0.5s ease;
+}
+
+.guru-photo-container:hover .guru-image-wrapper img {
+  transform: scale(1.05);
+}
+
+.guru-caption {
+  padding: 25px;
+  text-align: center;
+  background: linear-gradient(135deg, #FFF9F0, #FFEEDD);
+}
+
+.guru-caption h3 {
+  color: #FF6B00;
+  font-size: 1.5rem;
+  margin-bottom: 8px;
+}
+
+.guru-caption p {
+  color: #666;
+  font-size: 0.95rem;
+  margin: 0;
+}
+
+/* RESPONSIVE ADJUSTMENTS */
+@media (max-width: 768px) {
+  .guru-hero-photos {
+    grid-template-columns: 1fr;
+    gap: 20px;
+    margin-bottom: 40px;
+  }
+  
+  .guru-image-wrapper {
+    height: 250px;
+  }
+  
+  .guru-caption {
+    padding: 20px;
+  }
+  
+  .guru-caption h3 {
+    font-size: 1.3rem;
+  }
+}
+
+@media (max-width: 480px) {
+  .guru-hero-photos {
+    gap: 15px;
+  }
+  
+  .guru-image-wrapper {
+    height: 200px;
+  }
+  
+  .guru-caption {
+    padding: 15px;
+  }
+  
+  .guru-caption h3 {
+    font-size: 1.2rem;
+  }
+}
+
+/* EXISTING GURU GRID IMPROVEMENTS */
+.guru-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+  gap: 30px;
+  margin-top: 40px;
+}
+
+@media (max-width: 768px) {
+  .guru-grid {
+    grid-template-columns: 1fr;
+    gap: 25px;
+  }
+}
+
+@media (max-width: 480px) {
+  .guru-grid {
+    gap: 20px;
+  }
+  
+  .guru-info {
+    padding: 20px;
+  }
+  
+  .guru-name {
+    font-size: 1.5rem;
+  }
+}
     
     /* PROJECTS SECTION */
     .projects-section {
@@ -845,33 +902,44 @@
     </div>
 
 <!-- GURU PARAMPARA SECTION -->
- 
 <div class="guru-section">
   <h2 style="text-align: center; color: #FF6B00; margin-bottom: 40px; font-size: 2.5rem;">Guru Parampara</h2>
   <p style="text-align: center; max-width: 800px; margin: 0 auto 40px; font-size: 1.1rem; line-height: 1.7; color: #555;">
     Dr Ramanand Ji carries forward the divine blessings and teachings received from his revered spiritual masters. 
     The Guru-Shishya parampara forms the foundation of his spiritual journey and teachings.
   </p>
-  <!-- Add this at the beginning of guru section -->
-<div class="guru-hero-photos" style="display: grid; grid-template-columns: repeat(2, 1fr); gap: 20px; margin-bottom: 40px;">
-  <div style="position: relative;">
-    <img src="images\guru ji.png" 
-         alt="Guru Shri Banmali Ji Maharaj"
-         style="width: 100%; height: 400px; object-fit: cover; border-radius: 10px;">
-    <div style="position: absolute; bottom: 0; left: 0; right: 0; background: rgba(255, 107, 0, 0.8); color: white; padding: 15px; text-align: center; font-weight: bold;">
-      Guru Shri Banmali Ji Maharaj
-    </div>
-  </div>
   
-  <div style="position: relative;">
-    <img src="images\3.jpg" 
-         alt="Swami Vidyanand Saraswati Ji"
-         style="width: 100%; height: 400px; object-fit: cover; border-radius: 10px;">
-    <div style="position: absolute; bottom: 0; left: 0; right: 0; background: rgba(255, 107, 0, 0.8); color: white; padding: 15px; text-align: center; font-weight: bold;">
-      Swami Vidyanand Saraswati Ji
+  <!-- RESPONSIVE GURU PHOTOS GRID -->
+  <div class="guru-hero-photos">
+    <div class="guru-photo-container">
+      <div class="guru-image-wrapper">
+        <img src="images\guru ji.png" 
+             alt="Guru Shri Banmali Ji Maharaj"
+             loading="lazy"
+             onerror="this.src='https://via.placeholder.com/600x400/FF6B00/FFFFFF?text=Guru+Shri+Banmali+Ji'">
+      </div>
+      <div class="guru-caption">
+        <h3>Guru Shri Banmali Ji Maharaj</h3>
+        <p>Primary spiritual guide and initiator</p>
+      </div>
+    </div>
+    
+    <div class="guru-photo-container">
+      <div class="guru-image-wrapper">
+        <img src="images\3.jpg" 
+             alt="Swami Vidyanand Saraswati Ji"
+             loading="lazy"
+             onerror="this.src='https://via.placeholder.com/600x400/FF6B00/FFFFFF?text=Swami+Vidyanand+Saraswati+Ji'">
+      </div>
+      <div class="guru-caption">
+        <h3>Swami Vidyanand Saraswati Ji</h3>
+        <p>Vedic scholar and spiritual mentor</p>
+      </div>
     </div>
   </div>
-</div>
+
+  <!-- GURU CARDS SECTION -->
+  
    
 
     <!-- PROJECTS SECTION -->
