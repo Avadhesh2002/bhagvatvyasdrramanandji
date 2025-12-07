@@ -1,4 +1,3 @@
-
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -8,249 +7,14 @@
   <meta name="description" content="Support spiritual activities, Bhagwat Kathas, and seva projects. Donate online via UPI, Bank Transfer, or QR code for divine blessings.">
   <link rel="stylesheet" href="styles.css">
   <style>
-    /* HEADER STYLES - Consistent with other pages */
-    header {
-      background: #FF6B00;
-      color: white;
-      width: 100%;
-      z-index: 1000;
-      box-shadow: 0 2px 10px rgba(0,0,0,0.1);
-      position: sticky;
-      top: 0;
-    }
-    
-    .navbar {
-      max-width: 1200px;
-      margin: 0 auto;
-      display: flex;
-      justify-content: space-between;
-      align-items: center;
-      padding: 10px 20px;
-      gap: 20px;
-    }
-    
-    .logo-section {
-      display: flex;
-      align-items: center;
-      gap: 15px;
-      white-space: nowrap;
-      flex-shrink: 0;
-    }
-    
-    .logo-image {
-      width: 60px;
-      height: 60px;
-      border-radius: 50%;
-      object-fit: cover;
-      background: white;
-      padding: 2px;
-      box-shadow: 0 2px 6px rgba(0,0,0,0.2);
-      border: 2px solid white;
-    }
-    
-    .logo-text {
-      display: flex;
-      flex-direction: column;
-      justify-content: center;
-      gap: 2px;
-    }
-    
-    .logo-name {
-      font-size: 1.1rem;
-      font-weight: 700;
-      color: white;
-      line-height: 1.2;
-    }
-    
-    .logo-subtitle {
-      font-size: 0.85rem;
-      font-weight: 500;
-      color: #FFE0CC;
-      line-height: 1;
-    }
-    
-    .navbar nav {
-      display: flex;
-      flex: 1;
-      justify-content: center;
-    }
-    
-    .navbar ul {
-      list-style: none;
-      display: flex;
-      gap: 25px;
-      margin: 0;
-      padding: 0;
-    }
-    
-    .navbar a {
-      color: white;
-      text-decoration: none;
-      font-weight: 500;
-      padding: 8px 12px;
-      border-radius: 4px;
-      transition: all 0.3s ease;
-      display: block;
-    }
-    
-    .navbar a:hover {
-      background: rgba(255, 255, 255, 0.1);
-    }
-    
-    .navbar a.active {
-      background: rgba(255, 255, 255, 0.2);
-    }
-    
-    .hamburger {
-      display: none;
-      background: none;
-      border: none;
-      color: white;
-      font-size: 1.5rem;
-      cursor: pointer;
-      width: 44px;
-      height: 44px;
-      padding: 0;
-      flex-shrink: 0;
-    }
-    
-    /* RESPONSIVE NAVBAR */
-    @media (max-width: 768px) {
-      .hamburger {
-        display: flex;
-        align-items: center;
-        justify-content: center;
-      }
-      
-      .navbar {
-        padding: 10px 15px;
-        gap: 10px;
-      }
-      
-      .logo-section {
-        gap: 10px;
-      }
-      
-      .logo-image {
-        width: 50px;
-        height: 50px;
-      }
-      
-      .logo-name {
-        font-size: 1rem;
-      }
-      
-      .logo-subtitle {
-        font-size: 0.75rem;
-      }
-      
-      .navbar nav {
-        position: fixed;
-        top: 80px;
-        left: 0;
-        width: 100%;
-        background: #FF6B00;
-        padding: 20px;
-        box-shadow: 0 4px 8px rgba(0,0,0,0.1);
-        transform: translateY(-100%);
-        opacity: 0;
-        visibility: hidden;
-        transition: all 0.3s ease;
-        z-index: 999;
-        flex-direction: column;
-        justify-content: flex-start;
-      }
-      
-      .navbar nav.active {
-        transform: translateY(0);
-        opacity: 1;
-        visibility: visible;
-      }
-      
-      .navbar ul {
-        flex-direction: column;
-        gap: 10px;
-      }
-      
-      .navbar a {
-        padding: 12px 16px;
-        text-align: center;
-        border-radius: 6px;
-      }
-    }
-    
-    @media (max-width: 480px) {
-      .hamburger {
-        display: flex;
-        align-items: center;
-        justify-content: center;
-      }
-      
-      .navbar {
-        padding: 10px 10px;
-      }
-      
-      .logo-image {
-        width: 45px;
-        height: 45px;
-      }
-      
-      .logo-name {
-        font-size: 0.9rem;
-      }
-      
-      .logo-subtitle {
-        font-size: 0.7rem;
-      }
-    }
-    
-    /* DONATE PAGE SPECIFIC STYLES */
-    .donate-hero {
-      background: linear-gradient(135deg, rgba(255, 107, 0, 0.9), rgba(255, 172, 28, 0.9)), url('images/donate-bg.jpg');
-      background-size: cover;
-      background-position: center;
-      color: white;
-      padding: 80px 20px;
-      text-align: center;
-      position: relative;
-      overflow: hidden;
-    }
-    
-    .donate-hero h1 {
-      font-size: 3rem;
-      margin-bottom: 20px;
-      color: white;
-      text-shadow: 2px 2px 4px rgba(0,0,0,0.3);
-      position: relative;
-      z-index: 2;
-    }
-    
-    .donate-hero p {
-      font-size: 1.3rem;
-      max-width: 800px;
-      margin: 0 auto 30px;
-      opacity: 0.95;
-      position: relative;
-      z-index: 2;
-    }
-    
-    .divider {
-      width: 100px;
-      height: 4px;
-      background: white;
-      margin: 30px auto;
-      position: relative;
-      z-index: 2;
-    }
-    
-    /* MAIN CONTENT */
+    /* Donate Page Specific Styles */
     .donate-content {
       max-width: 1200px;
       margin: 0 auto;
       padding: 40px 20px;
     }
     
-    /* DONATION OPTIONS GRID */
+    /* Donation Options Grid */
     .donation-options {
       display: grid;
       grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
@@ -261,11 +25,13 @@
     .donation-card {
       background: white;
       border-radius: 20px;
-      padding: 40px;
+      padding: 35px;
       text-align: center;
       box-shadow: 0 10px 30px rgba(0,0,0,0.1);
       transition: all 0.3s ease;
       border-top: 5px solid #FF6B00;
+      display: flex;
+      flex-direction: column;
     }
     
     .donation-card:hover {
@@ -289,6 +55,7 @@
       color: #666;
       margin-bottom: 25px;
       line-height: 1.6;
+      flex-grow: 1;
     }
     
     .donation-amounts {
@@ -300,7 +67,7 @@
     }
     
     .amount-btn {
-      padding: 10px 20px;
+      padding: 12px 20px;
       background: #FFF9F0;
       border: 2px solid #FFD580;
       border-radius: 8px;
@@ -308,6 +75,10 @@
       color: #FF6B00;
       cursor: pointer;
       transition: all 0.3s ease;
+      font-size: 1rem;
+      min-height: 44px;
+      flex: 1;
+      min-width: 80px;
     }
     
     .amount-btn:hover {
@@ -324,28 +95,30 @@
     
     .custom-amount {
       width: 100%;
-      padding: 12px;
+      padding: 15px;
       border: 2px solid #FFD580;
-      border-radius: 8px;
-      font-size: 1rem;
+      border-radius: 10px;
+      font-size: 1.1rem;
       text-align: center;
       margin-top: 10px;
+      min-height: 50px;
     }
     
     .donate-btn {
-      display: inline-block;
+      display: block;
       background: linear-gradient(135deg, #FF6B00, #FF8E53);
       color: white;
-      padding: 15px 40px;
-      border-radius: 10px;
+      padding: 18px 40px;
+      border-radius: 12px;
       text-decoration: none;
       font-weight: bold;
       font-size: 1.1rem;
-      margin-top: 20px;
+      margin-top: 25px;
       transition: all 0.3s ease;
       border: none;
       cursor: pointer;
       width: 100%;
+      min-height: 60px;
     }
     
     .donate-btn:hover {
@@ -353,7 +126,7 @@
       box-shadow: 0 10px 20px rgba(255, 107, 0, 0.3);
     }
     
-    /* PAYMENT METHODS */
+    /* Payment Methods */
     .payment-methods {
       background: #FFF9F0;
       border-radius: 20px;
@@ -370,7 +143,7 @@
     
     .payment-grid {
       display: grid;
-      grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+      grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
       gap: 30px;
     }
     
@@ -380,6 +153,8 @@
       border-radius: 15px;
       text-align: center;
       box-shadow: 0 5px 15px rgba(0,0,0,0.05);
+      display: flex;
+      flex-direction: column;
     }
     
     .payment-icon {
@@ -404,6 +179,7 @@
       object-fit: contain;
     }
     
+    /* Bank Details */
     .bank-details {
       background: white;
       border-radius: 15px;
@@ -426,35 +202,45 @@
     }
     
     .info-item {
-      padding: 15px;
+      padding: 20px;
       background: #FFF9F0;
       border-radius: 10px;
+      border-left: 4px solid #FF6B00;
     }
     
     .info-label {
       font-weight: bold;
       color: #FF6B00;
-      margin-bottom: 5px;
+      margin-bottom: 8px;
+      font-size: 0.95rem;
     }
     
     .info-value {
       color: #333;
-      font-family: monospace;
+      font-family: 'Courier New', monospace;
       font-size: 1.1rem;
+      word-break: break-all;
     }
     
     .copy-btn {
       background: #FF6B00;
       color: white;
       border: none;
-      padding: 8px 15px;
-      border-radius: 5px;
+      padding: 10px 20px;
+      border-radius: 6px;
       cursor: pointer;
-      margin-top: 10px;
-      font-size: 0.9rem;
+      margin-top: 12px;
+      font-size: 0.95rem;
+      min-height: 44px;
+      width: 100%;
+      transition: all 0.3s ease;
     }
     
-    /* TESTIMONIALS */
+    .copy-btn:hover {
+      background: #e55a00;
+    }
+    
+    /* Testimonials */
     .donation-testimonials {
       margin: 60px 0;
     }
@@ -485,14 +271,14 @@
       font-weight: bold;
     }
     
-    /* FAQ SECTION */
+    /* FAQ Section */
     .faq-section {
       margin: 60px 0;
     }
     
     .faq-item {
       background: white;
-      border-radius: 10px;
+      border-radius: 12px;
       margin: 15px 0;
       overflow: hidden;
       box-shadow: 0 5px 15px rgba(0,0,0,0.05);
@@ -507,6 +293,8 @@
       align-items: center;
       font-weight: bold;
       color: #FF6B00;
+      font-size: 1.1rem;
+      min-height: 60px;
     }
     
     .faq-answer {
@@ -514,32 +302,96 @@
       display: none;
       color: #555;
       line-height: 1.6;
+      border-top: 1px solid #FFEEDD;
     }
     
     .faq-item.active .faq-answer {
       display: block;
+      animation: fadeIn 0.3s ease;
     }
     
-    /* RESPONSIVE DESIGN */
+    /* Receipt Notice */
+    .receipt-notice {
+      background: linear-gradient(135deg, #FFF0E0, #FFE4CC);
+      border-radius: 12px;
+      padding: 25px;
+      margin: 30px 0;
+      text-align: center;
+      border: 2px solid #FF6B00;
+    }
+    
+    .receipt-notice p {
+      margin: 0;
+      color: #FF6B00;
+      font-weight: bold;
+      font-size: 1.1rem;
+    }
+    
+    /* UPI Apps Grid */
+    .upi-apps {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(120px, 1fr));
+      gap: 15px;
+      margin: 20px 0;
+    }
+    
+    .upi-app-btn {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      padding: 15px;
+      background: white;
+      border: 2px solid #FFD580;
+      border-radius: 10px;
+      cursor: pointer;
+      transition: all 0.3s ease;
+      text-decoration: none;
+      color: #333;
+    }
+    
+    .upi-app-btn:hover {
+      border-color: #FF6B00;
+      transform: translateY(-3px);
+    }
+    
+    .upi-app-btn img {
+      width: 40px;
+      height: 40px;
+      margin-bottom: 10px;
+    }
+    
+    /* Responsive Design */
     @media (max-width: 768px) {
-      .donate-hero {
-        padding: 60px 20px;
-      }
-      
-      .donate-hero h1 {
-        font-size: 2.2rem;
-      }
-      
-      .donate-hero p {
-        font-size: 1.1rem;
+      .donate-content {
+        padding: 30px 15px;
       }
       
       .donation-options {
         grid-template-columns: 1fr;
+        gap: 25px;
+        margin: 40px 0;
+      }
+      
+      .donation-card {
+        padding: 25px;
       }
       
       .payment-grid {
         grid-template-columns: 1fr;
+      }
+      
+      .payment-methods {
+        padding: 30px 20px;
+        margin: 40px 0;
+      }
+      
+      .payment-methods h2 {
+        font-size: 1.8rem;
+        margin-bottom: 30px;
+      }
+      
+      .payment-option {
+        padding: 25px;
       }
       
       .qr-code {
@@ -549,46 +401,99 @@
       
       .bank-details {
         padding: 30px 20px;
+        margin: 40px 0;
+      }
+      
+      .bank-info {
+        grid-template-columns: 1fr;
+      }
+      
+      .donate-btn {
+        padding: 16px 30px;
+        font-size: 1.05rem;
+      }
+      
+      .amount-btn {
+        padding: 10px 15px;
+        font-size: 0.95rem;
+        min-width: 70px;
+      }
+      
+      .upi-apps {
+        grid-template-columns: repeat(auto-fit, minmax(100px, 1fr));
       }
     }
     
     @media (max-width: 480px) {
-      .donate-hero h1 {
-        font-size: 1.8rem;
-      }
-      
-      .donation-card {
-        padding: 30px 20px;
+      .donation-card h3 {
+        font-size: 1.5rem;
       }
       
       .donation-amounts {
-        gap: 5px;
+        gap: 8px;
       }
       
       .amount-btn {
-        padding: 8px 15px;
+        padding: 10px 12px;
         font-size: 0.9rem;
+        min-width: 60px;
+      }
+      
+      .custom-amount {
+        padding: 12px;
+        font-size: 1rem;
+      }
+      
+      .payment-methods h2 {
+        font-size: 1.6rem;
+      }
+      
+      .payment-option h3 {
+        font-size: 1.4rem;
+      }
+      
+      .qr-code {
+        width: 160px;
+        height: 160px;
+      }
+      
+      .info-value {
+        font-size: 1rem;
+      }
+      
+      .faq-question {
+        padding: 18px;
+        font-size: 1rem;
       }
     }
     
-    /* ANIMATIONS */
-    @keyframes fadeInUp {
-      from {
-        opacity: 0;
-        transform: translateY(30px);
+    /* Touch device optimizations */
+    @media (hover: none) and (pointer: coarse) {
+      .donation-card:hover {
+        transform: none;
       }
-      to {
-        opacity: 1;
-        transform: translateY(0);
+      
+      .donation-card:active {
+        transform: scale(0.98);
       }
-    }
-    
-    .fade-in-up {
-      animation: fadeInUp 0.6s ease-out;
+      
+      .amount-btn,
+      .donate-btn,
+      .copy-btn,
+      .upi-app-btn {
+        min-height: 44px;
+      }
+      
+      .faq-question {
+        min-height: 60px;
+      }
     }
   </style>
 </head>
 <body>
+  <!-- Skip to content link for accessibility -->
+  <a href="#main-content" class="skip-to-content">Skip to main content</a>
+  
   <header>
     <div class="navbar">
       <div class="logo-section">
@@ -599,8 +504,8 @@
           <div class="logo-subtitle">Bhagvat Vyas</div>
         </div>
       </div>
-      <button class="hamburger" aria-label="Toggle menu">☰</button>
-      <nav>
+      <button class="hamburger" aria-label="Toggle menu" aria-expanded="false">☰</button>
+      <nav aria-label="Main navigation">
         <ul>
           <li><a href="index.html">Home</a></li>
           <li><a href="about.html">About</a></li>
@@ -613,17 +518,18 @@
     </div>
   </header>
 
-  <div class="donate-hero">
-    <h1 class="fade-in-up">Support Spiritual Activities</h1>
-    <p class="fade-in-up">Your generous contributions enable Bhagwat Kathas, seva projects, and spiritual initiatives across India</p>
-    <div class="divider fade-in-up"></div>
+  <!-- Hero Section -->
+  <div class="common-hero" style="background: linear-gradient(135deg, rgba(255, 107, 0, 0.9), rgba(255, 172, 28, 0.9)), url('images/donate-bg.jpg') center/cover;">
+    <h1>Support Spiritual Activities</h1>
+    <p>Your generous contributions enable Bhagwat Kathas, seva projects, and spiritual initiatives across India</p>
+    <div class="divider"></div>
   </div>
 
-  <main class="donate-content">
+  <main id="main-content" class="donate-content">
     <!-- QUICK DONATION OPTIONS -->
     <div class="donation-options">
       <!-- OPTION 1: QUICK DONATION -->
-      <div class="donation-card fade-in-up">
+      <div class="donation-card">
         <div class="donation-icon">💰</div>
         <h3>Quick Donation</h3>
         <p>Make a one-time donation to support ongoing spiritual activities and Bhagwat Kathas.</p>
@@ -636,7 +542,7 @@
           <button class="amount-btn" data-amount="5100">₹5,100</button>
         </div>
         
-        <input type="number" class="custom-amount" placeholder="Other amount (₹)" min="1">
+        <input type="number" class="custom-amount" placeholder="Other amount (₹)" min="1" inputmode="numeric">
         
         <button class="donate-btn" onclick="handleDonation()">
           Donate Now via UPI
@@ -644,12 +550,12 @@
       </div>
       
       <!-- OPTION 3: SPECIAL PROJECTS -->
-      <div class="donation-card fade-in-up">
+      <div class="donation-card">
         <div class="donation-icon">🏛️</div>
         <h3>Specific Projects</h3>
         <p>Support specific initiatives like ashram construction, samuhik yagyas, or Gau Seva.</p>
         
-        <select id="project-select" style="width: 100%; padding: 12px; margin: 20px 0; border: 2px solid #FFD580; border-radius: 8px; font-size: 1rem;">
+        <select id="project-select" style="width: 100%; padding: 15px; margin: 20px 0; border: 2px solid #FFD580; border-radius: 10px; font-size: 1.1rem; min-height: 50px;">
           <option value="">Select a project to support</option>
           <option value="ashram">Vrindavan Ashram Construction</option>
           <option value="yagyas">Monthly Samuhik Havan & Yagyas</option>
@@ -665,11 +571,10 @@
     </div>
 
     <!-- PAYMENT METHODS SECTION -->
-    <div class="payment-methods fade-in-up">
+    <div class="payment-methods">
       <h2>Easy Payment Methods</h2>
       <div class="payment-grid">
-        <!-- UPI PAYMENT -->
-        
+
         
         <!-- BANK TRANSFER -->
         <div class="payment-option">
@@ -677,69 +582,48 @@
           <h3>Bank Transfer</h3>
           <p>Direct bank transfer (NEFT/RTGS/IMPS)</p>
           
-          <div class="bank-details" style="margin: 20px 0; padding: 20px; background: #FFF9F0; border-radius: 10px;">
+          <div class="bank-info">
             <div class="info-item">
               <div class="info-label">Account Name</div>
               <div class="info-value">Guru Govind Seva Trust</div>
-              <button class="copy-btn" onclick="copyToClipboard('Guru Govind Seva Trust')">Copy</button>
+              <button class="copy-btn" onclick="copyToClipboard('Guru Govind Seva Trust')">Copy Name</button>
             </div>
             
             <div class="info-item">
               <div class="info-label">Account Number</div>
               <div class="info-value">201029823476</div>
-              <button class="copy-btn" onclick="copyToClipboard('123456789012')">Copy</button>
+              <button class="copy-btn" onclick="copyToClipboard('201029823476')">Copy Account No.</button>
             </div>
             
             <div class="info-item">
               <div class="info-label">IFSC Code</div>
               <div class="info-value">INDB0000506</div>
-              <button class="copy-btn" onclick="copyToClipboard('SBIN0001234')">Copy</button>
+              <button class="copy-btn" onclick="copyToClipboard('INDB0000506')">Copy IFSC</button>
             </div>
             
             <div class="info-item">
               <div class="info-label">Bank Name</div>
               <div class="info-value">INDUSIND BANK LTD</div>
-              <button class="copy-btn" onclick="copyToClipboard('State Bank of India')">Copy</button>
+              <button class="copy-btn" onclick="copyToClipboard('INDUSIND BANK LTD')">Copy Bank Name</button>
             </div>
             
             <div class="info-item">
               <div class="info-label">Branch</div>
               <div class="info-value">NAREPAR UPARWAR</div>
-              <button class="copy-btn" onclick="copyToClipboard('Vrindavan, Mathura')">Copy</button>
+              <button class="copy-btn" onclick="copyToClipboard('NAREPAR UPARWAR')">Copy Branch</button>
             </div>
           </div>
-          
-          <p style="font-size: 0.9rem; color: #666; margin-top: 10px;">
-            <small>After transfer, please WhatsApp receipt to +91-9415870944</small>
-          </p>
         </div>
       </div>
     </div>
 
-    <!-- BANK DETAILS SECTION -->
-    
-      <div style="margin-top: 30px; padding: 20px; background: #FFF0E0; border-radius: 10px; text-align: center;">
-        <p style="margin: 0; color: #FF6B00; font-weight: bold;">
-          📞 For donation receipts and 80G certificates, contact: +91-9415870944
-        </p>
-      </div>
+    <!-- Receipt Notice -->
+    <div class="receipt-notice">
+      <p>📞 For donation receipts and 80G certificates, WhatsApp receipt to +91-9415870944</p>
     </div>
 
-    <!-- TESTIMONIALS -->
-    <div class="donation-testimonials fade-in-up">
-      <h2 style="text-align: center; color: #FF6B00; margin-bottom: 40px;">Donor Experiences</h2>
-      <div class="testimonial-slider">
-        <div class="testimonial-card">
-          <p class="testimonial-text">
-            "Supporting Dr Ramanand Ji's Bhagwat Kathas has brought immense peace to our family. The regular updates about how our donations are used for spiritual activities make us feel connected to the divine work."
-          </p>
-          <p class="testimonial-author">- Ramesh Sharma, Delhi</p>
-        </div>
-      </div>
-    </div>
-  </main>
+ </main>
 
-  <!-- Footer (similar to other pages) -->
   <footer>
     <div class="footer-content">
       <div class="footer-section">
@@ -748,12 +632,17 @@
         <p>✉️ gurugovindsevatrust@gmail.com</p>
       </div>
       
-      
       <div class="footer-section">
         <h3>Legal</h3>
         <p>Registered Trust: Guru Govind Seva Trust</p>
         <p>80G Certificate Available</p>
-
+      </div>
+      
+      <div class="footer-section">
+        <h3>Quick Links</h3>
+        <p><a href="contact.html" style="color: #ccc;">Contact Us</a></p>
+        <p><a href="kathas.html" style="color: #ccc;">Upcoming Kathas</a></p>
+        <p><a href="about.html" style="color: #ccc;">About Dr Ramanand Ji</a></p>
       </div>
     </div>
     
@@ -762,10 +651,40 @@
     </div>
   </footer>
 
-  <script src="script.js"></script>
   <script>
-    // Donation Page Specific JavaScript
+    // Mobile Navigation
     document.addEventListener('DOMContentLoaded', function() {
+      const hamburger = document.querySelector('.hamburger');
+      const nav = document.querySelector('nav');
+      
+      // Toggle mobile menu
+      hamburger.addEventListener('click', function() {
+        const isExpanded = hamburger.getAttribute('aria-expanded') === 'true';
+        nav.classList.toggle('active');
+        hamburger.setAttribute('aria-expanded', !isExpanded);
+        hamburger.textContent = nav.classList.contains('active') ? '✕' : '☰';
+        
+        // Prevent body scroll when menu is open
+        if (nav.classList.contains('active')) {
+          document.body.style.overflow = 'hidden';
+        } else {
+          document.body.style.overflow = 'auto';
+        }
+      });
+      
+      // Close menu when clicking outside
+      document.addEventListener('click', function(event) {
+        const isClickInsideNav = nav.contains(event.target);
+        const isClickOnHamburger = hamburger.contains(event.target);
+        
+        if (!isClickInsideNav && !isClickOnHamburger && nav.classList.contains('active')) {
+          nav.classList.remove('active');
+          hamburger.setAttribute('aria-expanded', 'false');
+          hamburger.textContent = '☰';
+          document.body.style.overflow = 'auto';
+        }
+      });
+      
       // Update current year
       document.getElementById('current-year').textContent = new Date().getFullYear();
       
@@ -798,15 +717,28 @@
         });
       });
       
-      // Initialize hamburger menu (using script.js functionality)
-      const hamburger = document.querySelector('.hamburger');
-      const navMenu = document.querySelector('header nav');
-      
-      if (hamburger && navMenu) {
-        hamburger.addEventListener('click', function() {
-          navMenu.classList.toggle('active');
-          hamburger.textContent = navMenu.classList.contains('active') ? '✕' : '☰';
+      // Close mobile menu when clicking links
+      document.querySelectorAll('nav a').forEach(link => {
+        link.addEventListener('click', () => {
+          nav.classList.remove('active');
+          hamburger.setAttribute('aria-expanded', 'false');
+          hamburger.textContent = '☰';
+          document.body.style.overflow = 'auto';
         });
+      });
+    });
+    
+    // Handle Escape key to close mobile menu
+    document.addEventListener('keydown', function(e) {
+      if (e.key === 'Escape') {
+        const nav = document.querySelector('nav');
+        const hamburger = document.querySelector('.hamburger');
+        if (nav.classList.contains('active')) {
+          nav.classList.remove('active');
+          hamburger.setAttribute('aria-expanded', 'false');
+          hamburger.textContent = '☰';
+          document.body.style.overflow = 'auto';
+        }
       }
     });
     
@@ -828,28 +760,15 @@
       }
       
       const upiId = 'bhagvatkd@okhdfcbank';
-      const upiUrl = `upi://pay?pa=${upiId}&pn=GuruGovindSevaTrust&am=${amount}&cu=INR&tn=Donation%20for%20Spiritual%20Activities`;
+      const upiUrl = `upi://pay?pa=${upiId}&pn=Guru%20Govind%20Seva%20Trust&am=${amount}&cu=INR&tn=Donation%20for%20Spiritual%20Activities`;
       
+      // Try to open UPI app
       window.open(upiUrl, '_blank');
       
       // Show confirmation
       setTimeout(() => {
         alert(`Thank you for your donation of ₹${amount}! Please complete the payment in your UPI app. After payment, please WhatsApp the receipt to +91-9415870944 for your donation certificate.`);
       }, 500);
-    }
-    
-    function handleMonthlyDonation() {
-      const card = document.querySelector('.donation-card:nth-child(2)');
-      let amount = '101'; // Default
-      const selectedBtn = card.querySelector('.amount-btn.selected');
-      
-      if (selectedBtn) {
-        amount = selectedBtn.getAttribute('data-amount');
-      }
-      
-      if (confirm(`Would you like to set up a monthly donation of ₹${amount}? We'll contact you on WhatsApp to set up the standing instruction.`)) {
-        window.open(`https://wa.me/919415870944?text=Hi,%20I%20would%20like%20to%20set%20up%20a%20monthly%20donation%20of%20₹${amount}%20for%20spiritual%20activities.`, '_blank');
-      }
     }
     
     function handleProjectDonation() {
@@ -875,27 +794,52 @@
     // Utility functions
     function copyToClipboard(text) {
       navigator.clipboard.writeText(text).then(() => {
-        alert('Copied to clipboard: ' + text);
+        // Show temporary feedback
+        const originalText = event.target.textContent;
+        event.target.textContent = 'Copied!';
+        event.target.style.background = '#4CAF50';
+        
+        setTimeout(() => {
+          event.target.textContent = originalText;
+          event.target.style.background = '';
+        }, 2000);
       }).catch(err => {
         console.error('Failed to copy: ', err);
+        alert('Failed to copy to clipboard. Please select and copy manually.');
       });
-    }
-    
-    function openUPIApp() {
-      const upiUrl = 'upi://pay?pa=bhagvatvyas@upi&pn=Guru%20Govind%20Seva%20Trust&am=101&cu=INR&tn=Donation%20for%20Spiritual%20Activities';
-      window.open(upiUrl, '_blank');
     }
     
     function toggleFAQ(element) {
       const faqItem = element.closest('.faq-item');
-      faqItem.classList.toggle('active');
-      element.querySelector('span').textContent = faqItem.classList.contains('active') ? '−' : '+';
+      const isActive = faqItem.classList.contains('active');
+      
+      // Close all other FAQ items
+      document.querySelectorAll('.faq-item').forEach(item => {
+        if (item !== faqItem) {
+          item.classList.remove('active');
+          item.querySelector('.faq-question span').textContent = '+';
+        }
+      });
+      
+      // Toggle current FAQ item
+      if (isActive) {
+        faqItem.classList.remove('active');
+        element.querySelector('span').textContent = '+';
+      } else {
+        faqItem.classList.add('active');
+        element.querySelector('span').textContent = '−';
+      }
     }
     
-    // Make sure to also update the main menu in all other pages to include the Donate link
-    console.log('Donation page loaded. Remember to add "Donate" link to main navigation on all pages.');
+    // Handle Enter key on FAQ questions
+    document.querySelectorAll('.faq-question').forEach(question => {
+      question.addEventListener('keydown', function(e) {
+        if (e.key === 'Enter' || e.key === ' ') {
+          e.preventDefault();
+          toggleFAQ(this);
+        }
+      });
+    });
   </script>
 </body>
 </html>
-
-
