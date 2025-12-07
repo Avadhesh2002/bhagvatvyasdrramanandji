@@ -4,31 +4,21 @@
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=5.0, user-scalable=yes">
   <title>Gallery | Dr Ramanand Ji</title>
+  <link rel="stylesheet" href="styles.css">
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
   <style>
-    /* RESET AND BASE STYLES */
-    * {
-      margin: 0;
-      padding: 0;
-      box-sizing: border-box;
+    /* Gallery Page Specific Styles */
+    main {
+      max-width: 1400px;
+      margin: 0 auto;
+      padding: 2rem 20px;
     }
     
-    body {
-      font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
-      line-height: 1.6;
-      color: #333;
-      background-color: #f9f9f9;
-    }
-    
-    h1, h2, h3 {
-      color: #FF6B00;
-      margin-bottom: 1rem;
-    }
-    
-    h1 {
-      font-size: 2.5rem;
+    .section-intro {
       text-align: center;
-      margin-bottom: 0.5rem;
+      max-width: 800px;
+      margin: 0 auto 2rem;
+      padding: 0 20px;
     }
     
     h2 {
@@ -37,6 +27,7 @@
       margin-top: 3rem;
       margin-bottom: 1.5rem;
       position: relative;
+      color: #FF6B00;
     }
     
     h2:after {
@@ -48,242 +39,6 @@
       width: 100px;
       height: 3px;
       background-color: #FF6B00;
-    }
-    
-    p {
-      margin-bottom: 1.5rem;
-      color: #666;
-    }
-    
-    .section-intro {
-      text-align: center;
-      max-width: 800px;
-      margin: 0 auto 2rem;
-      padding: 0 20px;
-    }
-    
-    /* HEADER STYLES */
-    header {
-      background: #FF6B00;
-      color: white;
-      width: 100%;
-      z-index: 1000;
-      box-shadow: 0 2px 10px rgba(0,0,0,0.1);
-      position: sticky;
-      top: 0;
-    }
-    
-    /* NAVBAR LAYOUT */
-    .navbar {
-      max-width: 1200px;
-      margin: 0 auto;
-      display: flex;
-      justify-content: space-between;
-      align-items: center;
-      padding: 10px 20px;
-      gap: 20px;
-    }
-    
-    /* LOGO SECTION */
-    .logo-section {
-      display: flex;
-      align-items: center;
-      gap: 15px;
-      white-space: nowrap;
-      flex-shrink: 0;
-    }
-    
-    .logo-image {
-      width: 60px;
-      height: 60px;
-      border-radius: 50%;
-      object-fit: cover;
-      background: white;
-      padding: 2px;
-      box-shadow: 0 2px 6px rgba(0,0,0,0.2);
-      border: 2px solid white;
-    }
-    
-    .logo-text {
-      display: flex;
-      flex-direction: column;
-      justify-content: center;
-      gap: 2px;
-    }
-    
-    .logo-name {
-      font-size: 1.1rem;
-      font-weight: 700;
-      color: white;
-      line-height: 1.2;
-    }
-    
-    .logo-subtitle {
-      font-size: 0.85rem;
-      font-weight: 500;
-      color: #FFE0CC;
-      line-height: 1;
-    }
-    
-    /* NAVBAR NAV LINKS */
-    .navbar nav {
-      display: flex;
-      flex: 1;
-      justify-content: center;
-    }
-    
-    .navbar ul {
-      list-style: none;
-      display: flex;
-      gap: 25px;
-      margin: 0;
-      padding: 0;
-    }
-    
-    .navbar a {
-      color: white;
-      text-decoration: none;
-      font-weight: 500;
-      padding: 8px 12px;
-      border-radius: 4px;
-      transition: all 0.3s ease;
-      display: block;
-    }
-    
-    .navbar a:hover {
-      background: rgba(255, 255, 255, 0.1);
-    }
-    
-    .navbar a.active {
-      background: rgba(255, 255, 255, 0.2);
-    }
-    
-    .hamburger {
-      display: none;
-      background: none;
-      border: none;
-      color: white;
-      font-size: 1.5rem;
-      cursor: pointer;
-      width: 44px;
-      height: 44px;
-      padding: 0;
-      flex-shrink: 0;
-    }
-    
-    /* RESPONSIVE NAVBAR */
-    @media (max-width: 768px) {
-      .hamburger {
-        display: flex;
-        align-items: center;
-        justify-content: center;
-      }
-      
-      .navbar {
-        padding: 10px 15px;
-        gap: 10px;
-      }
-      
-      .logo-section {
-        gap: 10px;
-      }
-      
-      .logo-image {
-        width: 50px;
-        height: 50px;
-      }
-      
-      .logo-name {
-        font-size: 1rem;
-      }
-      
-      .logo-subtitle {
-        font-size: 0.75rem;
-      }
-      
-      .navbar nav {
-        position: fixed;
-        top: 80px;
-        left: 0;
-        width: 100%;
-        background: #FF6B00;
-        padding: 20px;
-        box-shadow: 0 4px 8px rgba(0,0,0,0.1);
-        transform: translateY(-100%);
-        opacity: 0;
-        visibility: hidden;
-        transition: all 0.3s ease;
-        z-index: 999;
-        flex-direction: column;
-        justify-content: flex-start;
-      }
-      
-      .navbar nav.active {
-        transform: translateY(0);
-        opacity: 1;
-        visibility: visible;
-      }
-      
-      .navbar ul {
-        flex-direction: column;
-        gap: 10px;
-      }
-      
-      .navbar a {
-        padding: 12px 16px;
-        text-align: center;
-        border-radius: 6px;
-      }
-      
-      h1 {
-        font-size: 2rem;
-      }
-      
-      h2 {
-        font-size: 1.75rem;
-        margin-top: 2rem;
-      }
-    }
-    
-    @media (max-width: 480px) {
-      .hamburger {
-        display: flex;
-        align-items: center;
-        justify-content: center;
-      }
-      
-      .navbar {
-        padding: 10px 10px;
-      }
-      
-      .logo-image {
-        width: 45px;
-        height: 45px;
-      }
-      
-      .logo-name {
-        font-size: 0.9rem;
-      }
-      
-      .logo-subtitle {
-        font-size: 0.7rem;
-      }
-      
-      h1 {
-        font-size: 1.8rem;
-      }
-      
-      h2 {
-        font-size: 1.5rem;
-        margin-top: 1.5rem;
-      }
-    }
-    
-    /* MAIN CONTENT */
-    main {
-      max-width: 1400px;
-      margin: 0 auto;
-      padding: 2rem 20px;
     }
     
     /* PHOTO GALLERY SECTIONS */
@@ -301,16 +56,17 @@
     .photo-item {
       position: relative;
       overflow: hidden;
-      border-radius: 8px;
-      box-shadow: 0 4px 12px rgba(0,0,0,0.1);
+      border-radius: 12px;
+      box-shadow: 0 6px 15px rgba(0,0,0,0.1);
       transition: transform 0.3s ease, box-shadow 0.3s ease;
       height: 280px;
       cursor: pointer;
+      aspect-ratio: 1/1;
     }
     
     .photo-item:hover {
       transform: translateY(-5px);
-      box-shadow: 0 10px 25px rgba(0,0,0,0.15);
+      box-shadow: 0 12px 25px rgba(0,0,0,0.15);
     }
     
     .photo-img {
@@ -340,8 +96,8 @@
     .video-item {
       position: relative;
       overflow: hidden;
-      border-radius: 8px;
-      box-shadow: 0 4px 12px rgba(0,0,0,0.1);
+      border-radius: 12px;
+      box-shadow: 0 6px 15px rgba(0,0,0,0.1);
       transition: transform 0.3s ease;
       cursor: pointer;
     }
@@ -354,6 +110,7 @@
       position: relative;
       padding-bottom: 56.25%;
       height: 0;
+      background: #000;
     }
     
     .video-container iframe {
@@ -365,48 +122,7 @@
       border: none;
     }
     
-    /* FOOTER STYLES */
-    footer {
-      background-color: #222;
-      color: white;
-      padding: 3rem 20px 1.5rem;
-      margin-top: 4rem;
-    }
-    
-    .footer-content {
-      max-width: 1200px;
-      margin: 0 auto;
-      display: grid;
-      grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
-      gap: 2rem;
-      margin-bottom: 2rem;
-    }
-    
-    .footer-section h3 {
-      color: #FF6B00;
-      margin-bottom: 1rem;
-      font-size: 1.3rem;
-    }
-    
-    .footer-section p {
-      color: #ccc;
-      line-height: 1.7;
-    }
-    
-    .footer-bottom {
-      text-align: center;
-      padding-top: 1.5rem;
-      border-top: 1px solid #444;
-      max-width: 1200px;
-      margin: 0 auto;
-    }
-    
-    .footer-bottom p {
-      color: #aaa;
-      font-size: 0.9rem;
-    }
-    
-    /* BACK TO TOP BUTTON */
+    /* Back to Top Button */
     .back-to-top {
       position: fixed;
       bottom: 30px;
@@ -426,6 +142,8 @@
       opacity: 0;
       visibility: hidden;
       transition: all 0.3s ease;
+      border: none;
+      cursor: pointer;
     }
     
     .back-to-top.visible {
@@ -438,7 +156,7 @@
       transform: translateY(-3px);
     }
     
-    /* IMAGE LIGHTBOX/MODAL */
+    /* Image Lightbox/Modal */
     .lightbox {
       display: none;
       position: fixed;
@@ -446,7 +164,7 @@
       left: 0;
       width: 100%;
       height: 100%;
-      background-color: rgba(0, 0, 0, 0.9);
+      background-color: rgba(0, 0, 0, 0.95);
       z-index: 1000;
       justify-content: center;
       align-items: center;
@@ -476,6 +194,11 @@
       background: none;
       border: none;
       transition: color 0.3s ease;
+      width: 50px;
+      height: 50px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
     }
     
     .lightbox-close:hover {
@@ -496,19 +219,22 @@
       background: rgba(255, 255, 255, 0.1);
       color: white;
       border: none;
-      width: 60px;
-      height: 60px;
+      width: 50px;
+      height: 50px;
       border-radius: 50%;
-      font-size: 2rem;
+      font-size: 1.5rem;
       cursor: pointer;
       transition: background 0.3s ease;
+      display: flex;
+      align-items: center;
+      justify-content: center;
     }
     
     .lightbox-nav button:hover {
       background: rgba(255, 107, 0, 0.8);
     }
     
-    /* LOADING STATE FOR IMAGES */
+    /* Loading state */
     .photo-img.loading {
       background: linear-gradient(90deg, #f0f0f0 25%, #e0e0e0 50%, #f0f0f0 75%);
       background-size: 200% 100%;
@@ -520,7 +246,7 @@
       100% { background-position: -200% 0; }
     }
     
-    /* MESSAGE FOR NO IMAGES/VIDEOS */
+    /* No content message */
     .no-content {
       text-align: center;
       padding: 3rem;
@@ -541,15 +267,161 @@
       margin-bottom: 0.5rem;
     }
     
-    /* SECTION DIVIDER */
+    /* Section divider */
     .section-divider {
       height: 1px;
       background: linear-gradient(to right, transparent, #FF6B00, transparent);
       margin: 3rem 0;
     }
+    
+    /* Gallery filter buttons */
+    .gallery-filter {
+      display: flex;
+      justify-content: center;
+      gap: 10px;
+      margin: 30px 0;
+      flex-wrap: wrap;
+    }
+    
+    .filter-btn {
+      padding: 12px 25px;
+      background: #FFF9F0;
+      border: 2px solid #FFD580;
+      border-radius: 8px;
+      font-weight: bold;
+      color: #FF6B00;
+      cursor: pointer;
+      transition: all 0.3s ease;
+      font-size: 1rem;
+    }
+    
+    .filter-btn:hover,
+    .filter-btn.active {
+      background: #FF6B00;
+      color: white;
+      border-color: #FF6B00;
+    }
+    
+    /* Responsive Design */
+    @media (max-width: 768px) {
+      main {
+        padding: 1.5rem 15px;
+      }
+      
+      h2 {
+        font-size: 1.8rem;
+        margin-top: 2rem;
+      }
+      
+      .photo-grid {
+        grid-template-columns: repeat(auto-fill, minmax(250px, 1fr));
+        gap: 12px;
+      }
+      
+      .photo-item {
+        height: 250px;
+      }
+      
+      .video-grid {
+        grid-template-columns: 1fr;
+        gap: 20px;
+      }
+      
+      .gallery-filter {
+        gap: 8px;
+      }
+      
+      .filter-btn {
+        padding: 10px 20px;
+        font-size: 0.95rem;
+      }
+      
+      .lightbox-nav button {
+        width: 45px;
+        height: 45px;
+        font-size: 1.3rem;
+      }
+      
+      .lightbox-close {
+        top: 15px;
+        right: 20px;
+        font-size: 2.5rem;
+      }
+      
+      .back-to-top {
+        width: 45px;
+        height: 45px;
+        bottom: 25px;
+        right: 25px;
+      }
+    }
+    
+    @media (max-width: 480px) {
+      .photo-grid {
+        grid-template-columns: repeat(auto-fill, minmax(150px, 1fr));
+        gap: 10px;
+      }
+      
+      .photo-item {
+        height: 150px;
+      }
+      
+      h2 {
+        font-size: 1.6rem;
+      }
+      
+      .gallery-filter {
+        flex-direction: column;
+        align-items: center;
+      }
+      
+      .filter-btn {
+        width: 100%;
+        max-width: 250px;
+      }
+      
+      .lightbox-nav {
+        padding: 0 10px;
+      }
+      
+      .lightbox-nav button {
+        width: 40px;
+        height: 40px;
+        font-size: 1.2rem;
+      }
+      
+      .back-to-top {
+        width: 40px;
+        height: 40px;
+        bottom: 20px;
+        right: 20px;
+        font-size: 1rem;
+      }
+    }
+    
+    /* Touch device optimizations */
+    @media (hover: none) and (pointer: coarse) {
+      .photo-item {
+        cursor: default;
+      }
+      
+      .photo-item:active {
+        transform: scale(0.98);
+      }
+      
+      .filter-btn,
+      .lightbox-close,
+      .lightbox-nav button {
+        min-height: 44px;
+        min-width: 44px;
+      }
+    }
   </style>
 </head>
 <body>
+  <!-- Skip to content link for accessibility -->
+  <a href="#main-content" class="skip-to-content">Skip to main content</a>
+  
   <header>
     <div class="navbar">
       <div class="logo-section">
@@ -560,8 +432,8 @@
           <div class="logo-subtitle">Bhagvat Vyas</div>
         </div>
       </div>
-      <button class="hamburger" aria-label="Toggle menu">☰</button>
-      <nav>
+      <button class="hamburger" aria-label="Toggle menu" aria-expanded="false">☰</button>
+      <nav aria-label="Main navigation">
         <ul>
           <li><a href="index.html">Home</a></li>
           <li><a href="about.html">About</a></li>
@@ -574,37 +446,45 @@
     </div>
   </header>
 
-  <main>
-    <!-- Page Header -->
-    <section>
-      <h1>Gallery</h1>
-      <div class="section-intro">
-        <p>Visual journey through spiritual moments with Dr Ramanand Ji</p>
+  <!-- Hero Section -->
+  <div class="common-hero" style="background: linear-gradient(135deg, #FF6B00 30%, #FF8E53 100%), url('images/gallery-bg.jpg') center/cover;">
+    <h1>Gallery</h1>
+    <p>Visual journey through spiritual moments with Dr Ramanand Ji</p>
+    <div class="divider"></div>
+  </div>
+
+  <main id="main-content">
+    <!-- Gallery Filter -->
+    <div class="gallery-filter">
+      <button class="filter-btn active" data-filter="all">All Photos</button>
+      <button class="filter-btn" data-filter="ramanand">Ramanand Ji</button>
+      <button class="filter-btn" data-filter="katha">Katha Moments</button>
+      <button class="filter-btn" data-filter="videos">Videos</button>
+    </div>
+    
+    <!-- Ramanand Ji Photos Section -->
+    <div class="gallery-section" data-category="ramanand">
+      <h2>Ramanand Ji</h2>
+      <div class="photo-grid" id="ramanand-photos">
+        <!-- Photos loaded by JavaScript -->
       </div>
-      
-      <!-- Ramanand Ji Photos Section -->
-      <div class="gallery-section">
-        <h2>Ramanand Ji</h2>
-        <div class="photo-grid" id="ramanand-photos">
-          <!-- Photos will be loaded by JavaScript -->
-        </div>
+    </div>
+    
+    <!-- Section Divider -->
+    <div class="section-divider"></div>
+    
+    <!-- Katha Photos Section -->
+    <div class="gallery-section" data-category="katha">
+      <h2>Katha Moments</h2>
+      <div class="photo-grid" id="katha-photos">
+        <!-- Photos loaded by JavaScript -->
       </div>
-      
-      <!-- Section Divider -->
-      <div class="section-divider"></div>
-      
-      <!-- Katha Photos Section -->
-      <div class="gallery-section">
-        <h2>Katha Moments</h2>
-        <div class="photo-grid" id="katha-photos">
-          <!-- Photos will be loaded by JavaScript -->
-        </div>
-      </div>
-      
-      <!-- Section Divider -->
-      <div class="section-divider"></div>
-      
-      <!-- YouTube Videos Section -->
+    </div>
+    
+    <!-- Section Divider -->
+    <div class="section-divider"></div>
+    
+<!-- YouTube Videos Section -->
       <div class="video-section">
         <h2>YouTube Videos</h2>
         <div class="section-intro">
@@ -614,15 +494,14 @@
           <!-- Videos will be loaded by JavaScript -->
         </div>
       </div>
-    </section>
   </main>
 
   <!-- Image Lightbox -->
-  <div class="lightbox" id="lightbox">
-    <button class="lightbox-close" id="lightboxClose">&times;</button>
+  <div class="lightbox" id="lightbox" aria-hidden="true" role="dialog" aria-label="Image viewer">
+    <button class="lightbox-close" id="lightboxClose" aria-label="Close lightbox">&times;</button>
     <div class="lightbox-nav">
-      <button id="lightboxPrev"><i class="fas fa-chevron-left"></i></button>
-      <button id="lightboxNext"><i class="fas fa-chevron-right"></i></button>
+      <button id="lightboxPrev" aria-label="Previous image"><i class="fas fa-chevron-left"></i></button>
+      <button id="lightboxNext" aria-label="Next image"><i class="fas fa-chevron-right"></i></button>
     </div>
     <img class="lightbox-img" id="lightboxImage" src="" alt="">
   </div>
@@ -649,9 +528,9 @@
   </footer>
 
   <!-- Back to Top Button -->
-  <a href="#" class="back-to-top" id="backToTop">
+  <button class="back-to-top" id="backToTop" aria-label="Back to top">
     <i class="fas fa-arrow-up"></i>
-  </a>
+  </button>
 
   <script>
     // Navbar Toggle for Mobile
