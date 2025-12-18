@@ -146,15 +146,42 @@
       background: #000;
     }
     
-    .hero-image {
+    /* SLIDESHOW STYLES */
+    .slideshow-banner {
+      position: relative;
       width: 100%;
-      height: calc(100vh - 70px);
+      height: auto; /* let image determine height */
+      background: transparent;
+      overflow: hidden;
+    }
+
+    .slide {
+      display: none;
+      width: 100%;
+      height: auto;
+      position: relative;
+    }
+
+    .slide.active {
+      display: block;
+      animation: fadeIn 0.5s ease-in;
+    }
+
+    @keyframes fadeIn {
+      from { opacity: 0; }
+      to { opacity: 1; }
+    }
+
+    .slide-image {
+      width: 100%;
+      height: auto;
+      max-height: 80vh;
       object-fit: cover;
       object-position: center;
       display: block;
     }
     
-    .hero-overlay {
+    .slide-overlay {
       position: absolute;
       bottom: 0;
       left: 0;
@@ -165,15 +192,310 @@
       text-align: center;
     }
     
-    .hero-quote {
-      max-width: 800px;
-      margin: 0 auto;
-      font-size: 1.2rem;
-      line-height: 1.6;
-      font-style: italic;
-      text-shadow: 1px 1px 3px rgba(0,0,0,0.5);
+    .slide-title {
+      font-size: 1.8rem;
+      font-weight: 700;
+      margin-bottom: 10px;
+      color: #FFD580;
     }
     
+    .slide-info {
+      font-size: 1.1rem;
+      margin-bottom: 10px;
+      color: white;
+    }
+    
+    .slide-date {
+      font-size: 0.95rem;
+      color: #FFE0CC;
+    }
+    
+    /* Slide navigation buttons */
+    .slide-nav-button {
+      position: absolute;
+      top: 50%;
+      transform: translateY(-50%);
+      background: rgba(255, 251, 251, 0);
+      color: white;
+      border: none;
+      font-size: 2rem;
+      padding: 20px 15px;
+      cursor: pointer;
+      z-index: 10;
+      transition: background 0.3s ease;
+      user-select: none;
+    }
+    
+    .slide-nav-button:hover {
+      background: rgba(255, 255, 255, 0.6);
+    }
+    
+    .slide-prev {
+      left: 0;
+    }
+    
+    .slide-next {
+      right: 0;
+    }
+    
+    /* Slide indicators */
+    .slide-indicators {
+      position: absolute;
+      bottom: 20px;
+      left: 50%;
+      transform: translateX(-50%);
+      display: flex;
+      gap: 10px;
+      z-index: 10;
+    }
+    
+    .slide-indicator {
+      width: 12px;
+      height: 12px;
+      border-radius: 50%;
+      background: rgba(255, 255, 255, 0.5);
+      cursor: pointer;
+      transition: background 0.3s ease;
+    }
+    
+    .slide-indicator.active {
+      background: #FFD580;
+      transform: scale(1.2);
+    }
+    
+    .slide-indicator:hover {
+      background: rgba(255, 255, 255, 0.8);
+    }
+    
+    /* ========== FIXED AUDIO PLAYER STYLES ========== */
+    .audio-player-section {
+        padding: 40px 20px;
+        background: linear-gradient(to bottom, #FFF9F0, #FFEEDD);
+        position: relative;
+        overflow: hidden;
+    }
+
+    .audio-player-section::before {
+        content: '';
+        position: absolute;
+        top: 0;
+        left: 0;
+        right: 0;
+        height: 3px;
+        background: linear-gradient(to right, #FF6B00, #FFD580, #FF6B00);
+    }
+
+    .audio-player-container {
+        background: linear-gradient(145deg, #FF6B00 0%, #FF4500 100%);
+        max-width: 600px;
+        margin: 0 auto;
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+        border-radius: 25px;
+        box-shadow: 
+            0 15px 35px rgba(255, 107, 0, 0.4),
+            inset 0 1px 0 rgba(255, 255, 255, 0.3),
+            inset 0 -1px 0 rgba(0, 0, 0, 0.2);
+        border: 4px solid white;
+        position: relative;
+        overflow: hidden;
+        padding: 20px;
+        z-index: 1;
+        min-height: 140px;
+    }
+
+    /* Glow effect */
+    .audio-player-container::after {
+        content: '';
+        position: absolute;
+        top: -2px;
+        left: -2px;
+        right: -2px;
+        bottom: -2px;
+        background: linear-gradient(45deg, #FF6B00, #FFD580, #FF6B00);
+        border-radius: 27px;
+        z-index: -1;
+        opacity: 0.6;
+        filter: blur(10px);
+    }
+
+    /* Logo Circle */
+    .logo-circle {
+        width: 90px;
+        height: 90px;
+        min-width: 90px;
+        border-radius: 50%;
+        background: linear-gradient(135deg, white, #FFE0CC);
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        overflow: hidden;
+        border: 4px solid #FFD580;
+        box-shadow: 
+            0 0 20px rgba(255, 213, 128, 0.6),
+            0 5px 15px rgba(0, 0, 0, 0.2),
+            inset 0 2px 4px rgba(255, 255, 255, 0.8);
+        position: relative;
+        z-index: 2;
+        transition: all 0.5s ease;
+    }
+
+    .logo-circle img {
+        width: 75%;
+        height: 75%;
+        object-fit: contain;
+        border-radius: 50%;
+        filter: drop-shadow(0 2px 4px rgba(0, 0, 0, 0.1));
+    }
+    
+    /* Audio Controls */
+    .audio-controls {
+        flex: 1;
+        margin-left: 25px;
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+    }
+    
+    .audio-title {
+        color: white;
+        font-size: 1.3rem;
+        font-weight: 600;
+        margin-bottom: 10px;
+        text-shadow: 0 2px 4px rgba(0,0,0,0.2);
+    }
+    
+    .audio-info {
+        color: #FFE0CC;
+        font-size: 0.9rem;
+        margin-bottom: 15px;
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+    }
+    
+    .audio-time {
+        font-family: monospace;
+        font-weight: 600;
+        background: rgba(0,0,0,0.2);
+        padding: 4px 10px;
+        border-radius: 12px;
+        min-width: 100px;
+        text-align: center;
+    }
+    
+    /* Custom Play Button */
+    .custom-play-btn {
+        width: 60px;
+        height: 60px;
+        border-radius: 50%;
+        background: linear-gradient(135deg, white, #FFE0CC);
+        border: none;
+        color: #FF6B00;
+        font-size: 1.8rem;
+        cursor: pointer;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        box-shadow: 
+            0 5px 15px rgba(0,0,0,0.3),
+            inset 0 2px 4px rgba(255,255,255,0.8);
+        transition: all 0.3s ease;
+        margin-right: 15px;
+        flex-shrink: 0;
+    }
+    
+    .custom-play-btn:hover {
+        transform: scale(1.05);
+        box-shadow: 0 7px 20px rgba(0,0,0,0.4);
+    }
+    
+    .custom-play-btn.playing {
+        background: linear-gradient(135deg, #FFD580, #FFB347);
+    }
+    
+    /* Control Row */
+    .control-row {
+        display: flex;
+        align-items: center;
+        gap: 10px;
+        width: 100%;
+    }
+    
+    /* Progress Bar */
+    .progress-container {
+        flex: 1;
+        height: 8px;
+        background: rgba(255, 255, 255, 0.2);
+        border-radius: 4px;
+        overflow: hidden;
+        cursor: pointer;
+    }
+    
+    .progress-bar {
+        height: 100%;
+        background: linear-gradient(to right, #FFD580, #FFA726);
+        border-radius: 4px;
+        width: 0%;
+        transition: width 0.1s linear;
+    }
+    
+    /* Volume Control */
+    .volume-control {
+        display: flex;
+        align-items: center;
+        gap: 8px;
+        margin-left: 15px;
+    }
+    
+    .volume-icon {
+        color: white;
+        font-size: 1.2rem;
+    }
+    
+    .volume-slider {
+        width: 70px;
+        height: 4px;
+        background: rgba(255, 255, 255, 0.2);
+        border-radius: 2px;
+        cursor: pointer;
+    }
+    
+    .volume-slider::-webkit-slider-thumb {
+        -webkit-appearance: none;
+        width: 12px;
+        height: 12px;
+        border-radius: 50%;
+        background: white;
+        cursor: pointer;
+    }
+    
+    /* Hide default audio player */
+    .audio-player {
+        display: none !important;
+    }
+    
+    /* Enhanced rotating animation */
+    @keyframes rotateLogo {
+        0% {
+            transform: rotate(0deg) scale(1);
+            box-shadow: 0 0 20px rgba(255, 213, 128, 0.6);
+        }
+        50% {
+            transform: rotate(180deg) scale(1.05);
+            box-shadow: 0 0 30px rgba(255, 213, 128, 0.8);
+        }
+        100% {
+            transform: rotate(360deg) scale(1);
+            box-shadow: 0 0 20px rgba(255, 213, 128, 0.6);
+        }
+    }
+
+    .logo-circle.playing {
+        animation: rotateLogo 8s linear infinite;
+    }
+
     /* QUICK LINKS */
     .quick-links {
       background: #FFF9F0;
@@ -210,116 +532,273 @@
       color: #FF6B00;
     }
     
-    /* MARQUEE BAR - DYNAMIC UPCOMING KATHA */
-.marquee-bar {
-    position: fixed;
-    bottom: 0;
-    left: 0;
-    width: 100%;
-    background: rgba(255, 107, 0, 0.95);
-    color: white;
-    padding: 10px 0;
-    z-index: 1001;
-    overflow: hidden;
-    white-space: nowrap;
-    border-top: 2px solid #FFD580;
-    box-shadow: 0 -2px 10px rgba(0,0,0,0.2);
-    transition: all 0.3s ease;
-}
-
-/* In your current index.html, find this section: */
-.marquee-content {
-    display: inline-block;
-    padding-left: 100%;
-    animation: marquee 200s linear infinite; /* Change 200s to 80s or 100s */
-    font-weight: 500;
-    font-size: 1rem;
-}
-
-/* Add responsive animation speeds */
-@media (max-width: 768px) {
-    .marquee-content {
-        animation-duration: 200s !important; /* Slower on mobile */
-        font-size: 0.9rem;
-    }
-}
-
-@media (max-width: 480px) {
-    .marquee-content {
-        animation-duration: 200s !important; /* Even slower on small phones */
-        font-size: 0.85rem;
-    }
-}
-
-.marquee-text {
-    display: inline-block;
-    padding-right: 40px;
-}
-
-/* Slower animation for mobile, faster for desktop */
-@keyframes marquee {
-    0% { transform: translateX(0); }
-    100% { transform: translateX(-100%); }
-}
-
-/* Control marquee speed with animation-duration */
-.marquee-content {
-    animation-duration: 200s; /* Default for desktop */
-}
-
-.marquee-bar:hover .marquee-content {
-    animation-play-state: paused;
-}
-
-/* RESPONSIVE */
-@media (max-width: 768px) {
+    /* MARQUEE BAR */
     .marquee-bar {
-        padding: 8px 0;
-    }
-    
-    .marquee-content {
-        font-size: 0.85rem;
-        animation-duration: 200s; /* Slower on tablet */
-    }
-    
-    .marquee-text {
-        padding-right: 30px;
-    }
-}
-
-@media (max-width: 480px) {
-    .marquee-content {
-        font-size: 0.8rem;
-        animation-duration: 200s; /* Even slower on mobile */
+        position: fixed;
+        bottom: 0;
+        left: 0;
+        width: 100%;
+        background: rgba(255, 107, 0, 0.95);
+        color: white;
+        padding: 10px 0;
+        z-index: 1001;
+        overflow: hidden;
         white-space: nowrap;
+        border-top: 2px solid #FFD580;
+        box-shadow: 0 -2px 10px rgba(0,0,0,0.2);
     }
-    
-    .marquee-text {
-        padding-right: 20px;
+
+    .marquee-content {
+        display: inline-block;
+        padding-left: 100%;
+        animation: marquee 200s linear infinite;
+        font-weight: 500;
+        font-size: 1rem;
     }
-    
-    /* Make sure the text doesn't break */
+
     .marquee-text {
         display: inline-block;
-        white-space: nowrap;
+        padding-right: 40px;
     }
-}
 
-/* For very small screens */
-@media (max-width: 360px) {
-    .marquee-content {
-        animation-duration: 200s; /* Slowest on very small screens */
+    @keyframes marquee {
+        0% { transform: translateX(0); }
+        100% { transform: translateX(-100%); }
     }
-}
 
-/* Pause animation when reduced motion is preferred */
-@media (prefers-reduced-motion: reduce) {
-    .marquee-content {
-        animation: none;
-        padding-left: 0;
-        text-align: center;
+    .marquee-bar:hover .marquee-content {
+        animation-play-state: paused;
     }
-}
+
+    /* RESPONSIVE STYLES */
+    @media (max-width: 768px) {
+        /* Audio Player Responsive */
+        .audio-player-section {
+            padding: 30px 15px;
+        }
+        
+        .audio-player-container {
+            flex-direction: column;
+            padding: 20px;
+            min-height: auto;
+            gap: 20px;
+            border-radius: 20px;
+        }
+        
+        .logo-circle {
+            width: 80px;
+            height: 80px;
+            min-width: 80px;
+            margin-bottom: 10px;
+        }
+        
+        .audio-controls {
+            margin-left: 0;
+            width: 100%;
+        }
+        
+        .audio-title {
+            font-size: 1.2rem;
+            text-align: center;
+            margin-bottom: 15px;
+        }
+        
+        .audio-info {
+            flex-direction: column;
+            gap: 10px;
+            align-items: stretch;
+        }
+        
+        .control-row {
+            flex-wrap: wrap;
+            justify-content: center;
+        }
+        
+        .custom-play-btn {
+            width: 55px;
+            height: 55px;
+            font-size: 1.6rem;
+            margin-right: 0;
+            order: -1;
+        }
+        
+        .progress-container {
+            order: 1;
+            width: 100%;
+            margin-top: 15px;
+        }
+        
+        .volume-control {
+            order: 2;
+            margin-left: 0;
+            margin-top: 10px;
+            justify-content: center;
+            width: 100%;
+        }
+        
+        .volume-slider {
+            width: 100px;
+        }
+        
+        /* Hero Section */
+        .hero-image {
+            height: calc(100vh - 60px);
+        }
+          
+        .hero-overlay {
+            padding: 20px 15px;
+        }
+          
+        .hero-quote {
+            font-size: 1rem;
+        }
+          
+        .slideshow-banner {
+            height: auto;
+            max-height: calc(80vh);
+        }
+          
+        .slide-title {
+            font-size: 1.3rem;
+        }
+          
+        .slide-info {
+            font-size: 0.95rem;
+        }
+          
+        .slide-date {
+            font-size: 0.85rem;
+        }
+          
+        .slide-nav-button {
+            font-size: 1.5rem;
+            padding: 15px 10px;
+        }
+          
+        .marquee-content {
+            font-size: 0.9rem;
+            animation: marquee 150s linear infinite;
+        }
+          
+        .quick-links-grid {
+            grid-template-columns: 1fr;
+        }
+          
+        .next-katha-highlight {
+            margin: 20px 15px;
+            padding: 20px;
+        }
+    }
+
+    @media (max-width: 480px) {
+        /* Audio Player for Small Mobile */
+        .audio-player-container {
+            padding: 15px;
+            border-radius: 15px;
+            border-width: 3px;
+        }
+        
+        .logo-circle {
+            width: 70px;
+            height: 70px;
+            min-width: 70px;
+            border-width: 3px;
+        }
+        
+        .audio-title {
+            font-size: 1.1rem;
+            margin-bottom: 10px;
+        }
+        
+        .custom-play-btn {
+            width: 50px;
+            height: 50px;
+            font-size: 1.5rem;
+        }
+        
+        .audio-time {
+            font-size: 0.85rem;
+            min-width: 90px;
+        }
+        
+        .progress-container {
+            height: 6px;
+        }
+        
+        .volume-slider {
+            width: 80px;
+        }
+        
+        /* Marquee */
+        .marquee-content {
+            font-size: 0.8rem;
+            animation: marquee 100s linear infinite;
+        }
+          
+        .marquee-bar {
+            padding: 8px 0;
+        }
+        
+        /* Navbar */
+        .hamburger {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+          
+        .navbar {
+            padding: 10px 10px;
+        }
+          
+        .logo-image {
+            width: 45px;
+            height: 45px;
+        }
+          
+        .logo-name {
+            font-size: 0.9rem;
+        }
+          
+        .logo-subtitle {
+            font-size: 0.7rem;
+        }
+          
+        /* Slideshow */
+        .slideshow-banner {
+            height: auto;
+            max-height: calc(70vh);
+        }
+          
+        .slide-title {
+            font-size: 1.1rem;
+        }
+          
+        .slide-info {
+            font-size: 0.85rem;
+        }
+          
+        .slide-date {
+            font-size: 0.75rem;
+        }
+          
+        .slide-overlay {
+            padding: 20px 10px;
+        }
+          
+        .slide-nav-button {
+            font-size: 1.2rem;
+            padding: 10px 8px;
+        }
+          
+        .slide-indicators {
+            bottom: 10px;
+        }
+          
+        .slide-indicator {
+            width: 10px;
+            height: 10px;
+        }
+    }
     
     /* TESTIMONIAL SECTION */
     .testimonial-section {
@@ -345,69 +824,6 @@
     .next-katha-highlight:hover {
       transform: translateY(-5px);
       box-shadow: 0 10px 25px rgba(255, 107, 0, 0.4);
-    }
-    
-    /* RESPONSIVE */
-    @media (max-width: 768px) {
-      .hero-image {
-        height: calc(100vh - 60px);
-      }
-      
-      .hero-overlay {
-        padding: 20px 15px;
-      }
-      
-      .hero-quote {
-        font-size: 1rem;
-      }
-      
-      .marquee-content {
-        font-size: 0.9rem;
-        animation: marquee 20s linear infinite;
-      }
-      
-      .quick-links-grid {
-        grid-template-columns: 1fr;
-      }
-      
-      .next-katha-highlight {
-        margin: 20px 15px;
-        padding: 20px;
-      }
-    }
-    
-    @media (max-width: 480px) {
-      .marquee-content {
-        font-size: 0.8rem;
-        animation: marquee 15s linear infinite;
-      }
-      
-      .marquee-bar {
-        padding: 8px 0;
-      }
-      
-      .hamburger {
-        display: flex;
-        align-items: center;
-        justify-content: center;
-      }
-      
-      .navbar {
-        padding: 10px 10px;
-      }
-      
-      .logo-image {
-        width: 45px;
-        height: 45px;
-      }
-      
-      .logo-name {
-        font-size: 0.9rem;
-      }
-      
-      .logo-subtitle {
-        font-size: 0.7rem;
-      }
     }
     
     /* RESPONSIVE NAVBAR */
@@ -497,24 +913,54 @@
             <li><a href="kathas.html">Kathas</a></li>
             <li><a href="gallery.html">Gallery</a></li>
             <li><a href="contact.html">Contact</a></li>
+            <li><a href="donate.html">Donate</a></li>
           </ul>
         </nav>
       </div>
     </header>
 
-    <!-- HERO SECTION -->
+    <!-- SLIDESHOW BANNER SECTION -->
     <section class="hero-section">
-      <img src="images/ramanand-main.png" 
-           alt="Bhagvat Vyas Dr Ramanand Ji" 
-           class="hero-image"
-           loading="eager"
-           onerror="this.src='https://via.placeholder.com/1200x800/FF6B00/FFFFFF?text=Bhagvat+Vyas+Dr+Ramanand+Ji'">
-      
-      <div class="hero-overlay">
-        <div class="hero-quote">
-          "श्रीमद्भागवत कथा मानव जीवन का सर्वोत्तम साधन है। यह हमें ईश्वर की ओर ले जाती है और जीवन का वास्तविक उद्देश्य समझाती है।"
+      <div class="slideshow-banner">
+        
+        <div class="slide active">
+          <img src="images\banner1.png" alt="Magh Mela Bhagwat Katha" class="slide-image" 
+               onerror="this.src='https://via.placeholder.com/1200x800/FF6B00/FFFFFF?text=Magh+Mela+Katha'">
         </div>
-      </div>
+        
+        
+        <div class="slide">
+          <img src="images\banner2.png" alt="Bahoripur Bhagwat Katha" class="slide-image" 
+               onerror="this.src='https://via.placeholder.com/1200x800/FF6B00/FFFFFF?text=Bahoripur+Katha'">
+        </div>
+        <div class="slide">
+          <img src="images\banner3.png" alt="Bahoripur Bhagwat Katha" class="slide-image" 
+               onerror="this.src='https://via.placeholder.com/1200x800/FF6B00/FFFFFF?text=Bahoripur+Katha'">
+        </div>
+        <div class="slide">
+          <img src="images\banner4.png" alt="Bahoripur Bhagwat Katha" class="slide-image" 
+               onerror="this.src='https://via.placeholder.com/1200x800/FF6B00/FFFFFF?text=Bahoripur+Katha'">
+        </div>
+        <div class="slide">
+          <img src="images\banner5.png" alt="Bahoripur Bhagwat Katha" class="slide-image" 
+               onerror="this.src='https://via.placeholder.com/1200x800/FF6B00/FFFFFF?text=Bahoripur+Katha'">
+        </div>
+        <div class="slide">
+          <img src="images\banner6.png" alt="Bahoripur Bhagwat Katha" class="slide-image" 
+               onerror="this.src='https://via.placeholder.com/1200x800/FF6B00/FFFFFF?text=Bahoripur+Katha'">
+        </div>
+        <div class="slide">
+          <img src="images\banner7.png" alt="Bahoripur Bhagwat Katha" class="slide-image" 
+               onerror="this.src='https://via.placeholder.com/1200x800/FF6B00/FFFFFF?text=Bahoripur+Katha'">
+        </div>
+        <div class="slide">
+          <img src="images\banner8.png" alt="Kevlapur Bhagwat Katha" class="slide-image" 
+               onerror="this.src='https://via.placeholder.com/1200x800/FF6B00/FFFFFF?text=Kevlapur+Katha'">
+        </div>
+        
+        <!-- Navigation buttons -->
+        <button class="slide-nav-button slide-prev" aria-label="Previous slide">❮</button>
+        <button class="slide-nav-button slide-next" aria-label="Next slide">❯</button>
     </section>
 
     <!-- NEXT KATHA HIGHLIGHT -->
@@ -524,6 +970,48 @@
       <p style="margin-top: 10px; font-size: 0.9rem; opacity: 0.9;">
         Click here for full schedule →
       </p>
+    </div>
+
+    <!-- ========== FIXED AUDIO PLAYER ========== -->
+    <div class="audio-player-section">
+        <div class="audio-player-container" id="audioPlayerContainer">
+            <!-- Logo Circle -->
+            <div class="logo-circle" id="audioLogo">
+                <img src="images\audioimg.png" alt="Logo" 
+                     onerror="this.src='https://via.placeholder.com/100/FF6B00/FFFFFF?text=LOGO'">
+            </div>
+            
+            <!-- Audio Controls -->
+            <div class="audio-controls">
+                <div class="audio-title">Gopi Geet</div>
+                
+                <div class="audio-info">
+                    <div class="audio-time" id="audioTime">0:00 / 0:00</div>
+                </div>
+                
+                <div class="control-row">
+                    <button class="custom-play-btn" id="customPlayBtn">▶</button>
+                    
+                    <div class="progress-container" id="progressContainer">
+                        <div class="progress-bar" id="progressBar"></div>
+                    </div>
+                    
+                    <div class="volume-control">
+                        <div class="volume-icon">🔊</div>
+                        <input type="range" class="volume-slider" id="volumeSlider" min="0" max="1" step="0.01" value="0.7">
+                    </div>
+                </div>
+            </div>
+            
+            <!-- Hidden Audio Element -->
+            <div class="audio-player">
+                <audio id="mainAudio">
+                    <source src="audio\audio 1.mp3" type="audio/mpeg">
+                    <source src="audio\audio 2.ogg" type="audio/ogg">
+                    Your browser does not support the audio element.
+                </audio>
+            </div>
+        </div>
     </div>
 
     <!-- QUICK LINKS SECTION -->
@@ -550,7 +1038,7 @@
         <a href="https://wa.me/91XXXXXXXXXX" class="quick-link-card" target="_blank">
           <div class="quick-link-icon">📱</div>
           <h3>WhatsApp Updates</h3>
-          <p>Get live updates on Katha schedules</p>
+          <p>Join Whatsup channel for katha updates</p>
         </a>
       </div>
     </section>
@@ -563,71 +1051,306 @@
       </div>
     </section>
 
-    <!-- NEWSLETTER SIGNUP -->
-    <section class="section">
-      <div class="newsletter">
-        <h2>Stay Updated</h2>
-        <p>Get notified about upcoming Kathas</p>
-        <form id="newsletterForm" class="newsletter-input">
-          <input type="email" id="newsletter-email" placeholder="Your email address" required>
-          <button type="submit" class="btn btn-primary">Subscribe</button>
-        </form>
-        <p><small>We respect your privacy. Unsubscribe anytime.</small></p>
-      </div>
-    </section>
-
     <!-- DYNAMIC MARQUEE BAR -->
     <div class="marquee-bar">
       <div class="marquee-content">
-        <span class="marquee-text" id="upcoming-katha-text">📿🌺 श्री राधे 🌺🌺 श्री राधे 🌺🌺 श्री राधे 🌺🌺 श्री राधे 🌺🌺 श्री राधे 🌺🌺 श्री राधे 🌺🌺 श्री राधे 🌺🌺 श्री राधे 🌺🌺 श्री राधे 🌺🌺 श्री राधे 🌺🌺 श्री राधे 🌺🌺 श्री राधे 🌺🌺 श्री राधे 🌺🌺 श्री राधे 🌺🌺 श्री राधे 🌺🌺 श्री राधे 🌺🌺 श्री राधे 🌺🌺 श्री राधे 🌺🌺 श्री राधे 🌺🌺 श्री राधे 🌺🌺 श्री राधे 🌺🌺 श्री राधे 🌺🌺 श्री राधे 🌺🌺 श्री राधे 🌺🌺 श्री राधे 🌺🌺 श्री राधे 🌺🌺 श्री राधे 🌺🌺 श्री राधे 🌺🌺 श्री राधे 🌺🌺 श्री राधे 🌺🌺 श्री राधे 🌺🌺 श्री राधे 🌺🌺 श्री राधे 🌺🌺 श्री राधे 🌺🌺 श्री राधे 🌺🌺 श्री राधे 🌺🌺 श्री राधे 🌺🌺 श्री राधे 🌺🌺 श्री राधे 🌺🌺 श्री राधे 🌺🌺 श्री राधे 🌺🌺 श्री राधे 🌺🌺 श्री राधे 🌺🌺 श्री राधे 🌺🌺 श्री राधे 🌺🌺 श्री राधे 🌺🌺 श्री राधे 🌺🌺 श्री राधे 🌺🌺 श्री राधे 🌺🌺 श्री राधे 🌺🌺 श्री राधे 🌺🌺 श्री राधे 🌺🌺 श्री राधे 🌺🌺 श्री राधे 🌺🌺 श्री राधे 🌺🌺 श्री राधे 🌺🌺 श्री राधे 🌺🌺 श्री राधे 🌺🌺 श्री राधे 🌺🌺 श्री राधे 🌺🌺 श्री राधे 🌺🌺 श्री राधे 🌺🌺 श्री राधे 🌺🌺 श्री राधे 🌺🌺 श्री राधे 🌺🌺 श्री राधे 🌺🌺 श्री राधे 🌺🌺 श्री राधे 🌺🌺 श्री राधे 🌺🌺 श्री राधे 🌺🌺 श्री राधे 🌺🌺 श्री राधे 🌺🌺 श्री राधे 🌺🌺 श्री राधे 🌺🌺 श्री राधे 🌺🌺 श्री राधे 🌺🌺 श्री राधे 🌺🌺 श्री राधे 🌺🌺 श्री राधे 🌺🌺 श्री राधे 🌺🌺 श्री राधे 🌺🌺 श्री राधे 🌺🌺 श्री राधे 🌺🌺 श्री राधे 🌺🌺 श्री राधे 🌺🌺 श्री राधे 🌺🌺 श्री राधे 🌺🌺 श्री राधे 🌺🌺 श्री राधे 🌺🌺 श्री राधे 🌺🌺 श्री राधे 🌺🌺 श्री राधे 🌺🌺 श्री राधे 🌺🌺 श्री राधे 🌺🌺 श्री राधे 🌺🌺 श्री राधे 🌺🌺 श्री राधे 🌺🌺 श्री राधे 🌺🌺 श्री राधे 🌺🌺 श्री राधे 🌺🌺 श्री राधे 🌺🌺 श्री राधे 🌺🌺 श्री राधे 🌺🌺 श्री राधे 🌺🌺 श्री राधे 🌺🌺 श्री राधे 🌺🌺 श्री राधे 🌺🌺 श्री राधे 🌺🌺 श्री राधे 🌺🌺 श्री राधे 🌺🌺 श्री राधे 🌺🌺 श्री राधे 🌺🌺 श्री राधे 🌺🌺 श्री राधे 🌺🌺 श्री राधे 🌺🌺 श्री राधे 🌺🌺 श्री राधे 🌺🌺 श्री राधे 🌺🌺 श्री राधे 🌺🌺 श्री राधे 🌺🌺 श्री राधे 🌺🌺 श्री राधे 🌺🌺 श्री राधे 🌺🌺 श्री राधे 🌺🌺 श्री राधे 🌺🌺 श्री राधे 🌺🌺 श्री राधे 🌺🌺 श्री राधे 🌺🌺 श्री राधे 🌺🌺 श्री राधे 🌺🌺 श्री राधे 🌺🌺 श्री राधे 🌺🌺 श्री राधे 🌺🌺 श्री राधे 🌺🌺 श्री राधे 🌺🌺 श्री राधे 🌺🌺 श्री राधे 🌺🌺 श्री राधे 🌺🌺 श्री राधे 🌺🌺 श्री राधे 🌺🌺 श्री राधे 🌺🌺 श्री राधे 🌺🌺 श्री राधे 🌺🌺 श्री राधे 🌺🌺 श्री राधे 🌺🌺 श्री राधे 🌺🌺 श्री राधे 🌺🌺 श्री राधे 🌺🌺 श्री राधे 🌺🌺 श्री राधे 🌺🌺 श्री राधे 🌺🌺 श्री राधे 🌺🌺 श्री राधे 🌺🌺 श्री राधे 🌺🌺 श्री राधे 🌺🌺 श्री राधे 🌺🌺 श्री राधे 🌺🌺 श्री राधे 🌺🌺 श्री राधे 🌺🌺 श्री राधे 🌺🌺 श्री राधे 🌺🌺 श्री राधे 🌺🌺 श्री राधे 🌺🌺 श्री राधे 🌺🌺 श्री राधे 🌺🌺 श्री राधे 🌺🌺 श्री राधे 🌺🌺 श्री राधे 🌺🌺 श्री राधे 🌺🌺 श्री राधे 🌺🌺 श्री राधे 🌺🌺 श्री राधे 🌺🌺 श्री राधे 🌺🌺 श्री राधे 🌺🌺 श्री राधे 🌺🌺 श्री राधे 🌺🌺 श्री राधे 🌺🌺 श्री राधे 🌺🌺 श्री राधे 🌺🌺 श्री राधे 🌺🌺 श्री राधे 🌺🌺 श्री राधे 🌺🌺 श्री राधे 🌺🌺 श्री राधे 🌺🌺 श्री राधे 🌺🌺 श्री राधे 🌺🌺 श्री राधे 🌺🌺 श्री राधे 🌺🌺 श्री राधे 🌺🌺 श्री राधे 🌺🌺 श्री राधे 🌺🌺 श्री राधे 🌺🌺 श्री राधे 🌺🌺 श्री राधे 🌺🌺 श्री राधे 🌺🌺 श्री राधे 🌺🌺 श्री राधे 🌺🌺 श्री राधे 🌺🌺 श्री राधे 🌺🌺 श्री राधे 🌺🌺 श्री राधे 🌺🌺 श्री राधे 🌺🌺 श्री राधे 🌺🌺 श्री राधे 🌺🌺 श्री राधे 🌺🌺 श्री राधे 🌺🌺 श्री राधे 🌺🌺 श्री राधे 🌺🌺 श्री राधे 🌺🌺 श्री राधे 🌺🌺 श्री राधे 🌺🌺 श्री राधे 🌺🌺 श्री राधे 🌺🌺 श्री राधे 🌺🌺 श्री राधे 🌺🌺 श्री राधे 🌺🌺 श्री राधे 🌺🌺 श्री राधे 🌺🌺 श्री राधे 🌺🌺 श्री राधे 🌺 📿</span>
-        <span class="marquee-text" id="upcoming-katha-text">📿🌺 श्री राधे 🌺🌺 श्री राधे 🌺🌺 श्री राधे 🌺🌺 श्री राधे 🌺🌺 श्री राधे 🌺🌺 श्री राधे 🌺🌺 श्री राधे 🌺🌺 श्री राधे 🌺🌺 श्री राधे 🌺🌺 श्री राधे 🌺🌺 श्री राधे 🌺🌺 श्री राधे 🌺🌺 श्री राधे 🌺🌺 श्री राधे 🌺🌺 श्री राधे 🌺🌺 श्री राधे 🌺🌺 श्री राधे 🌺🌺 श्री राधे 🌺🌺 श्री राधे 🌺🌺 श्री राधे 🌺🌺 श्री राधे 🌺🌺 श्री राधे 🌺🌺 श्री राधे 🌺🌺 श्री राधे 🌺🌺 श्री राधे 🌺🌺 श्री राधे 🌺🌺 श्री राधे 🌺🌺 श्री राधे 🌺🌺 श्री राधे 🌺🌺 श्री राधे 🌺🌺 श्री राधे 🌺🌺 श्री राधे 🌺🌺 श्री राधे 🌺🌺 श्री राधे 🌺🌺 श्री राधे 🌺🌺 श्री राधे 🌺🌺 श्री राधे 🌺🌺 श्री राधे 🌺🌺 श्री राधे 🌺🌺 श्री राधे 🌺🌺 श्री राधे 🌺🌺 श्री राधे 🌺🌺 श्री राधे 🌺🌺 श्री राधे 🌺🌺 श्री राधे 🌺🌺 श्री राधे 🌺🌺 श्री राधे 🌺🌺 श्री राधे 🌺🌺 श्री राधे 🌺🌺 श्री राधे 🌺🌺 श्री राधे 🌺🌺 श्री राधे 🌺🌺 श्री राधे 🌺🌺 श्री राधे 🌺🌺 श्री राधे 🌺🌺 श्री राधे 🌺🌺 श्री राधे 🌺🌺 श्री राधे 🌺🌺 श्री राधे 🌺🌺 श्री राधे 🌺🌺 श्री राधे 🌺🌺 श्री राधे 🌺🌺 श्री राधे 🌺🌺 श्री राधे 🌺🌺 श्री राधे 🌺🌺 श्री राधे 🌺🌺 श्री राधे 🌺🌺 श्री राधे 🌺🌺 श्री राधे 🌺🌺 श्री राधे 🌺 📿</span>
+        <span class="marquee-text" id="upcoming-katha-text">
+          📿🌺 श्री राधे 🌺📿🌺 श्री राधे 🌺📿🌺 श्री राधे 🌺📿🌺 श्री राधे 🌺📿🌺 श्री राधे 🌺📿🌺 श्री राधे 🌺📿🌺 श्री राधे 🌺📿🌺 श्री राधे 🌺📿🌺 श्री राधे 🌺📿🌺 श्री राधे 🌺📿🌺 श्री राधे 🌺📿🌺 श्री राधे 🌺📿🌺 श्री राधे 🌺📿🌺 श्री राधे 🌺📿🌺 श्री राधे 🌺📿🌺 श्री राधे 🌺📿🌺 श्री राधे 🌺📿🌺 श्री राधे 🌺📿🌺 श्री राधे 🌺📿🌺 श्री राधे 🌺📿🌺 श्री राधे 🌺
+          | 📅 **Upcoming Katha:** Magh Mela Bhagwat Katha, Prayagraj (12-18 Jan 2026) |
+          📿🌺 श्री राधे 🌺📿🌺 श्री राधे 🌺📿🌺 श्री राधे 🌺📿🌺 श्री राधे 🌺📿🌺 श्री राधे 🌺📿🌺 श्री राधे 🌺📿🌺 श्री राधे 🌺📿🌺 श्री राधे 🌺📿🌺 श्री राधे 🌺📿🌺 श्री राधे 🌺📿🌺 श्री राधे 🌺📿🌺 श्री राधे 🌺📿🌺 श्री राधे 🌺📿🌺 श्री राधे 🌺📿🌺 श्री राधे 🌺📿🌺 श्री राधे 🌺📿🌺 श्री राधे 🌺📿🌺 श्री राधे 🌺📿🌺 श्री राधे 🌺📿🌺 श्री राधे 🌺
+        </span>
       </div>
     </div>
 
     <!-- FOOTER -->
-    <footer>
-      <div class="footer-content">
-        <div class="footer-section">
-          <h3>Bhagvat Vyas Dr Ramanand Ji</h3>
-          <p>Spreading divine knowledge through Shrimad Bhagwat Kathas.</p>
-          <div class="social-links">
-            <a href="https://facebook.com" target="_blank" aria-label="Facebook">📘</a>
-            <a href="https://youtube.com" target="_blank" aria-label="YouTube">▶️</a>
-            <a href="https://instagram.com" target="_blank" aria-label="Instagram">📷</a>
-            <a href="https://wa.me/919415870944" target="_blank" aria-label="WhatsApp">📱</a>
+    <footer style="background: linear-gradient(135deg, #2c1b1b 0%, #1a0f0f 100%); color: #fff; padding: 40px 20px 20px; margin-top: 40px; border-top: 4px solid #FF6B00;">
+      <div style="max-width: 1200px; margin: 0 auto;">
+        <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(250px, 1fr)); gap: 30px; margin-bottom: 40px;">
+          
+          <!-- Column 1: About & Social -->
+          <div>
+            <div style="display: flex; align-items: center; gap: 15px; margin-bottom: 20px;">
+              <img src="images\logo.png" alt="Logo" style="width: 60px; height: 60px; border-radius: 50%; object-fit: cover; border: 2px solid #FF6B00;" 
+                   onerror="this.src='https://via.placeholder.com/60/FF6B00/FFFFFF?text=Logo'">
+              <div>
+                <h3 style="color: #FFD580; margin: 0; font-size: 1.3rem;">Bhagvatvyas Dr Ramanand Ji</h3>
+              </div>
+            </div>
+            <p style="color: #ccc; line-height: 1.6; margin-bottom: 25px; font-size: 0.95rem;">
+              Spreading divine knowledge through Shrimad Bhagwat Kathas across India. Experience spiritual enlightenment and divine wisdom.
+            </p>
+            
+            <div style="display: flex; gap: 15px; flex-wrap: wrap;">
+              <!-- Social media icons... -->
+            </div>
+            
+            <div style="margin-top: 25px; padding: 15px; background: rgba(255, 255, 255, 0.05); border-radius: 8px; border-left: 3px solid #FF6B00;">
+              <p style="color: #FFD580; margin: 0; font-size: 0.95rem; font-style: italic;">
+                "श्रीमद्भागवतमहापुराणं नवं भक्तिं ददाति"
+              </p>
+              <p style="color: #ccc; margin: 5px 0 0; font-size: 0.85rem;">
+                The divine Shrimad Bhagwat grants new devotion
+              </p>
+            </div>
           </div>
-        </div>
+          
+          <!-- Column 2: Contact Info -->
+     <div>
+        <h3 style="color: #FFD580; margin-bottom: 20px; font-size: 1.2rem; position: relative; padding-bottom: 10px;">
+          Contact Info
+          <span style="position: absolute; bottom: 0; left: 0; width: 50px; height: 3px; background: #FF6B00; border-radius: 2px;"></span>
+        </h3>
         
-        <div class="footer-section">
-          <h3>Quick Links</h3>
-          <p><a href="about.html">About Guruji</a></p>
-          <p><a href="kathas.html">Katha Schedule</a></p>
-          <p><a href="gallery.html">Gallery</a></p>
-          <p><a href="contact.html">Contact</a></p>
-        </div>
-        
-        <div class="footer-section">
-          <h3>Contact Info</h3>
-          <p>📞 +91-9415870944</p>
-          <p>📱 WhatsApp: +91-9415870944</p>
-        </div>
-      </div>
+        <div style="display: flex; flex-direction: column; gap: 20px;">
+          <!-- Phone -->
+          <div style="display: flex; align-items: flex-start; gap: 15px;">
+            <div style="width: 40px; height: 40px; background: rgba(255, 107, 0, 0.1); border-radius: 50%; display: flex; align-items: center; justify-content: center; flex-shrink: 0;">
+              <span style="color: #FF6B00; font-size: 1.2rem;">📞</span>
+            </div>
+            <div>
+              <h4 style="color: #FFD580; margin: 0 0 5px; font-size: 1rem;">Phone Number</h4>
+              <a href="tel:+919415870944" style="color: #ccc; text-decoration: none; font-size: 1rem; font-weight: 500;">
+                +91-9415870944
+              </a>
+            </div>
+          </div>
+          
+          <!-- WhatsApp -->
+          <div style="display: flex; align-items: flex-start; gap: 15px;">
+            <div style="width: 40px; height: 40px; background: rgba(37, 211, 102, 0.1); border-radius: 50%; display: flex; align-items: center; justify-content: center; flex-shrink: 0;">
+              <span style="color: #25D366; font-size: 1.2rem;">💬</span>
+            </div>
+            <div>
+              <h4 style="color: #FFD580; margin: 0 0 5px; font-size: 1rem;">WhatsApp</h4>
+              <a href="https://wa.me/919415870944" target="_blank" 
+                 style="color: #ccc; text-decoration: none; font-size: 1rem; font-weight: 500;">
+                +91-9415870944
+              </a>
+              <p style="color: #999; font-size: 0.85rem; margin: 5px 0 0;">
+                For quick queries and updates
+              </p>
+            </div>
+          </div>
+          
+          <!-- Email -->
+          <div style="display: flex; align-items: flex-start; gap: 15px;">
+            <div style="width: 40px; height: 40px; background: rgba(255, 213, 128, 0.1); border-radius: 50%; display: flex; align-items: center; justify-content: center; flex-shrink: 0;">
+              <span style="color: #FFD580; font-size: 1.2rem;">✉️</span>
+            </div>
+            <div>
+              <h4 style="color: #FFD580; margin: 0 0 5px; font-size: 1rem;">Email</h4>
+              <a href="mailto:contact@bhagvatvyasramanand.com" style="color: #ccc; text-decoration: none; font-size: 0.95rem;">
+                bhagvatvyasdrramanandji@gmail.com
+              </a>
+            </div>
+          </div>
       
-      <div class="footer-bottom">
-        <p>&copy; <span class="current-year">2025</span> Bhagvat Vyas Dr Ramanand Ji. All rights reserved.</p>
-        <p>Designed with devotion for spiritual teachings</p>
+      <p style="color: #999; font-size: 0.9rem; margin-bottom: 10px;">
+        &copy; <span class="current-year">2025</span> Bhagvatvyas Dr Ramanand Ji. All rights reserved.
+      </p>
+    </div>
+  </div>
+</footer>
+  </div>
+        
+        <div style="text-align: center; padding-top: 20px; border-top: 1px solid rgba(255, 255, 255, 0.1);">
+          <p style="color: #999; font-size: 0.9rem; margin-bottom: 10px;">
+            &copy; <span class="current-year">2025</span> Bhagvatvyas Dr Ramanand Ji. All rights reserved.
+          </p>
+        </div>
       </div>
     </footer>
   </div>
 
-  <script src="script.js"></script>
   <script>
+    // ========== SLIDESHOW BANNER FUNCTIONALITY ==========
+    let currentSlide = 0;
+    const slides = document.querySelectorAll('.slide');
+    const indicators = document.querySelectorAll('.slide-indicator');
+    const slidePrevBtn = document.querySelector('.slide-prev');
+    const slideNextBtn = document.querySelector('.slide-next');
+    
+    function showSlide(n) {
+      slides.forEach(slide => slide.classList.remove('active'));
+      indicators.forEach(indicator => indicator.classList.remove('active'));
+      
+      slides[n].classList.add('active');
+      indicators[n].classList.add('active');
+    }
+    
+    function nextSlide() {
+      currentSlide = (currentSlide + 1) % slides.length;
+      showSlide(currentSlide);
+    }
+    
+    function prevSlide() {
+      currentSlide = (currentSlide - 1 + slides.length) % slides.length;
+      showSlide(currentSlide);
+    }
+    
+    // Event listeners for navigation buttons
+    if (slidePrevBtn) {
+      slidePrevBtn.addEventListener('click', prevSlide);
+    }
+    if (slideNextBtn) {
+      slideNextBtn.addEventListener('click', nextSlide);
+    }
+    
+    // Event listeners for indicators
+    indicators.forEach((indicator, index) => {
+      indicator.addEventListener('click', () => {
+        currentSlide = index;
+        showSlide(currentSlide);
+      });
+    });
+    
+    // Auto-advance slides every 5 seconds
+    setInterval(nextSlide, 5000);
+    
+    // ========== FIXED AUDIO PLAYER FUNCTIONALITY ==========
+    const mainAudio = document.getElementById('mainAudio');
+    const customPlayBtn = document.getElementById('customPlayBtn');
+    const audioLogo = document.getElementById('audioLogo');
+    const audioTime = document.getElementById('audioTime');
+    const progressBar = document.getElementById('progressBar');
+    const progressContainer = document.getElementById('progressContainer');
+    const volumeSlider = document.getElementById('volumeSlider');
+    const audioPlayerContainer = document.getElementById('audioPlayerContainer');
+
+    // Format time function
+    function formatTime(seconds) {
+        if (isNaN(seconds) || !isFinite(seconds)) return '0:00';
+        const mins = Math.floor(seconds / 60);
+        const secs = Math.floor(seconds % 60);
+        return `${mins}:${secs.toString().padStart(2, '0')}`;
+    }
+
+    // Update time display
+    function updateTimeDisplay() {
+        const currentTime = formatTime(mainAudio.currentTime);
+        const duration = formatTime(mainAudio.duration);
+        audioTime.textContent = `${currentTime} / ${duration}`;
+        
+        // Update progress bar
+        if (mainAudio.duration) {
+            const progressPercent = (mainAudio.currentTime / mainAudio.duration) * 100;
+            progressBar.style.width = `${progressPercent}%`;
+        }
+    }
+
+    // Initialize audio player
+    function initAudioPlayer() {
+        if (!mainAudio) return;
+        
+        // Custom play/pause functionality
+        customPlayBtn.addEventListener('click', function() {
+            if (mainAudio.paused) {
+                mainAudio.play().then(() => {
+                    customPlayBtn.textContent = '❚❚';
+                    customPlayBtn.classList.add('playing');
+                    audioLogo.classList.add('playing');
+                }).catch(e => {
+                    console.log("Audio play failed:", e);
+                });
+            } else {
+                mainAudio.pause();
+                customPlayBtn.textContent = '▶';
+                customPlayBtn.classList.remove('playing');
+                audioLogo.classList.remove('playing');
+            }
+        });
+        
+        // Update button when audio plays/pauses
+        mainAudio.addEventListener('play', function() {
+            customPlayBtn.textContent = '❚❚';
+            customPlayBtn.classList.add('playing');
+            audioLogo.classList.add('playing');
+        });
+        
+        mainAudio.addEventListener('pause', function() {
+            customPlayBtn.textContent = '▶';
+            customPlayBtn.classList.remove('playing');
+            audioLogo.classList.remove('playing');
+        });
+        
+        mainAudio.addEventListener('ended', function() {
+            customPlayBtn.textContent = '▶';
+            customPlayBtn.classList.remove('playing');
+            audioLogo.classList.remove('playing');
+            mainAudio.currentTime = 0;
+            updateTimeDisplay();
+        });
+        
+        // Progress bar click to seek
+        progressContainer.addEventListener('click', function(e) {
+            const rect = this.getBoundingClientRect();
+            const pos = (e.clientX - rect.left) / rect.width;
+            mainAudio.currentTime = pos * mainAudio.duration;
+        });
+        
+        // Volume control
+        volumeSlider.addEventListener('input', function() {
+            mainAudio.volume = this.value;
+        });
+        
+        // Update time when audio metadata is loaded
+        mainAudio.addEventListener('loadedmetadata', updateTimeDisplay);
+        
+        // Update time during playback
+        mainAudio.addEventListener('timeupdate', updateTimeDisplay);
+        
+        // Initialize time display
+        mainAudio.addEventListener('canplay', updateTimeDisplay);
+        
+        // Set initial volume
+        mainAudio.volume = volumeSlider.value;
+        
+        // Try to play on user interaction (for mobile)
+        document.addEventListener('click', function firstInteraction() {
+            if (mainAudio.paused) {
+                mainAudio.load();
+            }
+            document.removeEventListener('click', firstInteraction);
+        }, { once: true });
+    }
+
+    // Initialize audio player when DOM is loaded
+    document.addEventListener('DOMContentLoaded', function() {
+        // Update current year
+        document.querySelector('.current-year').textContent = new Date().getFullYear();
+        
+        // Initialize audio player
+        initAudioPlayer();
+        
+        // Update next katha highlight
+        updateNextKathaHighlight();
+        
+        // Mobile navbar toggle
+        const hamburger = document.querySelector('.hamburger');
+        const nav = document.querySelector('.navbar nav');
+        
+        if (hamburger && nav) {
+            hamburger.addEventListener('click', function() {
+                nav.classList.toggle('active');
+                hamburger.textContent = nav.classList.contains('active') ? '✕' : '☰';
+            });
+            
+            // Close menu when clicking on a link
+            document.querySelectorAll('.navbar a').forEach(link => {
+                link.addEventListener('click', () => {
+                    nav.classList.remove('active');
+                    hamburger.textContent = '☰';
+                });
+            });
+        }
+    });
+
     // Function to update next katha highlight
     function updateNextKathaHighlight() {
       const nextKathaDetails = document.getElementById('next-katha-details');
       if (!nextKathaDetails) return;
       
-      // Next upcoming kathas (same data as marquee)
+      // Next upcoming kathas
       const upcomingKathas = [
         {
           title: "Magh Mela Bhagwat Katha",
@@ -707,28 +1430,7 @@
         `;
       }
     }
-    
-    // Initialize on page load
-    document.addEventListener('DOMContentLoaded', function() {
-      // Update current year
-      document.querySelector('.current-year').textContent = new Date().getFullYear();
-      
-      // Update marquee with upcoming katha
-      if (typeof updateMarqueeWithUpcomingKatha === 'function') {
-        updateMarqueeWithUpcomingKatha();
-      }
-      
-      // Update next katha highlight
-      updateNextKathaHighlight();
-      
-      // Update every hour
-      setInterval(function() {
-        if (typeof updateMarqueeWithUpcomingKatha === 'function') {
-          updateMarqueeWithUpcomingKatha();
-        }
-        updateNextKathaHighlight();
-      }, 3600000); // 1 hour
-    });
   </script>
 </body>
 </html>
+
