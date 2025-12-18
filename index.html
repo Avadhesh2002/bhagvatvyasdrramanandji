@@ -266,7 +266,75 @@
     .slide-indicator:hover {
       background: rgba(255, 255, 255, 0.8);
     }
-    
+    /* ROLLING GALLERY SLIDER */
+.rolling-gallery {
+  background: linear-gradient(to bottom, #FFEEDD, #FF6B00);
+  padding: 40px 0;
+  overflow: hidden;
+}
+
+.rolling-title {
+  text-align: center;
+  font-size: 1.8rem;
+  color: #FF6B00;
+  margin-bottom: 25px;
+  font-weight: 700;
+}
+
+.rolling-track {
+  width: 100%;
+  overflow: hidden;
+  position: relative;
+}
+
+.rolling-slide {
+  display: flex;
+  gap: 20px;
+  width: max-content;
+  animation: scrollGallery 40s linear infinite;
+}
+
+.rolling-slide img {
+  width: 260px;
+  height: 170px;
+  object-fit: cover;
+  border-radius: 12px;
+  box-shadow: 0 8px 20px rgba(0,0,0,0.15);
+  transition: transform 0.3s ease;
+  cursor: pointer;
+}
+
+.rolling-slide img:hover {
+  transform: scale(1.05);
+}
+
+/* Animation */
+@keyframes scrollGallery {
+  0% {
+    transform: translateX(0);
+  }
+  100% {
+    transform: translateX(-50%);
+  }
+}
+
+/* Pause on hover */
+.rolling-track:hover .rolling-slide {
+  animation-play-state: paused;
+}
+
+/* Mobile Responsive */
+@media (max-width: 768px) {
+  .rolling-slide img {
+    width: 200px;
+    height: 130px;
+  }
+
+  .rolling-title {
+    font-size: 1.4rem;
+  }
+}
+
     /* ========== FIXED AUDIO PLAYER STYLES ========== */
     .audio-player-section {
         padding: 40px 20px;
@@ -962,6 +1030,29 @@
         <button class="slide-nav-button slide-prev" aria-label="Previous slide">❮</button>
         <button class="slide-nav-button slide-next" aria-label="Next slide">❯</button>
     </section>
+<!-- ROLLING GALLERY SLIDER -->
+<section class="rolling-gallery">
+  <h2 class="rolling-title">📸 Recent Katha Images</h2>
+
+  <div class="rolling-track">
+    <div class="rolling-slide">
+      <img src="images/5.jpg" alt="Gallery Image 1">           
+      <img src="images/6.jpg" alt="Gallery Image 2">
+      <img src="images/7.jpg" alt="Gallery Image 3">
+      <img src="images/8.jpg" alt="Gallery Image 4">
+      <img src="images/9.jpg" alt="Gallery Image 5">
+      <img src="images/3.jpg" alt="Gallery Image 6">
+
+      <!-- DUPLICATE IMAGES FOR SMOOTH LOOP -->
+      <img src="images/5.jpg" alt="">           
+      <img src="images/6.jpg" alt="">
+      <img src="images/7.jpg" alt="">
+      <img src="images/8.jpg" alt="">
+      <img src="images/9.jpg" alt="">
+      <img src="images/3.jpg" alt="">
+    </div>
+  </div>
+</section>
 
     <!-- NEXT KATHA HIGHLIGHT -->
     <div class="next-katha-highlight" onclick="window.location.href='kathas.html'">
